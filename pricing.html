@@ -528,17 +528,24 @@
         .discount-badge {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.35rem;
-            padding: 0.3rem 0.7rem;
+            padding: 0.35rem 0.8rem;
             border-radius: 999px;
             background: #FEF3C7;
             color: #B45309;
-            font-size: 0.7rem;
+            border: 1px solid #FCD34D;
+            font-size: 0.72rem;
             font-weight: 700;
+            line-height: 1;
+            white-space: nowrap;
+            box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.1);
         }
         .dark .discount-badge {
-            background: rgba(245,158,11,0.15);
+            background: #2D2213;
             color: #FCD34D;
+            border-color: #78350F;
+            box-shadow: 0 2px 6px -1px rgba(0, 0, 0, 0.4);
         }
 
         /* Big gradient number */
@@ -1361,7 +1368,7 @@
 
                     <!-- Bundle card -->
                     <div class="rounded-2xl border-2 border-accent bg-accent-soft dark:bg-accent/10 p-7 relative">
-                        <div class="absolute -top-3 right-6">
+                        <div class="absolute -top-3.5 right-6 z-10">
                             <span class="discount-badge">
                                 <i class="fas fa-tag text-[9px]"></i> Save 14%
                             </span>
