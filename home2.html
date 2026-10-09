@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintCraft — Home 2 | Bold & Modern Print Studio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <meta name="description" content="A fresh take on printing — dynamic, fast, and precision-crafted. Explore our bold new homepage.">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1A1A1A',
+                        'ink-soft': '#2E2E2E',
+                        'paper': '#FFFFFF',
+                        'paper-warm': '#FAF8F4',
+                        'paper-edge': '#E8E4DC',
+                        'accent': '#2563EB',
+                        'accent-dark': '#1D4ED8',
+                        'accent-light': '#DBEAFE',
+                        'accent-soft': '#EFF6FF',
+                        'highlight': '#F59E0B',
+                        'dark-bg': '#141414',
+                        'dark-card': '#1F1F1F',
+                        'dark-edge': '#333333',
+                    },
+                    fontFamily: {
+                        'display': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'paper-feed': 'paperFeed 3s ease-in-out infinite',
+                        'pulse-soft': 'pulseSoft 2.5s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        floatSlow: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        paperFeed: { '0%': { transform: 'translateY(8px)', opacity: '0' }, '50%': { opacity: '1' }, '100%': { transform: 'translateY(-8px)', opacity: '0' } },
+                        pulseSoft: { '0%,100%': { opacity: '1' }, '50%': { opacity: '0.6' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html {
+            overflow-x: clip;
+            width: 100%;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #FAF8F4;
+            color: #1A1A1A;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: clip;
+            width: 100%;
+            position: relative;
+        }
+        .dark body {
+            background-color: #141414;
+            color: #E8E8E8;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Buttons */
+        .btn-accent {
+            background: #2563EB;
+            color: #FFFFFF;
+            padding: 0.85rem 1.9rem;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+        .btn-accent:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+        }
+        .dark .btn-accent {
+            background: #3B82F6;
+        }
+        .dark .btn-accent:hover {
+            background: #2563EB;
+        }
+
+        .btn-outline-ink {
+            border: 1.5px solid #1A1A1A;
+            color: #1A1A1A;
+            background: transparent;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .btn-outline-ink:hover {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        .dark .btn-outline-ink {
+            border-color: #E8E8E8;
+            color: #E8E8E8;
+        }
+        .dark .btn-outline-ink:hover {
+            background: #E8E8E8;
+            color: #1A1A1A;
+        }
+
+        /* Cards */
+        .paper-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            border: 1px solid #E8E4DC;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+        .dark .paper-card {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .paper-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -20px rgba(26, 26, 26, 0.15);
+            border-color: #2563EB;
+        }
+        .dark .paper-card:hover {
+            border-color: #3B82F6;
+            box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+        }
+
+        /* Service tiles */
+        .service-tile {
+            background: #FFFFFF;
+            border-radius: 16px;
+            border: 1px solid #E8E4DC;
+            padding: 2rem 1.75rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        .dark .service-tile {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .service-tile::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: #2563EB;
+            transform: scaleY(0);
+            transform-origin: top;
+            transition: transform 0.35s ease;
+        }
+        .service-tile:hover::before {
+            transform: scaleY(1);
+        }
+        .service-tile:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px -20px rgba(26, 26, 26, 0.18);
+        }
+
+        /* Print-specific decorative */
+        .paper-stack {
+            position: relative;
+        }
+        .paper-stack::before,
+        .paper-stack::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: #FFFFFF;
+            border-radius: 1rem;
+            border: 1px solid #E8E4DC;
+            z-index: 0;
+            box-shadow: 0 10px 25px -5px rgba(26, 26, 26, 0.05);
+        }
+        .paper-stack::before {
+            transform: rotate(-2deg) translate(-4px, 4px);
+        }
+        .paper-stack::after {
+            transform: rotate(2deg) translate(4px, 4px);
+        }
+        .dark .paper-stack::before,
+        .dark .paper-stack::after {
+            background: #1F1F1F;
+            border-color: #333333;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Toggle buttons */
+        .toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #EFF6FF;
+            color: #2563EB;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid #DBEAFE;
+            font-size: 0.95rem;
+        }
+        .dark .toggle-btn {
+            background: #1E3A5F;
+            color: #93C5FD;
+            border-color: #1E40AF;
+        }
+        .toggle-btn:hover {
+            background: #2563EB;
+            color: #FFFFFF;
+            transform: scale(1.06);
+        }
+        .dark .toggle-btn:hover {
+            background: #3B82F6;
+            color: #FFFFFF;
+        }
+
+        /* Nav item */
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1A1A1A;
+            transition: color 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .dark .nav-item { color: #E8E8E8; }
+        .nav-item:hover { color: #2563EB; }
+        .dark .nav-item:hover { color: #93C5FD; }
+        .nav-item.active { color: #2563EB; }
+        .dark .nav-item.active { color: #93C5FD; }
+
+
+        /* Mobile menu */
+        #mobile-menu:not(.open) { display: none; }
+        .mobile-menu { max-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; transition: max-height 0.35s ease; }
+        .mobile-menu.open {
+            max-height: calc(100vh - 73px);
+            max-height: calc(100dvh - 73px);
+        }
+        body.menu-open,
+        html.overflow-hidden {
+            overflow: hidden !important;
+            touch-action: none;
+            -webkit-overflow-scrolling: auto;
+        }
+
+        /* Dropdown */
+        .dropdown-menu { display: none; }
+        .group:hover .dropdown-menu,
+        .group:focus-within .dropdown-menu,
+        .dropdown-menu.open { display: block !important; }
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1A1A1A;
+            transition: all 0.2s ease;
+        }
+        .dark .dropdown-link { color: #E5E7EB; }
+        .dropdown-link:hover {
+            background: #EFF6FF;
+            color: #2563EB;
+        }
+        .dark .dropdown-link:hover {
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+        }
+        .dropdown-link.active {
+            background: #EFF6FF;
+            color: #2563EB;
+            font-weight: 700;
+        }
+        .dark .dropdown-link.active {
+            background: rgba(37,99,235,0.2);
+            color: #93C5FD;
+        }
+
+        /* Price tag */
+        .price-tag {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            color: #2563EB;
+        }
+        .dark .price-tag { color: #93C5FD; }
+
+        /* Table row */
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px dashed #E8E4DC;
+        }
+        .dark .price-row { border-color: #333333; }
+        .price-row:last-child { border-bottom: none; }
+
+        /* Paper feed animation for hero visual */
+        .paper-feed {
+            animation: paperFeed 3s ease-in-out infinite;
+        }
+
+        /* RTL fixes */
+        [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+        [dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100vw;
+            z-index: 50;
+        }
+        @media (max-width: 1279px) {
+            main {
+                padding-top: 73px;
+            }
+        }
+
+        /* ---- Home2 unique styles ---- */
+        .glass-panel {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(232,228,220,0.6);
+        }
+        .dark .glass-panel {
+            background: rgba(31,31,31,0.7);
+            border-color: rgba(51,51,51,0.6);
+        }
+
+        .gradient-border-card {
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid #E8E4DC;
+            transition: all 0.3s ease;
+        }
+        .dark .gradient-border-card {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .gradient-border-card::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 25px;
+            padding: 1px;
+            background: linear-gradient(135deg, #2563EB, #F59E0B, #2563EB);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gradient-border-card:hover::after {
+            opacity: 1;
+        }
+
+        .marquee-strip {
+            display: flex;
+            gap: 2rem;
+            animation: marquee 30s linear infinite;
+            width: max-content;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* number counter style */
+        .big-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.9;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .dark .big-number {
+            background: linear-gradient(135deg, #60A5FA, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .feature-icon-ring {
+            position: relative;
+        }
+        .feature-icon-ring::after {
+            content: '';
+            position: absolute;
+            inset: -6px;
+            border-radius: 50%;
+            border: 2px dashed #2563EB;
+            opacity: 0.3;
+            animation: spinSlow 12s linear infinite;
+        }
+        @keyframes spinSlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .testimonial-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 24px 48px -20px rgba(37,99,235,0.15);
+        }
+    </style>
+</head>
+
+<body class="bg-paper-warm dark:bg-dark-bg text-ink dark:text-gray-200">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header" class="z-50 bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md border-b border-paper-edge dark:border-dark-edge w-full">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-7 py-3.5 flex items-center justify-between w-full">
+
+            <!-- Brand -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                    <i class="fas fa-print text-white text-lg"></i>
+                </div>
+                <div class="leading-none">
+                    <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                        Print<span class="text-accent">Craft</span>
+                    </span>
+                    <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print · Bind · Copy</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden xl:flex items-center gap-5 2xl:gap-6">
+                <!-- Home Dropdown -->
+                <div class="relative group">
+                    <a href="home2.html" class="nav-item active inline-flex items-center gap-1.5">
+                        <span>Home </span>
+                        <i class="fas fa-chevron-down text-[10px] opacity-75 group-hover:rotate-180 transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full left-0 pt-2 w-40 z-50">
+                        <div class="bg-white dark:bg-[#1F1F1F] rounded-xl shadow-lg border border-paper-edge dark:border-dark-edge py-1.5 overflow-hidden">
+                            <a href="index.html" class="dropdown-link">
+                                <span>Home 1</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-link active">
+                                <span>Home 2</span>
+                                <i class="fas fa-check text-xs text-accent"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="about.html" class="nav-item">About</a>
+                <a href="services.html" class="nav-item">Services</a>
+                <a href="pricing.html" class="nav-item">Pricing</a>
+                <a href="track-order.html" class="nav-item">Track Order</a>
+                <a href="blog.html" class="nav-item">Blog</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </div>
+
+            <!-- Right actions (Desktop) -->
+            <div class="hidden xl:flex items-center gap-2">
+                <button id="theme-toggle" class="toggle-btn" title="Dark / Light">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+                <button id="rtl-toggle" class="toggle-btn" title="RTL / LTR">⇄</button>
+                <a href="contact.html" class="btn-accent ml-2 !py-2.5 !px-5 !text-sm">
+                    <i class="fas fa-file-invoice"></i> Get a Quote
+                </a>
+            </div>
+
+            <!-- Mobile & Tablet Hamburger Toggle -->
+            <button id="mobile-toggle" class="xl:hidden flex items-center justify-center shrink-0 w-10 h-10 rounded-lg text-ink dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10 text-xl cursor-pointer transition ml-auto" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile & Tablet Menu -->
+        <div id="mobile-menu" class="xl:hidden bg-white dark:bg-[#1A1A1A] border-t border-paper-edge dark:border-dark-edge">
+            <div class="mobile-menu px-6">
+                <!-- Home options -->
+                <div class="py-3 border-b border-paper-edge dark:border-dark-edge">
+                    <button type="button" id="mobile-home-toggle" class="w-full flex items-center justify-between font-semibold text-accent cursor-pointer select-none">
+                        <span>Home</span>
+                        <i id="mobile-home-chevron" class="fas fa-chevron-down text-xs text-accent rotate-180 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-home-sub" class="pl-4 space-y-2 pt-2">
+                        <a href="index.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 1</a>
+                        <a href="home2.html" class="flex items-center justify-between text-sm font-bold text-accent">
+                            <span>Home 2</span>
+                            <i class="fas fa-check text-xs text-accent"></i>
+                        </a>
+                    </div>
+                </div>
+                <a href="about.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">About</a>
+                <a href="services.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Services</a>
+                <a href="pricing.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Pricing</a>
+                <a href="track-order.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Track Order</a>
+                <a href="blog.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Blog</a>
+                <a href="contact.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Contact</a>
+
+                <!-- Centered Actions inside mobile menu -->
+                <div class="py-6 flex flex-col items-center justify-center gap-4 border-t border-paper-edge/60 dark:border-dark-edge/60">
+                    <a href="contact.html" class="btn-accent w-full max-w-xs !py-3 !px-6 text-sm shadow-md text-center justify-center">
+                        <i class="fas fa-file-invoice"></i> Get a Quote
+                    </a>
+                    <div class="flex items-center justify-center gap-3">
+                        <button id="theme-toggle-mobile" class="toggle-btn" title="Dark / Light">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle-mobile" class="toggle-btn" title="RTL / LTR">⇄</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main>
+
+        <!-- ===== HOME2 HERO — SPLIT BOLD ===== -->
+        <section class="relative min-h-[90vh] flex items-center pt-20 sm:pt-24 xl:pt-0 overflow-hidden bg-gradient-to-b from-paper-warm via-blue-50/40 to-paper-warm dark:from-dark-bg dark:via-blue-950/20 dark:to-dark-bg">
+            <!-- Smooth ambient blue glows for both light and dark modes -->
+            <div class="absolute top-1/2 -translate-y-1/2 right-0 w-[550px] h-[550px] bg-accent/10 dark:bg-accent/15 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-blue-400/10 dark:bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="container mx-auto max-w-7xl px-4 sm:px-6 relative z-10 py-12 lg:py-0">
+                <div class="grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+                    <!-- Left Content -->
+                    <div class="lg:col-span-6 space-y-6 animate-slide-up">
+                        <div class="inline-flex items-center gap-3">
+                            <span class="w-8 h-[2px] bg-accent"></span>
+                            <span class="text-xs font-bold tracking-[0.25em] uppercase text-accent">Home 2 · Bold Studio</span>
+                        </div>
+
+                        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-display font-bold leading-[1.02] tracking-tight">
+                            Where<br>
+                            <span class="text-accent">precision</span><br>
+                            meets speed.
+                        </h1>
+
+                        <p class="text-base sm:text-lg max-w-md font-light text-ink-soft dark:text-gray-300 leading-relaxed">
+                            PrintCraft isn't just a copy shop. It's a print studio engineered for makers, students, and businesses who demand more.
+                        </p>
+
+                        <div class="flex flex-wrap gap-4 pt-2">
+                            <a href="services.html" class="btn-accent">
+                                <i class="fas fa-compass"></i> Explore Studio
+                            </a>
+                            <a href="contact.html" class="btn-outline-ink">
+                                <i class="fas fa-bolt"></i> Instant Quote
+                            </a>
+                        </div>
+
+                        <!-- Mini metric row -->
+                        <div class="flex gap-8 pt-8 border-t border-paper-edge dark:border-dark-edge">
+                            <div>
+                                <div class="text-2xl font-display font-bold text-ink dark:text-white">12k+</div>
+                                <div class="text-[10px] font-semibold uppercase tracking-wider text-ink-soft dark:text-gray-400">Pages / day</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-display font-bold text-ink dark:text-white">4.98</div>
+                                <div class="text-[10px] font-semibold uppercase tracking-wider text-ink-soft dark:text-gray-400">Avg. rating</div>
+                            </div>
+                            <div>
+                                <div class="text-2xl font-display font-bold text-ink dark:text-white">24/7</div>
+                                <div class="text-[10px] font-semibold uppercase tracking-wider text-ink-soft dark:text-gray-400">Online upload</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Visual — abstract print stack -->
+                    <div class="lg:col-span-6 relative flex justify-center lg:justify-end">
+                        <div class="relative w-full max-w-[500px]">
+                            <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-accent/10 rounded-full blur-xl"></div>
+
+                            <!-- main card stack -->
+                            <div class="relative z-10 bg-white dark:bg-dark-card rounded-3xl border border-paper-edge dark:border-dark-edge p-6 sm:p-8 shadow-2xl">
+                                <div class="flex items-center justify-between mb-6">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 rounded-full bg-accent"></div>
+                                        <span class="text-xs font-mono font-semibold text-ink-soft dark:text-gray-400">print_queue</span>
+                                    </div>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-accent/10 text-accent">Live</span>
+                                </div>
+
+                                <!-- abstract job rows -->
+                                <div class="space-y-4">
+                                    <div class="flex items-center gap-4 p-3 rounded-xl bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge">
+                                        <div class="w-10 h-10 rounded-lg bg-accent/15 flex items-center justify-center">
+                                            <i class="fas fa-file-pdf text-accent text-sm"></i>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="text-sm font-semibold truncate">Annual_Report.pdf</div>
+                                            <div class="text-[11px] text-ink-soft/70 dark:text-gray-400">142 pages · Color</div>
+                                        </div>
+                                        <div class="w-12 h-2 bg-accent/30 rounded-full overflow-hidden">
+                                            <div class="w-3/4 h-full bg-accent rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4 p-3 rounded-xl bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge">
+                                        <div class="w-10 h-10 rounded-lg bg-highlight/15 flex items-center justify-center">
+                                            <i class="fas fa-book text-highlight text-sm"></i>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="text-sm font-semibold truncate">Thesis_Final_v3.docx</div>
+                                            <div class="text-[11px] text-ink-soft/70 dark:text-gray-400">89 pages · Spiral</div>
+                                        </div>
+                                        <div class="w-12 h-2 bg-highlight/30 rounded-full overflow-hidden">
+                                            <div class="w-1/2 h-full bg-highlight rounded-full"></div>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-center gap-4 p-3 rounded-xl bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge">
+                                        <div class="w-10 h-10 rounded-lg bg-emerald-500/15 flex items-center justify-center">
+                                            <i class="fas fa-copy text-emerald-600 dark:text-emerald-400 text-sm"></i>
+                                        </div>
+                                        <div class="flex-1 min-w-0">
+                                            <div class="text-sm font-semibold truncate">ID_Copies.jpg</div>
+                                            <div class="text-[11px] text-ink-soft/70 dark:text-gray-400">4 pages · B&W</div>
+                                        </div>
+                                        <div class="w-12 h-2 bg-emerald-500/30 rounded-full overflow-hidden">
+                                            <div class="w-full h-full bg-emerald-500 rounded-full"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 pt-5 border-t border-paper-edge dark:border-dark-edge flex items-center justify-between">
+                                    <span class="text-xs text-ink-soft dark:text-gray-400">Next pickup: <strong class="text-ink dark:text-white">10:30 AM</strong></span>
+                                    <a href="track-order.html" class="text-accent text-xs font-semibold hover:underline flex items-center gap-1">
+                                        Track all <i class="fas fa-arrow-right text-[10px]"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- floating badge -->
+                            <div class="absolute -bottom-4 -left-4 z-20 bg-ink dark:bg-white text-white dark:text-ink rounded-xl px-4 py-3 shadow-xl flex items-center gap-3 border border-paper-edge dark:border-dark-edge">
+                                <i class="fas fa-bolt text-highlight text-lg"></i>
+                                <div>
+                                    <div class="text-[10px] font-bold uppercase tracking-wider opacity-70">Express</div>
+                                    <div class="text-sm font-bold">15 min turnaround</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== MARQUEE STRIP ===== -->
+        <div class="bg-accent dark:bg-accent-dark text-white py-3.5 overflow-hidden border-y border-accent-dark dark:border-accent">
+            <div class="marquee-strip">
+                <span class="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider whitespace-nowrap"><i class="fas fa-check-circle"></i> Same-day printing</span>
+                <span class="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider whitespace-nowrap"><i class="fas fa-check-circle"></i> Free file check</span>
+                <span class="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider whitespace-nowrap"><i class="fas fa-check-circle"></i> Bulk discounts</span>
+                <span class="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider whitespace-nowrap"><i class="fas fa-check-circle"></i> 300 DPI guarantee</span>
+                <span class="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider whitespace-nowrap"><i class="fas fa-check-circle"></i> Same-day printing</span>
+                <span class="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider whitespace-nowrap"><i class="fas fa-check-circle"></i> Free file check</span>
+                <span class="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider whitespace-nowrap"><i class="fas fa-check-circle"></i> Bulk discounts</span>
+                <span class="flex items-center gap-3 text-sm font-semibold uppercase tracking-wider whitespace-nowrap"><i class="fas fa-check-circle"></i> 300 DPI guarantee</span>
+            </div>
+        </div>
+
+        <!-- ===== SERVICES — GRID BENTO (different from home) ===== -->
+        <section class="py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-7xl">
+                <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-14">
+                    <div class="max-w-xl">
+                        <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">What we craft</span>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mt-3">A studio built<br>for every page.</h2>
+                    </div>
+                    <p class="text-sm text-ink-soft dark:text-gray-400 max-w-sm lg:text-right">From single copies to full-colour bound volumes — we treat every job like it's the only one.</p>
+                </div>
+
+                <!-- Bento Grid -->
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 auto-rows-auto">
+                    <!-- Large tile: Printing -->
+                    <div class="sm:col-span-2 lg:col-span-2 lg:row-span-2 relative rounded-3xl overflow-hidden bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge p-8 flex flex-col justify-between group hover:border-accent dark:hover:border-accent transition-all duration-300 min-h-[380px]">
+                        <div class="absolute top-0 right-0 w-48 h-48 bg-accent/5 rounded-full blur-3xl pointer-events-none group-hover:bg-accent/10 transition"></div>
+                        <div class="relative z-10">
+                            <div class="w-16 h-16 rounded-2xl bg-accent/10 flex items-center justify-center mb-6">
+                                <i class="fas fa-print text-accent text-3xl"></i>
+                            </div>
+                            <h3 class="text-3xl font-display font-bold mb-3">Printing</h3>
+                            <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed max-w-sm">A4 to A0, black &amp; white to photo-quality. We handle everything from lecture notes to exhibition posters.</p>
+                        </div>
+                        <div class="relative z-10 mt-8 flex flex-wrap gap-2">
+                            <span class="px-3 py-1.5 rounded-full bg-accent-soft dark:bg-accent/10 text-accent text-xs font-semibold">A4 / A3 / A2</span>
+                            <span class="px-3 py-1.5 rounded-full bg-accent-soft dark:bg-accent/10 text-accent text-xs font-semibold">Colour</span>
+                            <span class="px-3 py-1.5 rounded-full bg-accent-soft dark:bg-accent/10 text-accent text-xs font-semibold">Same-day</span>
+                        </div>
+                        <a href="services.html" class="relative z-10 mt-6 text-accent font-semibold text-sm inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            Explore printing <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+
+                    <!-- Binding tile -->
+                    <div class="rounded-3xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge p-7 flex flex-col justify-between hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                                <i class="fas fa-book text-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-display font-bold mb-2">Binding</h3>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Spiral, comb, perfect &amp; thermal. Clear covers, leatherette backs.</p>
+                        </div>
+                        <a href="services.html" class="mt-6 text-accent font-semibold text-xs inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            Learn more <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <!-- Copying tile -->
+                    <div class="rounded-3xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge p-7 flex flex-col justify-between hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                                <i class="fas fa-copy text-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-xl font-display font-bold mb-2">Copying</h3>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">High-speed bulk copying, collating, stapling &amp; folding.</p>
+                        </div>
+                        <a href="services.html" class="mt-6 text-accent font-semibold text-xs inline-flex items-center gap-2 group-hover:gap-3 transition-all">
+                            Learn more <i class="fas fa-arrow-right text-[10px]"></i>
+                        </a>
+                    </div>
+
+                    <!-- Wide tile: Large Format -->
+                    <div class="sm:col-span-2 rounded-3xl bg-ink dark:bg-dark-card text-white border border-paper-edge dark:border-dark-edge p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 hover:border-accent dark:hover:border-accent transition-all duration-300 group relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-accent/20 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-3">
+                                <div class="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center">
+                                    <i class="fas fa-drafting-compass text-accent-light text-xl"></i>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-[0.2em] text-accent-light">Large Format</span>
+                            </div>
+                            <h3 class="text-2xl font-display font-bold mb-2">Posters &amp; Plan Prints</h3>
+                            <p class="text-sm text-gray-300 max-w-md">Architectural schematics, research posters, retail banners. Up to A0, vibrant pigment inks.</p>
+                        </div>
+                        <a href="services.html" class="relative z-10 btn-accent !bg-white !text-ink hover:!bg-accent-light !shadow-none whitespace-nowrap self-start sm:self-center">
+                            <i class="fas fa-expand"></i> Get a quote
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NUMBERS / IMPACT SECTION (new style) ===== -->
+        <section class="py-20 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                    <!-- Left: huge number -->
+                    <div>
+                        <div class="big-number">4.9<span class="text-3xl sm:text-4xl align-top">/5</span></div>
+                        <p class="text-lg font-display font-semibold mt-4 mb-2">Rated by 2,400+ customers</p>
+                        <div class="flex items-center gap-1 text-highlight mb-6">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-ink-soft dark:text-gray-400 text-sm leading-relaxed max-w-md">
+                            We don't just print — we obsess over grain, colour, and binding strength. Every order is checked by a human before it leaves the studio.
+                        </p>
+                    </div>
+
+                    <!-- Right: stacked stats with progress bars -->
+                    <div class="space-y-8">
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span>On-time pickup</span>
+                                <span class="text-accent">98%</span>
+                            </div>
+                            <div class="w-full h-3 bg-paper-edge dark:bg-dark-edge rounded-full overflow-hidden">
+                                <div class="h-full bg-accent rounded-full" style="width:98%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span>Colour accuracy (ΔE &lt; 2)</span>
+                                <span class="text-accent">96%</span>
+                            </div>
+                            <div class="w-full h-3 bg-paper-edge dark:bg-dark-edge rounded-full overflow-hidden">
+                                <div class="h-full bg-accent rounded-full" style="width:96%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm font-semibold mb-2">
+                                <span>Repeat customers</span>
+                                <span class="text-accent">89%</span>
+                            </div>
+                            <div class="w-full h-3 bg-paper-edge dark:bg-dark-edge rounded-full overflow-hidden">
+                                <div class="h-full bg-accent rounded-full" style="width:89%"></div>
+                            </div>
+                        </div>
+                        <div class="pt-4">
+                            <a href="about.html" class="btn-outline-ink w-full sm:w-auto justify-center">
+                                <i class="fas fa-chart-simple"></i> Our quality promise
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS (new section) ===== -->
+        <section class="py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Kind words</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">From the people who print with us</h2>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- card 1 -->
+                    <div class="testimonial-card flex flex-col justify-between bg-white dark:bg-dark-card rounded-2xl border border-paper-edge dark:border-dark-edge p-7 relative">
+                        <div class="absolute -top-3 left-7 w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white text-xs">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-sm text-ink-soft dark:text-gray-300 leading-relaxed mb-6 italic pt-3 flex-1">"The spiral binding on my thesis was flawless. They even caught a margin issue I'd missed and fixed it before printing. Absolute lifesavers."</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <img src="assets/avatars/avatar-jamie.jpg" alt="Jamie D." class="w-11 h-11 rounded-full object-cover border-2 border-accent/20 shrink-0 shadow-sm" loading="lazy">
+                            <div>
+                                <div class="text-sm font-bold">Jamie D.</div>
+                                <div class="text-xs text-ink-soft dark:text-gray-400">PhD Candidate</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card 2 -->
+                    <div class="testimonial-card flex flex-col justify-between bg-white dark:bg-dark-card rounded-2xl border border-paper-edge dark:border-dark-edge p-7 relative">
+                        <div class="absolute -top-3 left-7 w-8 h-8 rounded-full bg-highlight flex items-center justify-center text-ink text-xs">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-sm text-ink-soft dark:text-gray-300 leading-relaxed mb-6 italic pt-3 flex-1">"We run a small design studio and PrintCraft is our go-to for client proofs. Colour accuracy is spot on and they always hit the deadline."</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <img src="assets/avatars/avatar-maya.jpg" alt="Maya C." class="w-11 h-11 rounded-full object-cover border-2 border-highlight/20 shrink-0 shadow-sm" loading="lazy">
+                            <div>
+                                <div class="text-sm font-bold">Maya C.</div>
+                                <div class="text-xs text-ink-soft dark:text-gray-400">Creative Director</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- card 3 -->
+                    <div class="testimonial-card flex flex-col justify-between bg-white dark:bg-dark-card rounded-2xl border border-paper-edge dark:border-dark-edge p-7 relative">
+                        <div class="absolute -top-3 left-7 w-8 h-8 rounded-full bg-emerald-500 flex items-center justify-center text-white text-xs">
+                            <i class="fas fa-quote-left"></i>
+                        </div>
+                        <p class="text-sm text-ink-soft dark:text-gray-300 leading-relaxed mb-6 italic pt-3 flex-1">"Ordered 300 double-sided colour copies for an event. They were ready in 25 minutes, collated and stapled. Unreal service."</p>
+                        <div class="flex items-center gap-3 pt-2">
+                            <img src="assets/avatars/avatar-tom.jpg" alt="Tom R." class="w-11 h-11 rounded-full object-cover border-2 border-emerald-500/20 shrink-0 shadow-sm" loading="lazy">
+                            <div>
+                                <div class="text-sm font-bold">Tom R.</div>
+                                <div class="text-xs text-ink-soft dark:text-gray-400">Events Manager</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== INTERACTIVE INSTANT ESTIMATOR SECTION ===== -->
+        <section class="py-20 px-6 bg-paper-warm dark:bg-dark-bg border-t border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Interactive Tool</span>
+                    <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mt-3">Instant Price &amp; Turnaround Estimator</h2>
+                    <p class="mt-4 text-ink-soft dark:text-gray-300">Customize your document specifications and get real-time price estimation with turnaround times.</p>
+                </div>
+
+                <div class="max-w-4xl mx-auto bg-white dark:bg-dark-card rounded-3xl border border-paper-edge dark:border-dark-edge p-6 sm:p-10 shadow-xl">
+                    <div class="grid md:grid-cols-12 gap-8 items-center">
+                        <!-- Left controls -->
+                        <div class="md:col-span-7 space-y-6">
+                            <!-- Page count slider -->
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <label for="calc-pages" class="text-sm font-bold text-ink dark:text-white">Page Count</label>
+                                    <span id="pages-val" class="mono font-bold text-accent text-sm bg-accent-soft dark:bg-accent/15 px-2.5 py-1 rounded-lg">50 pages</span>
+                                </div>
+                                <input type="range" id="calc-pages" min="1" max="500" value="50" class="w-full h-2 bg-paper-edge dark:bg-dark-edge rounded-lg appearance-none cursor-pointer accent-accent">
+                                <div class="flex justify-between text-[11px] text-ink-soft/70 dark:text-gray-400 mt-1">
+                                    <span>1 page</span>
+                                    <span>250 pages</span>
+                                    <span>500 pages</span>
+                                </div>
+                            </div>
+
+                            <!-- Color vs B&W -->
+                            <div>
+                                <label class="block text-sm font-bold text-ink dark:text-white mb-2.5">Print Mode</label>
+                                <div class="grid grid-cols-2 gap-3" id="print-mode-group">
+                                    <button type="button" data-mode="bw" class="calc-btn active px-4 py-3 rounded-xl border border-accent bg-accent text-white font-semibold text-sm flex items-center justify-center gap-2 transition">
+                                        <i class="fas fa-file-lines"></i> Black &amp; White
+                                    </button>
+                                    <button type="button" data-mode="color" class="calc-btn px-4 py-3 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#202020] text-ink dark:text-gray-300 font-semibold text-sm flex items-center justify-center gap-2 hover:border-accent transition">
+                                        <i class="fas fa-palette text-accent"></i> Full Colour
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Binding Option -->
+                            <div>
+                                <label class="block text-sm font-bold text-ink dark:text-white mb-2.5">Binding Finish</label>
+                                <div class="grid grid-cols-3 gap-2 sm:gap-3" id="binding-group">
+                                    <button type="button" data-binding="none" class="calc-binding active p-3 rounded-xl border border-accent bg-accent text-white text-xs font-semibold flex flex-col items-center gap-1.5 transition">
+                                        <i class="fas fa-file"></i>
+                                        <span>No Binding</span>
+                                    </button>
+                                    <button type="button" data-binding="spiral" class="calc-binding p-3 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#202020] text-ink dark:text-gray-300 text-xs font-semibold flex flex-col items-center gap-1.5 hover:border-accent transition">
+                                        <i class="fas fa-book text-accent"></i>
+                                        <span>Spiral (+$3.50)</span>
+                                    </button>
+                                    <button type="button" data-binding="hardcover" class="calc-binding p-3 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#202020] text-ink dark:text-gray-300 text-xs font-semibold flex flex-col items-center gap-1.5 hover:border-accent transition">
+                                        <i class="fas fa-award text-amber-500"></i>
+                                        <span>Hardcover (+$18)</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Right Live Estimate Card -->
+                        <div class="md:col-span-5 bg-paper-warm dark:bg-[#1A1A1A] rounded-2xl border border-paper-edge dark:border-dark-edge p-6 flex flex-col justify-between text-center relative overflow-hidden">
+                            <div class="absolute -top-10 -right-10 w-28 h-28 bg-accent/10 rounded-full blur-xl pointer-events-none"></div>
+
+                            <div>
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-accent">Estimated Total</span>
+                                <div class="my-3">
+                                    <span class="mono text-4xl sm:text-5xl font-bold text-ink dark:text-white" id="estimate-price">$5.00</span>
+                                </div>
+                                <div class="inline-flex items-center gap-1.5 text-xs text-emerald-600 dark:text-emerald-400 font-semibold bg-emerald-500/10 px-3 py-1 rounded-full">
+                                    <i class="fas fa-bolt text-xs"></i>
+                                    <span id="estimate-time">Ready in 20 min</span>
+                                </div>
+                            </div>
+
+                            <div class="my-6 pt-5 border-t border-paper-edge dark:border-dark-edge space-y-2 text-xs text-ink-soft dark:text-gray-400 text-left">
+                                <div class="flex justify-between">
+                                    <span>Paper &amp; Ink:</span>
+                                    <span class="font-bold text-ink dark:text-white" id="summary-print">B&amp;W ($0.10/pg)</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Finishing:</span>
+                                    <span class="font-bold text-ink dark:text-white" id="summary-binding">Loose Sheets</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span>Bulk Discount:</span>
+                                    <span class="font-bold text-emerald-600 dark:text-emerald-400" id="summary-discount">None</span>
+                                </div>
+                            </div>
+
+                            <a href="contact.html" class="btn-accent w-full justify-center !py-3 text-sm shadow-md">
+                                <i class="fas fa-arrow-right"></i> Order With This Spec
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA — DIFFERENT STYLE ===== -->
+        <section class="py-16 px-6">
+            <div class="container mx-auto max-w-5xl">
+                <div class="rounded-3xl bg-gradient-to-br from-accent to-accent-dark dark:from-accent-dark dark:to-accent text-white p-10 sm:p-16 text-center relative overflow-hidden">
+                    <!-- decorative rings -->
+                    <div class="absolute -top-20 -right-20 w-64 h-64 border-2 border-white/10 rounded-full"></div>
+                    <div class="absolute -bottom-16 -left-16 w-48 h-48 border-2 border-white/10 rounded-full"></div>
+
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-paper-plane text-2xl"></i>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-display font-bold mb-4">Start your print<br>in under 60 seconds.</h2>
+                        <p class="text-base sm:text-lg opacity-90 max-w-xl mx-auto mb-8 font-light">Upload your file, choose your finish, and pick it up today. Or have it delivered.</p>
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <a href="contact.html" class="btn-accent !bg-white !text-ink hover:!bg-accent-light !shadow-none">
+                                <i class="fas fa-upload"></i> Upload &amp; Print
+                            </a>
+                            <a href="pricing.html" class="border-2 border-white/50 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-white/10 transition inline-flex items-center gap-2">
+                                <i class="fas fa-tags"></i> See pricing
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-[#FAF7F2] dark:bg-[#161616] border-t border-paper-edge dark:border-dark-edge pt-20 pb-16 px-6 sm:px-8 transition-colors">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 mb-16">
+                <!-- Brand -->
+                <div class="space-y-4 max-w-sm">
+                    <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                        <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                            <i class="fas fa-print text-white text-lg"></i>
+                        </div>
+                        <div class="leading-none">
+                            <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                                Print<span class="text-accent">Craft</span>
+                            </span>
+                            <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print &middot; Bind &middot; Copy</p>
+                        </div>
+                    </a>
+                    <p class="text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300 leading-relaxed">
+                        Fast, reliable printing, binding &amp; copying. Crafted for precision.
+                    </p>
+                    <div class="flex items-center gap-6 pt-2 text-ink-soft/80 dark:text-gray-400">
+                        <a href="#" aria-label="Instagram" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" aria-label="X" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-x-twitter text-lg"></i></a>
+                        <a href="#" aria-label="Facebook" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-facebook-f text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Explore / Services -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Services</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="services.html" class="hover:text-accent transition">Document Printing</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Binding &amp; Laminating</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Color Copying</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Posters &amp; Large Format</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Explore</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="index.html" class="hover:text-accent transition">About Us</a></li>
+                        <li><a href="pricing.html" class="hover:text-accent transition">Pricing</a></li>
+                        <li><a href="#how-it-works" class="hover:text-accent transition">How It Works</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop / Store Details -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Store</h4>
+                    <ul class="space-y-4 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li class="flex items-start gap-3.5">
+                            <i class="fas fa-location-dot text-accent text-sm mt-1 shrink-0"></i>
+                            <span>124 High Street, Greenfield</span>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-phone text-accent text-sm shrink-0"></i>
+                            <a href="tel:+15557426274" class="hover:text-accent transition">(555) 742-PRINT</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-envelope text-accent text-sm shrink-0"></i>
+                            <a href="mailto:hello@printcraft.com" class="hover:text-accent transition">hello@printcraft.com</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-clock text-accent text-sm shrink-0"></i>
+                            <span>Mon–Sat 8am – 7pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="text-center text-sm text-ink-soft/75 dark:text-gray-400">
+                <p>&copy; 2026 PrintCraft &middot; Printing &amp; Copy Shop. <span class="text-accent">&hearts;</span> Quality prints made easy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPT ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtn = document.getElementById('theme-toggle');
+            const themeBtnM = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                document.documentElement.classList.toggle('dark', isDark);
+                [themeBtn, themeBtnM].forEach(btn => {
+                    if (!btn) return;
+                    const moon = btn.querySelector('.fa-moon');
+                    const sun = btn.querySelector('.fa-sun');
+                    if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                    else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            setTheme(localStorage.getItem('theme') === 'dark');
+            themeBtn?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            themeBtnM?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // RTL toggle
+            const rtlBtn = document.getElementById('rtl-toggle');
+            const rtlBtnM = document.getElementById('rtl-toggle-mobile');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                document.documentElement.setAttribute('lang', isRTL ? 'ar' : 'en');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            setRTL(localStorage.getItem('dir') === 'rtl');
+            rtlBtn?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            rtlBtnM?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            // Mobile menu
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuInner = document.querySelector('#mobile-menu .mobile-menu');
+            const mobileIcon = document.querySelector('#mobile-toggle i');
+
+            function toggleMobileMenu(forceClose = false) {
+                if (!mobileMenu) return;
+                const shouldOpen = forceClose ? false : !mobileMenu.classList.contains('open');
+                mobileMenu.classList.toggle('open', shouldOpen);
+                mobileMenuInner?.classList.toggle('open', shouldOpen);
+                mobileIcon?.classList.toggle('fa-bars', !shouldOpen);
+                mobileIcon?.classList.toggle('fa-times', shouldOpen);
+
+                if (shouldOpen) {
+                    document.body.classList.add('menu-open');
+                    document.documentElement.classList.add('overflow-hidden');
+                } else {
+                    document.body.classList.remove('menu-open');
+                    document.documentElement.classList.remove('overflow-hidden');
+                }
+            }
+
+            mobileToggle?.addEventListener('click', () => toggleMobileMenu());
+
+            // Mobile Home accordion toggle
+            const homeToggle = document.getElementById('mobile-home-toggle');
+            const homeSub = document.getElementById('mobile-home-sub');
+            const homeChevron = document.getElementById('mobile-home-chevron');
+            homeToggle?.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isClosed = homeSub?.classList.contains('hidden');
+                homeSub?.classList.toggle('hidden', !isClosed);
+                homeChevron?.classList.toggle('rotate-180', isClosed);
+            });
+
+            // Close mobile menu and restore background scrolling on nav link click
+            mobileMenu?.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    toggleMobileMenu(true);
+                });
+            });
+
+            // Restore scroll if resized to desktop breakpoint
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1280 && mobileMenu?.classList.contains('open')) {
+                    toggleMobileMenu(true);
+                }
+            });
+
+            // Desktop Header Dropdown: Persistent toggle on touch / click (does not auto-hide)
+            const headerDropdownGroup = document.querySelector('header nav .relative.group');
+            const headerDropdownMenu = headerDropdownGroup?.querySelector('.dropdown-menu');
+            const headerDropdownBtn = headerDropdownGroup?.querySelector('.nav-item');
+
+            if (headerDropdownGroup && headerDropdownMenu && headerDropdownBtn) {
+                headerDropdownBtn.addEventListener('click', (e) => {
+                    const isExpanded = headerDropdownMenu.classList.contains('open');
+                    if (!isExpanded) {
+                        e.preventDefault();
+                        headerDropdownMenu.classList.add('open');
+                    } else {
+                        headerDropdownMenu.classList.remove('open');
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!headerDropdownGroup.contains(e.target)) {
+                        headerDropdownMenu.classList.remove('open');
+                    }
+                });
+            }
+
+            // Instant Price & Turnaround Estimator
+            const pagesInput = document.getElementById('calc-pages');
+            const pagesVal = document.getElementById('pages-val');
+            const modeBtns = document.querySelectorAll('#print-mode-group .calc-btn');
+            const bindingBtns = document.querySelectorAll('#binding-group .calc-binding');
+            const estPrice = document.getElementById('estimate-price');
+            const estTime = document.getElementById('estimate-time');
+            const sumPrint = document.getElementById('summary-print');
+            const sumBinding = document.getElementById('summary-binding');
+            const sumDiscount = document.getElementById('summary-discount');
+
+            let currentMode = 'bw';
+            let currentBinding = 'none';
+
+            function calculateEstimate() {
+                if (!pagesInput) return;
+                const pages = parseInt(pagesInput.value, 10);
+                if (pagesVal) pagesVal.textContent = `${pages} page${pages > 1 ? 's' : ''}`;
+
+                // Base paper & ink per page
+                const ratePerPg = currentMode === 'bw' ? 0.10 : 0.45;
+                let printTotal = pages * ratePerPg;
+
+                // Bulk discounts
+                let discountRate = 0;
+                if (pages >= 200) discountRate = 0.20;
+                else if (pages >= 100) discountRate = 0.10;
+
+                const discountAmount = printTotal * discountRate;
+                printTotal -= discountAmount;
+
+                // Binding cost
+                let bindingCost = 0;
+                let bindingLabel = 'Loose Sheets';
+                if (currentBinding === 'spiral') {
+                    bindingCost = 3.50;
+                    bindingLabel = 'Spiral Binding';
+                } else if (currentBinding === 'hardcover') {
+                    bindingCost = 18.00;
+                    bindingLabel = 'Hardcover Book';
+                }
+
+                const finalTotal = printTotal + bindingCost;
+
+                // Turnaround estimate
+                let timeEst = 'Ready in 15 min';
+                if (currentBinding === 'hardcover') {
+                    timeEst = 'Ready in 2–4 hours';
+                } else if (pages > 200) {
+                    timeEst = 'Ready in 35–45 min';
+                } else if (pages > 80 || currentBinding === 'spiral') {
+                    timeEst = 'Ready in 25 min';
+                }
+
+                if (estPrice) estPrice.textContent = `$${finalTotal.toFixed(2)}`;
+                if (estTime) estTime.textContent = timeEst;
+                if (sumPrint) sumPrint.textContent = `${currentMode === 'bw' ? 'B&W ($0.10/pg)' : 'Colour ($0.45/pg)'}`;
+                if (sumBinding) sumBinding.textContent = bindingLabel;
+                if (sumDiscount) {
+                    sumDiscount.textContent = discountRate > 0 ? `${discountRate * 100}% Applied` : 'None';
+                }
+            }
+
+            pagesInput?.addEventListener('input', calculateEstimate);
+
+            modeBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    modeBtns.forEach(b => {
+                        b.classList.remove('bg-accent', 'text-white', 'border-accent');
+                        b.classList.add('bg-paper-warm', 'dark:bg-[#202020]', 'text-ink', 'dark:text-gray-300', 'border-paper-edge', 'dark:border-dark-edge');
+                    });
+                    btn.classList.add('bg-accent', 'text-white', 'border-accent');
+                    btn.classList.remove('bg-paper-warm', 'dark:bg-[#202020]', 'text-ink', 'dark:text-gray-300', 'border-paper-edge', 'dark:border-dark-edge');
+                    currentMode = btn.dataset.mode;
+                    calculateEstimate();
+                });
+            });
+
+            bindingBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    bindingBtns.forEach(b => {
+                        b.classList.remove('bg-accent', 'text-white', 'border-accent');
+                        b.classList.add('bg-paper-warm', 'dark:bg-[#202020]', 'text-ink', 'dark:text-gray-300', 'border-paper-edge', 'dark:border-dark-edge');
+                    });
+                    btn.classList.add('bg-accent', 'text-white', 'border-accent');
+                    btn.classList.remove('bg-paper-warm', 'dark:bg-[#202020]', 'text-ink', 'dark:text-gray-300', 'border-paper-edge', 'dark:border-dark-edge');
+                    currentBinding = btn.dataset.binding;
+                    calculateEstimate();
+                });
+            });
+
+            calculateEstimate();
+        });
+    </script>
+
+</body>
+</html>

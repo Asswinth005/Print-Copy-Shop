@@ -1,0 +1,1774 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing — PrintCraft | Transparent Rates for Printing, Binding &amp; Copying</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <meta name="description" content="Simple, honest pricing for printing, binding, and copying. No hidden fees. Bulk discounts applied automatically.">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1A1A1A',
+                        'ink-soft': '#2E2E2E',
+                        'paper': '#FFFFFF',
+                        'paper-warm': '#FAF8F4',
+                        'paper-edge': '#E8E4DC',
+                        'accent': '#2563EB',
+                        'accent-dark': '#1D4ED8',
+                        'accent-light': '#DBEAFE',
+                        'accent-soft': '#EFF6FF',
+                        'highlight': '#F59E0B',
+                        'dark-bg': '#141414',
+                        'dark-card': '#1F1F1F',
+                        'dark-edge': '#333333',
+                    },
+                    fontFamily: {
+                        'display': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'paper-feed': 'paperFeed 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        floatSlow: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        paperFeed: { '0%': { transform: 'translateY(8px)', opacity: '0' }, '50%': { opacity: '1' }, '100%': { transform: 'translateY(-8px)', opacity: '0' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html {
+            overflow-x: clip;
+            width: 100%;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #FAF8F4;
+            color: #1A1A1A;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: clip;
+            width: 100%;
+            position: relative;
+        }
+        .dark body {
+            background-color: #141414;
+            color: #E8E8E8;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Buttons */
+        .btn-accent {
+            background: #2563EB;
+            color: #FFFFFF;
+            padding: 0.85rem 1.9rem;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+        .btn-accent:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+        }
+        .dark .btn-accent {
+            background: #3B82F6;
+        }
+        .dark .btn-accent:hover {
+            background: #2563EB;
+        }
+
+        .btn-outline-ink {
+            border: 1.5px solid #1A1A1A;
+            color: #1A1A1A;
+            background: transparent;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .btn-outline-ink:hover {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        .dark .btn-outline-ink {
+            border-color: #E8E8E8;
+            color: #E8E8E8;
+        }
+        .dark .btn-outline-ink:hover {
+            background: #E8E8E8;
+            color: #1A1A1A;
+        }
+
+        /* Toggle buttons */
+        .toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #EFF6FF;
+            color: #2563EB;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid #DBEAFE;
+            font-size: 0.95rem;
+        }
+        .dark .toggle-btn {
+            background: #1E3A5F;
+            color: #93C5FD;
+            border-color: #1E40AF;
+        }
+        .toggle-btn:hover {
+            background: #2563EB;
+            color: #FFFFFF;
+            transform: scale(1.06);
+        }
+        .dark .toggle-btn:hover {
+            background: #3B82F6;
+            color: #FFFFFF;
+        }
+
+        /* Nav item */
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1A1A1A;
+            transition: color 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .dark .nav-item { color: #E8E8E8; }
+        .nav-item:hover { color: #2563EB; }
+        .dark .nav-item:hover { color: #93C5FD; }
+        .nav-item.active { color: #2563EB; }
+        .dark .nav-item.active { color: #93C5FD; }
+
+
+        /* Mobile menu */
+        #mobile-menu:not(.open) { display: none; }
+        .mobile-menu { max-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; transition: max-height 0.35s ease; }
+        .mobile-menu.open {
+            max-height: calc(100vh - 73px);
+            max-height: calc(100dvh - 73px);
+        }
+        body.menu-open,
+        html.overflow-hidden {
+            overflow: hidden !important;
+            touch-action: none;
+            -webkit-overflow-scrolling: auto;
+        }
+
+        /* Dropdown */
+        .dropdown-menu { display: none; }
+        .group:hover .dropdown-menu,
+        .group:focus-within .dropdown-menu,
+        .dropdown-menu.open { display: block !important; }
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1A1A1A;
+            transition: all 0.2s ease;
+        }
+        .dark .dropdown-link { color: #E5E7EB; }
+        .dropdown-link:hover {
+            background: #EFF6FF;
+            color: #2563EB;
+        }
+        .dark .dropdown-link:hover {
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+        }
+
+        /* RTL fixes */
+        [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+        [dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100vw;
+            z-index: 50;
+        }
+        @media (max-width: 1279px) {
+            main {
+                padding-top: 73px;
+            }
+        }
+
+        /* ============ PRICING PAGE UNIQUE STYLES ============ */
+
+        /* Toggle switch */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 56px;
+            height: 30px;
+            flex-shrink: 0;
+        }
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background-color: #E8E4DC;
+            transition: .3s;
+            border-radius: 999px;
+        }
+        .dark .slider { background-color: #333333; }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .3s;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        input:checked + .slider {
+            background-color: #2563EB;
+        }
+        .dark input:checked + .slider {
+            background-color: #3B82F6;
+        }
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Rate calculator */
+        .calc-panel {
+            background: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid #E8E4DC;
+            overflow: hidden;
+            box-shadow: 0 24px 48px -24px rgba(26,26,26,0.12);
+        }
+        .dark .calc-panel {
+            background: #1F1F1F;
+            border-color: #333333;
+            box-shadow: 0 24px 48px -24px rgba(0,0,0,0.5);
+        }
+        .calc-input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border-radius: 10px;
+            border: 1.5px solid #E8E4DC;
+            background: #FAF8F4;
+            font-size: 0.9rem;
+            font-family: 'Inter', sans-serif;
+            color: #1A1A1A;
+            transition: all 0.25s ease;
+        }
+        .dark .calc-input {
+            background: #141414;
+            border-color: #333333;
+            color: #E8E8E8;
+        }
+        .calc-input:focus {
+            outline: none;
+            border-color: #2563EB;
+            box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+        }
+        .dark .calc-input:focus {
+            border-color: #3B82F6;
+            box-shadow: 0 0 0 3px rgba(59,130,246,0.2);
+        }
+        .calc-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%232563EB' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            padding-right: 2.5rem;
+        }
+        .dark .calc-select {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2393C5FD' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+        }
+        .calc-option {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.65rem 0.9rem;
+            border-radius: 10px;
+            border: 1.5px solid transparent;
+            background: #FAF8F4;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+        .dark .calc-option { background: #141414; }
+        .calc-option:hover {
+            border-color: #DBEAFE;
+        }
+        .dark .calc-option:hover { border-color: #1E40AF; }
+        .calc-option.active {
+            border-color: #2563EB;
+            background: #EFF6FF;
+            color: #2563EB;
+        }
+        .dark .calc-option.active {
+            border-color: #3B82F6;
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+        }
+
+        /* Pricing tier card */
+        .tier-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            border: 1.5px solid #E8E4DC;
+            padding: 2rem 1.75rem;
+            transition: all 0.3s ease;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .dark .tier-card {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .tier-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 24px 48px -20px rgba(26,26,26,0.15);
+            border-color: #2563EB;
+        }
+        .dark .tier-card:hover {
+            border-color: #3B82F6;
+            box-shadow: 0 24px 48px -20px rgba(0,0,0,0.5);
+        }
+        .tier-card.featured {
+            border-color: #2563EB;
+            box-shadow: 0 20px 40px -20px rgba(37,99,235,0.25);
+        }
+        .dark .tier-card.featured {
+            border-color: #3B82F6;
+            box-shadow: 0 20px 40px -20px rgba(59,130,246,0.3);
+        }
+        .tier-card.featured::before {
+            content: 'Most Popular';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2563EB;
+            color: #FFFFFF;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.35rem 0.9rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+        .dark .tier-card.featured::before {
+            background: #3B82F6;
+        }
+
+        /* Pricing matrix */
+        .matrix-wrap {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid #E8E4DC;
+        }
+        .dark .matrix-wrap { border-color: #333333; }
+        .matrix-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+        }
+        .matrix-table th,
+        .matrix-table td {
+            padding: 0.95rem 1.1rem;
+            text-align: left;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #E8E4DC;
+        }
+        .dark .matrix-table th,
+        .dark .matrix-table td { border-color: #333333; }
+        .matrix-table thead th {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            position: sticky;
+            top: 0;
+        }
+        .dark .matrix-table thead th { background: #1F1F1F; }
+        .matrix-table tbody tr {
+            background: #FFFFFF;
+            transition: background 0.2s ease;
+        }
+        .dark .matrix-table tbody tr { background: #1A1A1A; }
+        .matrix-table tbody tr:hover { background: #FAF8F4; }
+        .dark .matrix-table tbody tr:hover { background: #202020; }
+        .matrix-table tbody tr:last-child td { border-bottom: none; }
+        .matrix-table td:first-child {
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+        .dark .matrix-table td:first-child { color: #F3F4F6; }
+        .matrix-table .row-group {
+            background: #EFF6FF;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #2563EB;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        .dark .matrix-table .row-group {
+            background: rgba(37,99,235,0.12);
+            color: #93C5FD;
+        }
+
+        /* Add-on card */
+        .addon-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            border: 1px solid #E8E4DC;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        .dark .addon-card {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .addon-card:hover {
+            border-color: #2563EB;
+            transform: translateY(-3px);
+            box-shadow: 0 16px 32px -16px rgba(26,26,26,0.12);
+        }
+        .dark .addon-card:hover {
+            border-color: #3B82F6;
+        }
+
+        /* Discount badge */
+        .discount-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            background: #FEF3C7;
+            color: #B45309;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+        .dark .discount-badge {
+            background: rgba(245,158,11,0.15);
+            color: #FCD34D;
+        }
+
+        /* Big gradient number */
+        .pricing-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 700;
+            letter-spacing: -0.03em;
+        }
+
+        /* FAQ accordion */
+        .faq-item {
+            border-bottom: 1px solid #E8E4DC;
+        }
+        .dark .faq-item { border-color: #333333; }
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.25rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            gap: 1rem;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary .faq-icon {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #2563EB;
+        }
+        .dark .faq-item summary .faq-icon { color: #93C5FD; }
+        .faq-item[open] summary .faq-icon { transform: rotate(45deg); }
+        .faq-item p {
+            padding-bottom: 1.25rem;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: #2E2E2E;
+        }
+        .dark .faq-item p { color: #9CA3AF; }
+
+        /* Highlight row */
+        .highlight-row {
+            background: #EFF6FF !important;
+        }
+        .dark .highlight-row {
+            background: rgba(37,99,235,0.1) !important;
+        }
+    </style>
+</head>
+
+<body class="bg-paper-warm dark:bg-dark-bg text-ink dark:text-gray-200">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header" class="z-50 bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md border-b border-paper-edge dark:border-dark-edge w-full">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-7 py-3.5 flex items-center justify-between w-full">
+
+            <!-- Brand -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                    <i class="fas fa-print text-white text-lg"></i>
+                </div>
+                <div class="leading-none">
+                    <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                        Print<span class="text-accent">Craft</span>
+                    </span>
+                    <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print · Bind · Copy</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden xl:flex items-center gap-5 2xl:gap-6">
+                <!-- Home Dropdown -->
+                <div class="relative group">
+                    <a href="index.html" class="nav-item inline-flex items-center gap-1.5">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-down text-[10px] opacity-75 group-hover:rotate-180 transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full left-0 pt-2 w-40 z-50">
+                        <div class="bg-white dark:bg-[#1F1F1F] rounded-xl shadow-lg border border-paper-edge dark:border-dark-edge py-1.5 overflow-hidden">
+                            <a href="index.html" class="dropdown-link">
+                                <span>Home 1</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-link">
+                                <span>Home 2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="about.html" class="nav-item">About</a>
+                <a href="services.html" class="nav-item">Services</a>
+                <a href="pricing.html" class="nav-item active">Pricing</a>
+                <a href="track-order.html" class="nav-item">Track Order</a>
+                <a href="blog.html" class="nav-item">Blog</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </div>
+
+            <!-- Right actions (Desktop) -->
+            <div class="hidden xl:flex items-center gap-2">
+                <button id="theme-toggle" class="toggle-btn" title="Dark / Light">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+                <button id="rtl-toggle" class="toggle-btn" title="RTL / LTR">⇄</button>
+                <a href="contact.html" class="btn-accent ml-2 !py-2.5 !px-5 !text-sm">
+                    <i class="fas fa-file-invoice"></i> Get a Quote
+                </a>
+            </div>
+
+            <!-- Mobile & Tablet Hamburger Toggle -->
+            <button id="mobile-toggle" class="xl:hidden flex items-center justify-center shrink-0 w-10 h-10 rounded-lg text-ink dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10 text-xl cursor-pointer transition ml-auto" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile & Tablet Menu -->
+        <div id="mobile-menu" class="xl:hidden bg-white dark:bg-[#1A1A1A] border-t border-paper-edge dark:border-dark-edge">
+            <div class="mobile-menu px-6">
+                <!-- Home options -->
+                <div class="py-3 border-b border-paper-edge dark:border-dark-edge">
+                    <button type="button" id="mobile-home-toggle" class="w-full flex items-center justify-between font-semibold text-ink dark:text-white cursor-pointer select-none">
+                        <span>Home</span>
+                        <i id="mobile-home-chevron" class="fas fa-chevron-down text-xs text-ink-soft dark:text-gray-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-home-sub" class="hidden pl-4 space-y-2 pt-2">
+                        <a href="index.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 1</a>
+                        <a href="home2.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">About</a>
+                <a href="services.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Services</a>
+                <a href="pricing.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge text-accent">Pricing</a>
+                <a href="track-order.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Track Order</a>
+                <a href="blog.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Blog</a>
+                <a href="contact.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Contact</a>
+
+                <!-- Centered Actions inside mobile menu -->
+                <div class="py-6 flex flex-col items-center justify-center gap-4 border-t border-paper-edge/60 dark:border-dark-edge/60">
+                    <a href="contact.html" class="btn-accent w-full max-w-xs !py-3 !px-6 text-sm shadow-md text-center justify-center">
+                        <i class="fas fa-file-invoice"></i> Get a Quote
+                    </a>
+                    <div class="flex items-center justify-center gap-3">
+                        <button id="theme-toggle-mobile" class="toggle-btn" title="Dark / Light">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle-mobile" class="toggle-btn" title="RTL / LTR">⇄</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main>
+
+        <!-- ===== PRICING HERO ===== -->
+        <section class="pt-10 sm:pt-16 xl:pt-36 pb-12 px-4 sm:px-6 relative overflow-hidden">
+            <div class="absolute top-0 left-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-72 h-72 bg-highlight/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="container mx-auto max-w-7xl relative z-10">
+                <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-3 mb-6 justify-center">
+                        <span class="w-8 h-[2px] bg-accent"></span>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-accent">Pricing</span>
+                        <span class="w-8 h-[2px] bg-accent"></span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.08] tracking-tight mb-6">
+                        Honest rates.<br>
+                        <span class="text-accent">No surprises.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg max-w-2xl font-light leading-relaxed text-ink-soft dark:text-gray-300 mb-8 mx-auto">
+                        What you see is what you pay. Volume discounts are applied automatically, and every quote is confirmed before we print a single page.
+                    </p>
+
+                    <!-- quick trust chips -->
+                    <div class="flex flex-wrap gap-2.5 justify-center">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge text-xs font-semibold">
+                            <i class="fas fa-check text-accent"></i> No setup fees
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge text-xs font-semibold">
+                            <i class="fas fa-check text-accent"></i> Free file check
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge text-xs font-semibold">
+                            <i class="fas fa-check text-accent"></i> Bulk discounts
+                        </span>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge text-xs font-semibold">
+                            <i class="fas fa-check text-accent"></i> Tax included
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== INTERACTIVE RATE CALCULATOR ===== -->
+        <section class="py-16 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid lg:grid-cols-12 gap-12 items-start">
+                    <!-- Left: heading & info -->
+                    <div class="lg:col-span-5 lg:sticky lg:top-28">
+                        <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Estimate your job</span>
+                        <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3 mb-4">Try our rate calculator</h2>
+                        <p class="text-ink-soft dark:text-gray-300 leading-relaxed mb-6">
+                            Pick your options and get an instant ballpark. It's not a binding quote — but it's a great way to plan your budget.
+                        </p>
+
+                        <div class="space-y-4">
+                            <div class="flex items-start gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-bolt text-accent text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold">Instant estimate</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">No signup, no email required.</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-percent text-accent text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold">Bulk savings included</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Discounts auto-apply as you increase quantity.</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start gap-3">
+                                <div class="w-9 h-9 rounded-lg bg-accent/10 flex items-center justify-center shrink-0">
+                                    <i class="fas fa-file-invoice text-accent text-sm"></i>
+                                </div>
+                                <div>
+                                    <div class="text-sm font-semibold">Exact quote on request</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Send us your file for a confirmed price.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: calculator panel -->
+                    <div class="lg:col-span-7">
+                        <div class="calc-panel">
+                            <!-- Header -->
+                            <div class="flex items-center justify-between p-6 border-b border-paper-edge dark:border-dark-edge">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-accent flex items-center justify-center">
+                                        <i class="fas fa-calculator text-white text-sm"></i>
+                                    </div>
+                                    <div>
+                                        <div class="text-sm font-bold">Quick estimate</div>
+                                        <div class="text-[11px] text-ink-soft dark:text-gray-400">Adjust the fields below</div>
+                                    </div>
+                                </div>
+                                <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">Live</span>
+                            </div>
+
+                            <!-- Body -->
+                            <div class="p-6 space-y-6">
+                                <!-- Service type -->
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400 mb-3">Service type</label>
+                                    <div class="grid grid-cols-3 gap-2.5">
+                                        <button type="button" class="calc-option active" data-service="print" data-rate="0.10">
+                                            <span><i class="fas fa-print text-accent mr-1.5 text-xs"></i> Print</span>
+                                        </button>
+                                        <button type="button" class="calc-option" data-service="copy" data-rate="0.08">
+                                            <span><i class="fas fa-copy text-accent mr-1.5 text-xs"></i> Copy</span>
+                                        </button>
+                                        <button type="button" class="calc-option" data-service="bind" data-rate="3.50">
+                                            <span><i class="fas fa-book text-accent mr-1.5 text-xs"></i> Bind</span>
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <!-- Quantity + colour -->
+                                <div class="grid sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400 mb-2">Quantity</label>
+                                        <input type="number" id="calc-qty" class="calc-input" value="50" min="1" max="10000">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400 mb-2">Colour mode</label>
+                                        <select id="calc-colour" class="calc-input calc-select">
+                                            <option value="bw">Black &amp; White</option>
+                                            <option value="colour">Full Colour (+200%)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Extras toggle -->
+                                <div>
+                                    <label class="block text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400 mb-3">Add-ons</label>
+                                    <div class="space-y-2.5">
+                                        <label class="flex items-center justify-between p-3 rounded-xl bg-paper-warm dark:bg-[#141414] border border-paper-edge dark:border-dark-edge cursor-pointer">
+                                            <span class="flex items-center gap-2.5 text-sm font-medium">
+                                                <i class="fas fa-layer-group text-accent text-xs"></i>
+                                                Laminating
+                                            </span>
+                                            <span class="flex items-center gap-3">
+                                                <span class="text-xs font-semibold text-ink-soft dark:text-gray-400">+$1.20 / item</span>
+                                                <span class="switch">
+                                                    <input type="checkbox" id="calc-laminate">
+                                                    <span class="slider"></span>
+                                                </span>
+                                            </span>
+                                        </label>
+                                        <label class="flex items-center justify-between p-3 rounded-xl bg-paper-warm dark:bg-[#141414] border border-paper-edge dark:border-dark-edge cursor-pointer">
+                                            <span class="flex items-center gap-2.5 text-sm font-medium">
+                                                <i class="fas fa-object-group text-accent text-xs"></i>
+                                                Folding
+                                            </span>
+                                            <span class="flex items-center gap-3">
+                                                <span class="text-xs font-semibold text-ink-soft dark:text-gray-400">+$0.15 / item</span>
+                                                <span class="switch">
+                                                    <input type="checkbox" id="calc-fold">
+                                                    <span class="slider"></span>
+                                                </span>
+                                            </span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Result footer -->
+                            <div class="p-6 bg-ink dark:bg-[#141414] text-white">
+                                <div class="flex items-center justify-between flex-wrap gap-4">
+                                    <div>
+                                        <div class="text-[10px] font-bold uppercase tracking-wider opacity-70 mb-1">Estimated total</div>
+                                        <div class="flex items-baseline gap-2">
+                                            <span class="pricing-number text-4xl sm:text-5xl" id="calc-total">$5.00</span>
+                                            <span class="text-xs opacity-70" id="calc-note">50 pages · B&amp;W</span>
+                                        </div>
+                                    </div>
+                                    <a href="contact.html" class="btn-accent !bg-white !text-ink hover:!bg-accent-light !shadow-none">
+                                        <i class="fas fa-file-invoice"></i> Get exact quote
+                                    </a>
+                                </div>
+                                <div class="mt-4 pt-4 border-t border-white/10 flex items-center gap-2 text-[11px] opacity-70">
+                                    <i class="fas fa-circle-info"></i>
+                                    <span>Estimate only. Final price confirmed after file review.</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TIERED BUNDLES ===== -->
+        <section class="py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Popular bundles</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">Pre-packed packages</h2>
+                    <p class="mt-4 text-ink-soft dark:text-gray-300">Common jobs bundled at a better rate. Mix and match, or start from one of these.</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                    <!-- Tier 1 -->
+                    <div class="tier-card">
+                        <div class="mb-5">
+                            <div class="text-xs font-bold uppercase tracking-[0.15em] text-ink-soft dark:text-gray-400 mb-2">Student Starter</div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="pricing-number text-4xl text-accent">$12</span>
+                                <span class="text-sm text-ink-soft dark:text-gray-400">/ pack</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-6">Perfect for lecture notes and study packs.</p>
+                        <ul class="space-y-3 mb-8 flex-1">
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>100 pages B&amp;W printing</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Single spiral binding</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Clear front cover</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Same-day pickup</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-outline-ink w-full justify-center">
+                            <i class="fas fa-arrow-right"></i> Choose pack
+                        </a>
+                    </div>
+
+                    <!-- Tier 2 (featured) -->
+                    <div class="tier-card featured">
+                        <div class="mb-5">
+                            <div class="text-xs font-bold uppercase tracking-[0.15em] text-accent mb-2">Office Pro</div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="pricing-number text-4xl text-accent">$45</span>
+                                <span class="text-sm text-ink-soft dark:text-gray-400">/ pack</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-6">Built for reports, proposals, and client handouts.</p>
+                        <ul class="space-y-3 mb-8 flex-1">
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>250 pages B&amp;W or 100 colour</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Double-sided printing</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Spiral or comb binding</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Laminating for 5 covers</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Priority turnaround</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-accent w-full justify-center">
+                            <i class="fas fa-bolt"></i> Choose pack
+                        </a>
+                    </div>
+
+                    <!-- Tier 3 -->
+                    <div class="tier-card">
+                        <div class="mb-5">
+                            <div class="text-xs font-bold uppercase tracking-[0.15em] text-ink-soft dark:text-gray-400 mb-2">Thesis &amp; Dissertation</div>
+                            <div class="flex items-baseline gap-1">
+                                <span class="pricing-number text-4xl text-accent">$85</span>
+                                <span class="text-sm text-ink-soft dark:text-gray-400">/ pack</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-6">Everything you need for official submission binding.</p>
+                        <ul class="space-y-3 mb-8 flex-1">
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Up to 300 pages B&amp;W</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Hardcover binding</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Gold or silver foil lettering</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>Ribbon marker included</span>
+                            </li>
+                            <li class="flex items-start gap-2.5 text-sm">
+                                <i class="fas fa-check text-accent text-xs mt-1"></i>
+                                <span>2 proof pages included</span>
+                            </li>
+                        </ul>
+                        <a href="contact.html" class="btn-outline-ink w-full justify-center">
+                            <i class="fas fa-arrow-right"></i> Choose pack
+                        </a>
+                    </div>
+                </div>
+
+                <!-- savings note -->
+                <div class="mt-10 text-center">
+                    <div class="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-accent-soft dark:bg-accent/10 border border-accent-light dark:border-accent/25">
+                        <i class="fas fa-piggy-bank text-accent"></i>
+                        <span class="text-sm font-semibold">Save up to 25% vs. per-page rates on bundles</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== DETAILED PRICING MATRIX ===== -->
+        <section class="py-20 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Full rate card</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">Every price, in one place</h2>
+                    <p class="mt-4 text-ink-soft dark:text-gray-300">Scroll through the complete matrix. All prices are per unit unless noted.</p>
+                </div>
+
+                <!-- Printing table -->
+                <div class="mb-10">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center">
+                            <i class="fas fa-print text-accent"></i>
+                        </div>
+                        <h3 class="text-xl font-display font-bold">Printing</h3>
+                    </div>
+
+                    <div class="matrix-wrap overflow-x-auto">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Paper size</th>
+                                    <th>B&amp;W single</th>
+                                    <th>B&amp;W double</th>
+                                    <th>Colour single</th>
+                                    <th>Colour double</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A4 (210 × 297mm)</td>
+                                    <td><span class="pricing-number text-accent">$0.10</span></td>
+                                    <td><span class="pricing-number text-accent">$0.15</span></td>
+                                    <td><span class="pricing-number text-accent">$0.45</span></td>
+                                    <td><span class="pricing-number text-accent">$0.75</span></td>
+                                </tr>
+                                <tr>
+                                    <td>A3 (297 × 420mm)</td>
+                                    <td><span class="pricing-number text-accent">$0.20</span></td>
+                                    <td><span class="pricing-number text-accent">$0.30</span></td>
+                                    <td><span class="pricing-number text-accent">$0.90</span></td>
+                                    <td><span class="pricing-number text-accent">$1.50</span></td>
+                                </tr>
+                                <tr>
+                                    <td>A2 (420 × 594mm)</td>
+                                    <td><span class="pricing-number text-accent">$0.60</span></td>
+                                    <td><span class="pricing-number text-accent">—</span></td>
+                                    <td><span class="pricing-number text-accent">$2.40</span></td>
+                                    <td><span class="pricing-number text-accent">—</span></td>
+                                </tr>
+                                <tr>
+                                    <td>A1 (594 × 841mm)</td>
+                                    <td><span class="pricing-number text-accent">$1.20</span></td>
+                                    <td><span class="pricing-number text-accent">—</span></td>
+                                    <td><span class="pricing-number text-accent">$4.80</span></td>
+                                    <td><span class="pricing-number text-accent">—</span></td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td>Premium 300 GSM</td>
+                                    <td><span class="pricing-number text-accent">+$0.10</span></td>
+                                    <td><span class="pricing-number text-accent">+$0.15</span></td>
+                                    <td><span class="pricing-number text-accent">+$0.30</span></td>
+                                    <td><span class="pricing-number text-accent">+$0.45</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Binding table -->
+                <div class="mb-10">
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-highlight/15 flex items-center justify-center">
+                            <i class="fas fa-book text-highlight"></i>
+                        </div>
+                        <h3 class="text-xl font-display font-bold">Binding</h3>
+                    </div>
+
+                    <div class="matrix-wrap overflow-x-auto">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Binding type</th>
+                                    <th>Up to 100 pages</th>
+                                    <th>100–250 pages</th>
+                                    <th>250–450 pages</th>
+                                    <th>Turnaround</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Spiral (plastic)</td>
+                                    <td><span class="pricing-number text-accent">$3.50</span></td>
+                                    <td><span class="pricing-number text-accent">$4.50</span></td>
+                                    <td><span class="pricing-number text-accent">$5.50</span></td>
+                                    <td><span class="text-xs text-ink-soft dark:text-gray-400">15 min</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Wire-O (metal)</td>
+                                    <td><span class="pricing-number text-accent">$4.50</span></td>
+                                    <td><span class="pricing-number text-accent">$5.50</span></td>
+                                    <td><span class="pricing-number text-accent">$6.50</span></td>
+                                    <td><span class="text-xs text-ink-soft dark:text-gray-400">15 min</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Comb binding</td>
+                                    <td><span class="pricing-number text-accent">$3.00</span></td>
+                                    <td><span class="pricing-number text-accent">$4.00</span></td>
+                                    <td><span class="pricing-number text-accent">$5.00</span></td>
+                                    <td><span class="text-xs text-ink-soft dark:text-gray-400">15 min</span></td>
+                                </tr>
+                                <tr>
+                                    <td>Thermal binding</td>
+                                    <td><span class="pricing-number text-accent">$5.00</span></td>
+                                    <td><span class="pricing-number text-accent">$6.00</span></td>
+                                    <td><span class="pricing-number text-accent">$7.00</span></td>
+                                    <td><span class="text-xs text-ink-soft dark:text-gray-400">30 min</span></td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td>Perfect binding (softcover)</td>
+                                    <td><span class="pricing-number text-accent">—</span></td>
+                                    <td><span class="pricing-number text-accent">$12.00</span></td>
+                                    <td><span class="pricing-number text-accent">$18.00</span></td>
+                                    <td><span class="text-xs text-ink-soft dark:text-gray-400">2–4 hrs</span></td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td>Hardcover (thesis)</td>
+                                    <td><span class="pricing-number text-accent">—</span></td>
+                                    <td><span class="pricing-number text-accent">$18.50</span></td>
+                                    <td><span class="pricing-number text-accent">$24.00</span></td>
+                                    <td><span class="text-xs text-ink-soft dark:text-gray-400">2–4 hrs</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Copying table -->
+                <div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <div class="w-10 h-10 rounded-xl bg-emerald-500/15 flex items-center justify-center">
+                            <i class="fas fa-copy text-emerald-600 dark:text-emerald-400"></i>
+                        </div>
+                        <h3 class="text-xl font-display font-bold">Copying</h3>
+                    </div>
+
+                    <div class="matrix-wrap overflow-x-auto">
+                        <table class="matrix-table">
+                            <thead>
+                                <tr>
+                                    <th>Copy type</th>
+                                    <th>1–99 pages</th>
+                                    <th>100–499 pages</th>
+                                    <th>500+ pages</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>A4 B&amp;W single-sided</td>
+                                    <td><span class="pricing-number text-accent">$0.08</span></td>
+                                    <td><span class="pricing-number text-accent">$0.06</span></td>
+                                    <td><span class="pricing-number text-accent">$0.05</span></td>
+                                </tr>
+                                <tr>
+                                    <td>A4 B&amp;W double-sided</td>
+                                    <td><span class="pricing-number text-accent">$0.12</span></td>
+                                    <td><span class="pricing-number text-accent">$0.10</span></td>
+                                    <td><span class="pricing-number text-accent">$0.08</span></td>
+                                </tr>
+                                <tr>
+                                    <td>A4 Colour single-sided</td>
+                                    <td><span class="pricing-number text-accent">$0.40</span></td>
+                                    <td><span class="pricing-number text-accent">$0.35</span></td>
+                                    <td><span class="pricing-number text-accent">$0.30</span></td>
+                                </tr>
+                                <tr>
+                                    <td>A4 Colour double-sided</td>
+                                    <td><span class="pricing-number text-accent">$0.65</span></td>
+                                    <td><span class="pricing-number text-accent">$0.55</span></td>
+                                    <td><span class="pricing-number text-accent">$0.48</span></td>
+                                </tr>
+                                <tr class="highlight-row">
+                                    <td>ID / passport copies</td>
+                                    <td><span class="pricing-number text-accent">$1.00</span></td>
+                                    <td><span class="pricing-number text-accent">$0.80</span></td>
+                                    <td><span class="pricing-number text-accent">$0.60</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- bulk discount callout -->
+                <div class="mt-8 p-5 rounded-2xl bg-accent-soft dark:bg-accent/10 border border-accent-light dark:border-accent/25 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div class="flex items-start gap-3">
+                        <i class="fas fa-percent text-accent text-lg mt-0.5"></i>
+                        <div>
+                            <div class="text-sm font-bold">Bulk discounts applied automatically</div>
+                            <div class="text-xs text-ink-soft dark:text-gray-400 mt-0.5">100+ pages: 15% off · 500+ pages: 20% off · 1000+ pages: 25% off</div>
+                        </div>
+                    </div>
+                    <a href="contact.html" class="btn-accent !py-2.5 !px-5 !text-sm whitespace-nowrap">
+                        <i class="fas fa-file-invoice"></i> Custom quote
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== ADD-ONS & FINISHING ===== -->
+        <section class="py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Extras</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">Add-ons &amp; finishing</h2>
+                    <p class="mt-4 text-ink-soft dark:text-gray-300">Small touches that make a big difference to the final result.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- Add-on 1 -->
+                    <div class="addon-card">
+                        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                            <i class="fas fa-layer-group text-accent"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-3 mb-1">
+                                <h3 class="font-display font-bold text-sm">Laminating</h3>
+                                <span class="pricing-number text-sm text-accent">$1.20</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Gloss or matte. ID size up to A3.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add-on 2 -->
+                    <div class="addon-card">
+                        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                            <i class="fas fa-scissors text-accent"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-3 mb-1">
+                                <h3 class="font-display font-bold text-sm">Trimming</h3>
+                                <span class="pricing-number text-sm text-accent">$0.50</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Precision guillotine cuts for clean edges.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add-on 3 -->
+                    <div class="addon-card">
+                        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                            <i class="fas fa-object-group text-accent"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-3 mb-1">
+                                <h3 class="font-display font-bold text-sm">Folding</h3>
+                                <span class="pricing-number text-sm text-accent">$0.15</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Half, tri-fold, and gate-fold.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add-on 4 -->
+                    <div class="addon-card">
+                        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                            <i class="fas fa-paperclip text-accent"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-3 mb-1">
+                                <h3 class="font-display font-bold text-sm">Stapling</h3>
+                                <span class="pricing-number text-sm text-accent">$0.10</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Corner, side, and saddle-stitch.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add-on 5 -->
+                    <div class="addon-card">
+                        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                            <i class="fas fa-circle-half-stroke text-accent"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-3 mb-1">
+                                <h3 class="font-display font-bold text-sm">Round corners</h3>
+                                <span class="pricing-number text-sm text-accent">$0.08</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Smooth rounded edges for cards &amp; booklets.</p>
+                        </div>
+                    </div>
+
+                    <!-- Add-on 6 -->
+                    <div class="addon-card">
+                        <div class="w-11 h-11 rounded-xl bg-accent/10 flex items-center justify-center shrink-0">
+                            <i class="fas fa-box text-accent"></i>
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex items-start justify-between gap-3 mb-1">
+                                <h3 class="font-display font-bold text-sm">Delivery</h3>
+                                <span class="pricing-number text-sm text-accent">$5.00</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Local same-day delivery within 5 miles.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COMPARISON: PER-PAGE VS BUNDLE ===== -->
+        <section class="py-20 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-5xl">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Save more</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">Bundles vs. per-page</h2>
+                    <p class="mt-4 text-ink-soft dark:text-gray-300">See how much you save when you go with a bundle.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <!-- Per-page card -->
+                    <div class="rounded-2xl border-2 border-dashed border-paper-edge dark:border-dark-edge p-7">
+                        <div class="flex items-center justify-between mb-5">
+                            <h3 class="font-display font-bold text-lg">Per-page rate</h3>
+                            <span class="text-xs font-semibold text-ink-soft dark:text-gray-400">Pay as you go</span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-ink-soft dark:text-gray-400">100 B&amp;W pages</span>
+                                <span class="pricing-number">$10.00</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-ink-soft dark:text-gray-400">Spiral binding</span>
+                                <span class="pricing-number">$3.50</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-ink-soft dark:text-gray-400">Clear cover</span>
+                                <span class="pricing-number">$0.50</span>
+                            </div>
+                        </div>
+                        <div class="pt-5 border-t border-paper-edge dark:border-dark-edge flex items-center justify-between">
+                            <span class="text-sm font-semibold">Total</span>
+                            <span class="pricing-number text-2xl">$14.00</span>
+                        </div>
+                    </div>
+
+                    <!-- Bundle card -->
+                    <div class="rounded-2xl border-2 border-accent bg-accent-soft dark:bg-accent/10 p-7 relative">
+                        <div class="absolute -top-3 right-6">
+                            <span class="discount-badge">
+                                <i class="fas fa-tag text-[9px]"></i> Save 14%
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between mb-5">
+                            <h3 class="font-display font-bold text-lg">Student Starter</h3>
+                            <span class="text-xs font-semibold text-accent">Bundle</span>
+                        </div>
+                        <div class="space-y-3 mb-6">
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-ink-soft dark:text-gray-400">100 B&amp;W pages</span>
+                                <span class="pricing-number">Included</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-ink-soft dark:text-gray-400">Spiral binding</span>
+                                <span class="pricing-number">Included</span>
+                            </div>
+                            <div class="flex items-center justify-between text-sm">
+                                <span class="text-ink-soft dark:text-gray-400">Clear cover</span>
+                                <span class="pricing-number">Included</span>
+                            </div>
+                        </div>
+                        <div class="pt-5 border-t border-accent/30 flex items-center justify-between">
+                            <span class="text-sm font-semibold">Total</span>
+                            <span class="pricing-number text-2xl text-accent">$12.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRICING FAQ ===== -->
+        <section class="py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-3xl">
+                <div class="text-center mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Pricing FAQ</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">Questions about cost</h2>
+                </div>
+
+                <div class="space-y-0">
+                    <details class="faq-item">
+                        <summary>
+                            Are there any hidden fees?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>No. The price we quote is the price you pay. There are no setup fees, file-handling fees, or minimum order charges. Volume discounts are applied automatically and shown on your receipt.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            How do bulk discounts work?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>Discounts apply automatically based on total page count for copying and printing: 100+ pages gets 15% off, 500+ gets 20% off, and 1000+ gets 25% off. No code needed — it's applied at checkout.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            Do you price-match?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>If you find a lower published rate at a local competitor for the same service and paper stock, we'll match it. Just bring in their quote — we'll verify and match on the spot.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            Is there a minimum order?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>No minimum. We're happy to print a single page. That said, bundles and bulk pricing kick in at 100+ pages if you want to save more.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            Can I get a formal quote for a large job?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>Absolutely. For jobs over 1,000 pages or with complex finishing, we'll prepare a formal written quote with a fixed price and turnaround commitment. Just send us your file and specs.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            Do prices include tax?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>All prices shown include applicable sales tax for standard retail orders. Business accounts with a valid tax exemption can have tax removed at checkout — just let us know before we process your order.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            What happens if I need to cancel or change my order?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>If we haven't started printing yet, you can cancel or change your order free of charge. Once printing has begun, we may not be able to refund the cost of materials already used. Talk to us — we'll always try to work something out.</p>
+                    </details>
+                </div>
+
+                <!-- final contact prompt -->
+                <div class="mt-12 text-center p-8 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge">
+                    <i class="fas fa-comments text-accent text-2xl mb-3"></i>
+                    <h3 class="font-display font-bold text-lg mb-2">Still have questions?</h3>
+                    <p class="text-sm text-ink-soft dark:text-gray-400 mb-5 max-w-md mx-auto">Our team is happy to talk through your specific job and give you a personalised quote.</p>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <a href="contact.html" class="btn-accent">
+                            <i class="fas fa-envelope"></i> Contact us
+                        </a>
+                        <a href="tel:+15557426274" class="btn-outline-ink">
+                            <i class="fas fa-phone"></i> Call the shop
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FINAL CTA ===== -->
+        <section class="py-16 px-6 bg-white dark:bg-[#1A1A1A] border-t border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-5xl">
+                <div class="rounded-3xl bg-ink dark:bg-dark-card text-white p-10 sm:p-14 text-center relative overflow-hidden border border-paper-edge dark:border-dark-edge">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-accent via-highlight to-accent"></div>
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-tags text-2xl text-accent-light"></i>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-display font-bold mb-4">Found your price?</h2>
+                        <p class="text-base sm:text-lg opacity-90 max-w-2xl mx-auto mb-8 font-light">Send us your file and we'll confirm the exact cost within minutes.</p>
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <a href="contact.html" class="btn-accent">
+                                <i class="fas fa-upload"></i> Upload &amp; get quote
+                            </a>
+                            <a href="services.html" class="border-2 border-white/40 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-white/10 transition inline-flex items-center gap-2">
+                                <i class="fas fa-list-check"></i> Browse services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-[#FAF7F2] dark:bg-[#161616] border-t border-paper-edge dark:border-dark-edge pt-20 pb-16 px-6 sm:px-8 transition-colors">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 mb-16">
+                <!-- Brand -->
+                <div class="space-y-4 max-w-sm">
+                    <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                        <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                            <i class="fas fa-print text-white text-lg"></i>
+                        </div>
+                        <div class="leading-none">
+                            <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                                Print<span class="text-accent">Craft</span>
+                            </span>
+                            <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print &middot; Bind &middot; Copy</p>
+                        </div>
+                    </a>
+                    <p class="text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300 leading-relaxed">
+                        Fast, reliable printing, binding &amp; copying. Crafted for precision.
+                    </p>
+                    <div class="flex items-center gap-6 pt-2 text-ink-soft/80 dark:text-gray-400">
+                        <a href="#" aria-label="Instagram" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" aria-label="X" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-x-twitter text-lg"></i></a>
+                        <a href="#" aria-label="Facebook" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-facebook-f text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Explore / Services -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Services</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="services.html" class="hover:text-accent transition">Document Printing</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Binding &amp; Laminating</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Color Copying</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Posters &amp; Large Format</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Explore</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="index.html" class="hover:text-accent transition">About Us</a></li>
+                        <li><a href="pricing.html" class="hover:text-accent transition">Pricing</a></li>
+                        <li><a href="#how-it-works" class="hover:text-accent transition">How It Works</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop / Store Details -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Store</h4>
+                    <ul class="space-y-4 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li class="flex items-start gap-3.5">
+                            <i class="fas fa-location-dot text-accent text-sm mt-1 shrink-0"></i>
+                            <span>124 High Street, Greenfield</span>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-phone text-accent text-sm shrink-0"></i>
+                            <a href="tel:+15557426274" class="hover:text-accent transition">(555) 742-PRINT</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-envelope text-accent text-sm shrink-0"></i>
+                            <a href="mailto:hello@printcraft.com" class="hover:text-accent transition">hello@printcraft.com</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-clock text-accent text-sm shrink-0"></i>
+                            <span>Mon–Sat 8am – 7pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="text-center text-sm text-ink-soft/75 dark:text-gray-400">
+                <p>&copy; 2026 PrintCraft &middot; Printing &amp; Copy Shop. <span class="text-accent">&hearts;</span> Quality prints made easy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPT ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtn = document.getElementById('theme-toggle');
+            const themeBtnM = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                document.documentElement.classList.toggle('dark', isDark);
+                [themeBtn, themeBtnM].forEach(btn => {
+                    if (!btn) return;
+                    const moon = btn.querySelector('.fa-moon');
+                    const sun = btn.querySelector('.fa-sun');
+                    if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                    else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            setTheme(localStorage.getItem('theme') === 'dark');
+            themeBtn?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            themeBtnM?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // RTL toggle
+            const rtlBtn = document.getElementById('rtl-toggle');
+            const rtlBtnM = document.getElementById('rtl-toggle-mobile');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                document.documentElement.setAttribute('lang', isRTL ? 'ar' : 'en');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            setRTL(localStorage.getItem('dir') === 'rtl');
+            rtlBtn?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            rtlBtnM?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            // Mobile menu
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuInner = document.querySelector('#mobile-menu .mobile-menu');
+            const mobileIcon = document.querySelector('#mobile-toggle i');
+
+            function toggleMobileMenu(forceClose = false) {
+                if (!mobileMenu) return;
+                const shouldOpen = forceClose ? false : !mobileMenu.classList.contains('open');
+                mobileMenu.classList.toggle('open', shouldOpen);
+                mobileMenuInner?.classList.toggle('open', shouldOpen);
+                mobileIcon?.classList.toggle('fa-bars', !shouldOpen);
+                mobileIcon?.classList.toggle('fa-times', shouldOpen);
+
+                if (shouldOpen) {
+                    document.body.classList.add('menu-open');
+                    document.documentElement.classList.add('overflow-hidden');
+                } else {
+                    document.body.classList.remove('menu-open');
+                    document.documentElement.classList.remove('overflow-hidden');
+                }
+            }
+
+            mobileToggle?.addEventListener('click', () => toggleMobileMenu());
+
+            // Mobile Home accordion toggle
+            const homeToggle = document.getElementById('mobile-home-toggle');
+            const homeSub = document.getElementById('mobile-home-sub');
+            const homeChevron = document.getElementById('mobile-home-chevron');
+            homeToggle?.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isClosed = homeSub?.classList.contains('hidden');
+                homeSub?.classList.toggle('hidden', !isClosed);
+                homeChevron?.classList.toggle('rotate-180', isClosed);
+            });
+
+            // Close mobile menu and restore background scrolling on nav link click
+            mobileMenu?.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    toggleMobileMenu(true);
+                    // Reset home dropdown when navigating away
+                    homeSub?.classList.add('hidden');
+                    homeChevron?.classList.remove('rotate-180');
+                });
+            });
+
+            // Restore scroll if resized to desktop breakpoint
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1280 && mobileMenu?.classList.contains('open')) {
+                    toggleMobileMenu(true);
+                }
+            });
+
+            // Desktop Header Dropdown: Persistent toggle on touch / click (does not auto-hide)
+            const headerDropdownGroup = document.querySelector('header nav .relative.group');
+            const headerDropdownMenu = headerDropdownGroup?.querySelector('.dropdown-menu');
+            const headerDropdownBtn = headerDropdownGroup?.querySelector('.nav-item');
+
+            if (headerDropdownGroup && headerDropdownMenu && headerDropdownBtn) {
+                headerDropdownBtn.addEventListener('click', (e) => {
+                    const isExpanded = headerDropdownMenu.classList.contains('open');
+                    if (!isExpanded) {
+                        e.preventDefault();
+                        headerDropdownMenu.classList.add('open');
+                    } else {
+                        headerDropdownMenu.classList.remove('open');
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!headerDropdownGroup.contains(e.target)) {
+                        headerDropdownMenu.classList.remove('open');
+                    }
+                });
+            }
+
+            // ===== RATE CALCULATOR LOGIC =====
+            const calcOptions = document.querySelectorAll('.calc-option');
+            const calcQty = document.getElementById('calc-qty');
+            const calcColour = document.getElementById('calc-colour');
+            const calcLaminate = document.getElementById('calc-laminate');
+            const calcFold = document.getElementById('calc-fold');
+            const calcTotal = document.getElementById('calc-total');
+            const calcNote = document.getElementById('calc-note');
+
+            let currentRate = 0.10;
+            let currentService = 'print';
+
+            function updateTotal() {
+                const qty = Math.max(1, parseInt(calcQty.value) || 1);
+                const isColour = calcColour.value === 'colour';
+                const laminate = calcLaminate.checked;
+                const fold = calcFold.checked;
+
+                let base = currentRate * qty;
+
+                // Colour multiplier (only for print & copy)
+                if (isColour && currentService !== 'bind') {
+                    base = base * 3.5;
+                }
+
+                // Add-ons
+                if (laminate) base += 1.20 * qty;
+                if (fold) base += 0.15 * qty;
+
+                // Bulk discount
+                let discount = 0;
+                if (currentService !== 'bind') {
+                    if (qty >= 1000) discount = 0.25;
+                    else if (qty >= 500) discount = 0.20;
+                    else if (qty >= 100) discount = 0.15;
+                }
+                base = base * (1 - discount);
+
+                // Format
+                calcTotal.textContent = '$' + base.toFixed(2);
+
+                let noteParts = [];
+                if (currentService === 'bind') {
+                    noteParts.push(qty + ' bound');
+                } else {
+                    noteParts.push(qty + ' ' + (qty === 1 ? 'page' : 'pages'));
+                }
+                noteParts.push(isColour && currentService !== 'bind' ? 'Colour' : 'B&W');
+                if (discount > 0) noteParts.push('−' + (discount * 100) + '% bulk');
+                calcNote.textContent = noteParts.join(' · ');
+            }
+
+            calcOptions.forEach(opt => {
+                opt.addEventListener('click', () => {
+                    calcOptions.forEach(o => o.classList.remove('active'));
+                    opt.classList.add('active');
+                    currentService = opt.dataset.service;
+                    currentRate = parseFloat(opt.dataset.rate);
+
+                    // Binding is per-unit, so colour doesn't apply
+                    if (currentService === 'bind') {
+                        calcColour.value = 'bw';
+                    }
+                    updateTotal();
+                });
+            });
+
+            calcQty?.addEventListener('input', updateTotal);
+            calcColour?.addEventListener('change', updateTotal);
+            calcLaminate?.addEventListener('change', updateTotal);
+            calcFold?.addEventListener('change', updateTotal);
+
+            // Initial
+            updateTotal();
+        });
+    </script>
+
+</body>
+</html>

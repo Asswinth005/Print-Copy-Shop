@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services — PrintCraft | Printing, Binding &amp; Copying</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <meta name="description" content="Explore PrintCraft's full range of printing, binding, and copying services. From single pages to bulk orders — precision crafted.">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1A1A1A',
+                        'ink-soft': '#2E2E2E',
+                        'paper': '#FFFFFF',
+                        'paper-warm': '#FAF8F4',
+                        'paper-edge': '#E8E4DC',
+                        'accent': '#2563EB',
+                        'accent-dark': '#1D4ED8',
+                        'accent-light': '#DBEAFE',
+                        'accent-soft': '#EFF6FF',
+                        'highlight': '#F59E0B',
+                        'dark-bg': '#141414',
+                        'dark-card': '#1F1F1F',
+                        'dark-edge': '#333333',
+                    },
+                    fontFamily: {
+                        'display': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'paper-feed': 'paperFeed 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        floatSlow: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        paperFeed: { '0%': { transform: 'translateY(8px)', opacity: '0' }, '50%': { opacity: '1' }, '100%': { transform: 'translateY(-8px)', opacity: '0' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html {
+            overflow-x: clip;
+            width: 100%;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #FAF8F4;
+            color: #1A1A1A;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: clip;
+            width: 100%;
+            position: relative;
+        }
+        .dark body {
+            background-color: #141414;
+            color: #E8E8E8;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Buttons */
+        .btn-accent {
+            background: #2563EB;
+            color: #FFFFFF;
+            padding: 0.85rem 1.9rem;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+        .btn-accent:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+        }
+        .dark .btn-accent {
+            background: #3B82F6;
+        }
+        .dark .btn-accent:hover {
+            background: #2563EB;
+        }
+
+        .btn-outline-ink {
+            border: 1.5px solid #1A1A1A;
+            color: #1A1A1A;
+            background: transparent;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .btn-outline-ink:hover {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        .dark .btn-outline-ink {
+            border-color: #E8E8E8;
+            color: #E8E8E8;
+        }
+        .dark .btn-outline-ink:hover {
+            background: #E8E8E8;
+            color: #1A1A1A;
+        }
+
+        /* Toggle buttons */
+        .toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #EFF6FF;
+            color: #2563EB;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid #DBEAFE;
+            font-size: 0.95rem;
+        }
+        .dark .toggle-btn {
+            background: #1E3A5F;
+            color: #93C5FD;
+            border-color: #1E40AF;
+        }
+        .toggle-btn:hover {
+            background: #2563EB;
+            color: #FFFFFF;
+            transform: scale(1.06);
+        }
+        .dark .toggle-btn:hover {
+            background: #3B82F6;
+            color: #FFFFFF;
+        }
+
+        /* Nav item */
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1A1A1A;
+            transition: color 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .dark .nav-item { color: #E8E8E8; }
+        .nav-item:hover { color: #2563EB; }
+        .dark .nav-item:hover { color: #93C5FD; }
+        .nav-item.active { color: #2563EB; }
+        .dark .nav-item.active { color: #93C5FD; }
+
+
+        /* Mobile menu */
+        #mobile-menu:not(.open) { display: none; }
+        .mobile-menu { max-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; transition: max-height 0.35s ease; }
+        .mobile-menu.open {
+            max-height: calc(100vh - 73px);
+            max-height: calc(100dvh - 73px);
+        }
+        body.menu-open,
+        html.overflow-hidden {
+            overflow: hidden !important;
+            touch-action: none;
+            -webkit-overflow-scrolling: auto;
+        }
+
+        /* Dropdown */
+        .dropdown-menu { display: none; }
+        .group:hover .dropdown-menu,
+        .group:focus-within .dropdown-menu,
+        .dropdown-menu.open { display: block !important; }
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1A1A1A;
+            transition: all 0.2s ease;
+        }
+        .dark .dropdown-link { color: #E5E7EB; }
+        .dropdown-link:hover {
+            background: #EFF6FF;
+            color: #2563EB;
+        }
+        .dark .dropdown-link:hover {
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+        }
+
+        /* RTL fixes */
+        [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+        [dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100vw;
+            z-index: 50;
+        }
+        @media (max-width: 1279px) {
+            main {
+                padding-top: 73px;
+            }
+        }
+
+        /* ============ SERVICES PAGE UNIQUE STYLES ============ */
+
+        /* Sticky category nav */
+        .category-nav {
+            position: sticky;
+            top: 72px;
+            z-index: 30;
+            background: rgba(250,248,244,0.9);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid #E8E4DC;
+        }
+        .dark .category-nav {
+            background: rgba(20,20,20,0.9);
+            border-color: #333333;
+        }
+        .cat-pill {
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            background: #FAF8F4;
+            border: 1px solid #E8E4DC;
+            transition: all 0.25s ease;
+            white-space: nowrap;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-shrink: 0;
+        }
+        .dark .cat-pill {
+            color: #E8E8E8;
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .cat-pill:hover {
+            background: #EFF6FF;
+            color: #2563EB;
+            border-color: #2563EB;
+        }
+        .dark .cat-pill:hover {
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+            border-color: #3B82F6;
+        }
+        .cat-pill.active {
+            background: #2563EB;
+            color: #FFFFFF;
+            border-color: #2563EB;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+        }
+        .dark .cat-pill.active {
+            background: #3B82F6;
+            border-color: #3B82F6;
+            color: #FFFFFF;
+        }
+
+        /* Service section anchors offset for sticky nav */
+        .service-anchor {
+            scroll-margin-top: 140px;
+        }
+
+        /* Feature list item */
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.85rem;
+            padding: 0.75rem 0;
+        }
+        .feature-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 9px;
+            background: #EFF6FF;
+            color: #2563EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.85rem;
+        }
+        .dark .feature-icon {
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+        }
+
+        /* Spec chip */
+        .spec-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.35rem 0.8rem;
+            border-radius: 999px;
+            background: #FAF8F4;
+            border: 1px solid #E8E4DC;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #2E2E2E;
+        }
+        .dark .spec-chip {
+            background: #1C1C1C;
+            border-color: #333333;
+            color: #D1D5DB;
+        }
+
+        /* Comparison table */
+        .compare-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #E8E4DC;
+        }
+        .dark .compare-table { border-color: #333333; }
+        .compare-table th,
+        .compare-table td {
+            padding: 1rem 1.25rem;
+            text-align: left;
+            font-size: 0.85rem;
+            border-bottom: 1px solid #E8E4DC;
+        }
+        .dark .compare-table th,
+        .dark .compare-table td { border-color: #333333; }
+        .compare-table thead th {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            font-weight: 700;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .dark .compare-table thead th { background: #1F1F1F; }
+        .compare-table tbody tr {
+            background: #FFFFFF;
+            transition: background 0.2s ease;
+        }
+        .dark .compare-table tbody tr { background: #1A1A1A; }
+        .compare-table tbody tr:hover { background: #FAF8F4; }
+        .dark .compare-table tbody tr:hover { background: #202020; }
+        .compare-table tbody tr:last-child td { border-bottom: none; }
+        .compare-table td:first-child {
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+        .dark .compare-table td:first-child { color: #F3F4F6; }
+
+        /* Process step card */
+        .process-step {
+            position: relative;
+            padding-left: 4rem;
+            padding-bottom: 2.5rem;
+        }
+        .process-step:last-child { padding-bottom: 0; }
+        .process-step::before {
+            content: '';
+            position: absolute;
+            left: 19px;
+            top: 44px;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #2563EB 40%, #E8E4DC);
+        }
+        .dark .process-step::before {
+            background: linear-gradient(to bottom, #3B82F6 40%, #333333);
+        }
+        .process-step:last-child::before { display: none; }
+
+        /* Service visual mock */
+        .mock-canvas {
+            background: #FFFFFF;
+            border-radius: 16px;
+            border: 1px solid #E8E4DC;
+            position: relative;
+            overflow: hidden;
+        }
+        .dark .mock-canvas {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .mock-canvas::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(#2563EB 0.8px, transparent 0.8px);
+            background-size: 18px 18px;
+            opacity: 0.06;
+        }
+        .dark .mock-canvas::before {
+            background-image: radial-gradient(#3B82F6 0.8px, transparent 0.8px);
+            opacity: 0.1;
+        }
+
+        /* Gradient number */
+        .gradient-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            background: linear-gradient(135deg, #2563EB, #1D4ED8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.15;
+        }
+        .dark .gradient-number {
+            background: linear-gradient(135deg, #60A5FA, #3B82F6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0.25;
+        }
+
+        /* Finishing option pill */
+        .finish-pill {
+            padding: 0.6rem 1rem;
+            border-radius: 12px;
+            background: #FFFFFF;
+            border: 1px solid #E8E4DC;
+            font-size: 0.78rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .dark .finish-pill {
+            background: #1F1F1F;
+            border-color: #333333;
+            color: #D1D5DB;
+        }
+        .finish-pill:hover {
+            border-color: #2563EB;
+            color: #2563EB;
+            transform: translateY(-2px);
+        }
+        .dark .finish-pill:hover {
+            border-color: #3B82F6;
+            color: #93C5FD;
+        }
+
+        /* FAQ accordion */
+        .faq-item {
+            border-bottom: 1px solid #E8E4DC;
+        }
+        .dark .faq-item { border-color: #333333; }
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            padding: 1.25rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 0.95rem;
+            gap: 1rem;
+        }
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary .faq-icon {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+            color: #2563EB;
+        }
+        .dark .faq-item summary .faq-icon { color: #93C5FD; }
+        .faq-item[open] summary .faq-icon { transform: rotate(45deg); }
+        .faq-item p {
+            padding-bottom: 1.25rem;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: #2E2E2E;
+        }
+        .dark .faq-item p { color: #9CA3AF; }
+    </style>
+</head>
+
+<body class="bg-paper-warm dark:bg-dark-bg text-ink dark:text-gray-200">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header" class="z-50 bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md border-b border-paper-edge dark:border-dark-edge w-full">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-7 py-3.5 flex items-center justify-between w-full">
+
+            <!-- Brand -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                    <i class="fas fa-print text-white text-lg"></i>
+                </div>
+                <div class="leading-none">
+                    <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                        Print<span class="text-accent">Craft</span>
+                    </span>
+                    <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print · Bind · Copy</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden xl:flex items-center gap-5 2xl:gap-6">
+                <!-- Home Dropdown -->
+                <div class="relative group">
+                    <a href="index.html" class="nav-item inline-flex items-center gap-1.5">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-down text-[10px] opacity-75 group-hover:rotate-180 transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full left-0 pt-2 w-40 z-50">
+                        <div class="bg-white dark:bg-[#1F1F1F] rounded-xl shadow-lg border border-paper-edge dark:border-dark-edge py-1.5 overflow-hidden">
+                            <a href="index.html" class="dropdown-link">
+                                <span>Home 1</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-link">
+                                <span>Home 2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="about.html" class="nav-item">About</a>
+                <a href="services.html" class="nav-item active">Services</a>
+                <a href="pricing.html" class="nav-item">Pricing</a>
+                <a href="track-order.html" class="nav-item">Track Order</a>
+                <a href="blog.html" class="nav-item">Blog</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </div>
+
+            <!-- Right actions (Desktop) -->
+            <div class="hidden xl:flex items-center gap-2">
+                <button id="theme-toggle" class="toggle-btn" title="Dark / Light">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+                <button id="rtl-toggle" class="toggle-btn" title="RTL / LTR">⇄</button>
+                <a href="contact.html" class="btn-accent ml-2 !py-2.5 !px-5 !text-sm">
+                    <i class="fas fa-file-invoice"></i> Get a Quote
+                </a>
+            </div>
+
+            <!-- Mobile & Tablet Hamburger Toggle -->
+            <button id="mobile-toggle" class="xl:hidden flex items-center justify-center shrink-0 w-10 h-10 rounded-lg text-ink dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10 text-xl cursor-pointer transition ml-auto" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile & Tablet Menu -->
+        <div id="mobile-menu" class="xl:hidden bg-white dark:bg-[#1A1A1A] border-t border-paper-edge dark:border-dark-edge">
+            <div class="mobile-menu px-6">
+                <!-- Home options -->
+                <div class="py-3 border-b border-paper-edge dark:border-dark-edge">
+                    <button type="button" id="mobile-home-toggle" class="w-full flex items-center justify-between font-semibold text-ink dark:text-white cursor-pointer select-none">
+                        <span>Home</span>
+                        <i id="mobile-home-chevron" class="fas fa-chevron-down text-xs text-ink-soft dark:text-gray-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-home-sub" class="hidden pl-4 space-y-2 pt-2">
+                        <a href="index.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 1</a>
+                        <a href="home2.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">About</a>
+                <a href="services.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge text-accent">Services</a>
+                <a href="pricing.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Pricing</a>
+                <a href="track-order.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Track Order</a>
+                <a href="blog.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Blog</a>
+                <a href="contact.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Contact</a>
+
+                <!-- Centered Actions inside mobile menu -->
+                <div class="py-6 flex flex-col items-center justify-center gap-4 border-t border-paper-edge/60 dark:border-dark-edge/60">
+                    <a href="contact.html" class="btn-accent w-full max-w-xs !py-3 !px-6 text-sm shadow-md text-center justify-center">
+                        <i class="fas fa-file-invoice"></i> Get a Quote
+                    </a>
+                    <div class="flex items-center justify-center gap-3">
+                        <button id="theme-toggle-mobile" class="toggle-btn" title="Dark / Light">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle-mobile" class="toggle-btn" title="RTL / LTR">⇄</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main>
+
+        <!-- ===== SERVICES HERO ===== -->
+        <section class="pt-10 sm:pt-16 xl:pt-36 pb-12 px-4 sm:px-6 relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-1/4 w-72 h-72 bg-highlight/5 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="container mx-auto max-w-7xl relative z-10">
+                <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-3 mb-6 justify-center">
+                        <span class="w-8 h-[2px] bg-accent"></span>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-accent">Our Services</span>
+                        <span class="w-8 h-[2px] bg-accent"></span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.08] tracking-tight mb-6">
+                        Everything you need,<br>
+                        <span class="text-accent">under one roof.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg max-w-2xl font-light leading-relaxed text-ink-soft dark:text-gray-300 mb-8 mx-auto">
+                        Printing, binding, and copying — handled with the kind of precision you'd expect from a specialist studio. Pick a service below to see exactly what we offer.
+                    </p>
+
+                    <!-- quick spec chips -->
+                    <div class="flex flex-wrap gap-2.5 justify-center">
+                        <span class="spec-chip"><i class="fas fa-check text-accent"></i> A4 to A0</span>
+                        <span class="spec-chip"><i class="fas fa-check text-accent"></i> Colour &amp; B&amp;W</span>
+                        <span class="spec-chip"><i class="fas fa-check text-accent"></i> Same-day</span>
+                        <span class="spec-chip"><i class="fas fa-check text-accent"></i> Bulk discounts</span>
+                        <span class="spec-chip"><i class="fas fa-check text-accent"></i> Free file check</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECOND SECTION: EXPLORE BY CATEGORY ===== -->
+        <section class="py-14 sm:py-16 px-4 sm:px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <!-- Section Heading -->
+                <div class="text-center max-w-2xl mx-auto mb-8 sm:mb-10">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Quick Navigation</span>
+                    <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold mt-2">Explore By Category</h2>
+                    <p class="mt-3 text-sm text-ink-soft dark:text-gray-300">Jump directly to the printing, binding, copying, or finishing service you need.</p>
+                </div>
+
+                <!-- Category Pills (Wrapped inside page, No horizontal scroll) -->
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-1">
+                    <a href="#printing" class="cat-pill active" data-cat="printing">
+                        <i class="fas fa-print text-xs"></i> Printing
+                    </a>
+                    <a href="#binding" class="cat-pill" data-cat="binding">
+                        <i class="fas fa-book text-xs"></i> Binding
+                    </a>
+                    <a href="#copying" class="cat-pill" data-cat="copying">
+                        <i class="fas fa-copy text-xs"></i> Copying
+                    </a>
+                    <a href="#finishing" class="cat-pill" data-cat="finishing">
+                        <i class="fas fa-scissors text-xs"></i> Finishing
+                    </a>
+                    <a href="#process" class="cat-pill" data-cat="process">
+                        <i class="fas fa-route text-xs"></i> Process
+                    </a>
+                    <a href="#faq" class="cat-pill" data-cat="faq">
+                        <i class="fas fa-circle-question text-xs"></i> FAQ
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICE 1 — PRINTING ===== -->
+        <section id="printing" class="service-anchor py-20 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left: copy -->
+                    <div class="lg:col-span-6">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center shadow-lg">
+                                <i class="fas fa-print text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase tracking-[0.2em] text-accent">Service 01</div>
+                                <h2 class="text-3xl sm:text-4xl font-display font-bold">Printing</h2>
+                            </div>
+                        </div>
+
+                        <p class="text-ink-soft dark:text-gray-300 leading-relaxed mb-8 max-w-lg">
+                            From a single page to a full print run, we deliver crisp, colour-accurate results on the paper stock you choose. Every file is pre-flighted by our team before it touches a machine.
+                        </p>
+
+                        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-1 mb-8">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-file"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">A4 / A3 / A2 / A0</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Standard &amp; large format</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-palette"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">Colour &amp; B&amp;W</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Photo-quality option</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-layer-group"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">80–300 GSM</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Bond, silk, matte, gloss</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">Same-day available</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Express 30-min option</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="contact.html" class="btn-accent">
+                                <i class="fas fa-file-invoice"></i> Get a quote
+                            </a>
+                            <a href="pricing.html" class="btn-outline-ink">
+                                <i class="fas fa-tags"></i> See rates
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: visual mock -->
+                    <div class="lg:col-span-6">
+                        <div class="mock-canvas p-6 sm:p-8 shadow-xl">
+                            <div class="relative z-10">
+                                <!-- header row -->
+                                <div class="flex items-center justify-between pb-4 mb-5 border-b border-paper-edge dark:border-dark-edge">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 rounded-full bg-accent"></div>
+                                        <span class="text-xs font-mono font-semibold text-ink-soft dark:text-gray-400">print_job_preview</span>
+                                    </div>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-accent/10 text-accent">Colour</span>
+                                </div>
+
+                                <!-- mock document pages -->
+                                <div class="grid grid-cols-3 gap-3 mb-5">
+                                    <div class="aspect-[3/4] rounded-lg bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge p-2.5 flex flex-col gap-1.5">
+                                        <div class="h-1.5 bg-accent/30 rounded w-2/3"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-4/6"></div>
+                                        <div class="mt-auto h-6 bg-accent/10 rounded"></div>
+                                    </div>
+                                    <div class="aspect-[3/4] rounded-lg bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge p-2.5 flex flex-col gap-1.5">
+                                        <div class="h-1.5 bg-accent/30 rounded w-1/2"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                                        <div class="mt-auto h-6 bg-accent/10 rounded"></div>
+                                    </div>
+                                    <div class="aspect-[3/4] rounded-lg bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge p-2.5 flex flex-col gap-1.5">
+                                        <div class="h-1.5 bg-accent/30 rounded w-3/4"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
+                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-2/3"></div>
+                                        <div class="mt-auto h-6 bg-accent/10 rounded"></div>
+                                    </div>
+                                </div>
+
+                                <!-- specs row -->
+                                <div class="grid grid-cols-3 gap-3 text-center">
+                                    <div class="p-3 rounded-xl bg-white dark:bg-[#202020] border border-paper-edge dark:border-dark-edge">
+                                        <div class="text-[10px] text-ink-soft dark:text-gray-400 uppercase mb-1">Paper</div>
+                                        <div class="text-xs font-bold">120 GSM</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white dark:bg-[#202020] border border-paper-edge dark:border-dark-edge">
+                                        <div class="text-[10px] text-ink-soft dark:text-gray-400 uppercase mb-1">Sides</div>
+                                        <div class="text-xs font-bold">Double</div>
+                                    </div>
+                                    <div class="p-3 rounded-xl bg-white dark:bg-[#202020] border border-paper-edge dark:border-dark-edge">
+                                        <div class="text-[10px] text-ink-soft dark:text-gray-400 uppercase mb-1">Qty</div>
+                                        <div class="text-xs font-bold">250</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICE 2 — BINDING (reversed layout) ===== -->
+        <section id="binding" class="service-anchor py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left: visual mock -->
+                    <div class="lg:col-span-6 order-2 lg:order-1">
+                        <div class="mock-canvas p-6 sm:p-8 shadow-xl">
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between pb-4 mb-5 border-b border-paper-edge dark:border-dark-edge">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 rounded-full bg-accent"></div>
+                                        <span class="text-xs font-mono font-semibold text-ink-soft dark:text-gray-400">binding_options</span>
+                                    </div>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-highlight/15 text-highlight">Finishing</span>
+                                </div>
+
+                                <!-- spiral mock -->
+                                <div class="flex items-stretch gap-4 mb-5">
+                                    <div class="flex flex-col justify-center gap-1.5 py-2">
+                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
+                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
+                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
+                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
+                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
+                                    </div>
+                                    <div class="flex-1 bg-white dark:bg-[#202020] rounded-xl border border-paper-edge dark:border-dark-edge p-4 shadow-sm">
+                                        <div class="text-sm font-display font-bold mb-1">Spiral Bound</div>
+                                        <div class="text-xs text-ink-soft dark:text-gray-400 mb-3">Black wire &middot; Clear front</div>
+                                        <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded w-full mb-1.5"></div>
+                                        <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded w-4/5 mb-1.5"></div>
+                                        <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded w-3/5"></div>
+                                    </div>
+                                </div>
+
+                                <!-- binding type chips -->
+                                <div class="grid grid-cols-2 gap-2.5">
+                                    <div class="finish-pill"><i class="fas fa-circle-dot text-accent text-xs"></i> Spiral</div>
+                                    <div class="finish-pill"><i class="fas fa-grip-lines text-accent text-xs"></i> Comb</div>
+                                    <div class="finish-pill"><i class="fas fa-book text-accent text-xs"></i> Perfect</div>
+                                    <div class="finish-pill"><i class="fas fa-fire text-accent text-xs"></i> Thermal</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: copy -->
+                    <div class="lg:col-span-6 order-1 lg:order-2">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-highlight flex items-center justify-center shadow-lg">
+                                <i class="fas fa-book text-ink text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase tracking-[0.2em] text-highlight">Service 02</div>
+                                <h2 class="text-3xl sm:text-4xl font-display font-bold">Binding</h2>
+                            </div>
+                        </div>
+
+                        <p class="text-ink-soft dark:text-gray-300 leading-relaxed mb-8 max-w-lg">
+                            Turn loose pages into something you're proud to hand over. Whether it's a university thesis, a client proposal, or a training manual — we'll bind it to last.
+                        </p>
+
+                        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-1 mb-8">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-circle-dot"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">Spiral &amp; Wire-O</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">360° lay-flat</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-grip-lines"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">Comb Binding</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Up to 450 sheets</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-book"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">Perfect Binding</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Softcover book style</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-fire"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">Thermal Binding</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Clean wrap spine</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 rounded-xl bg-accent-soft dark:bg-accent/10 border border-accent-light dark:border-accent/25 mb-8">
+                            <div class="flex items-start gap-3">
+                                <i class="fas fa-lightbulb text-accent mt-0.5"></i>
+                                <div>
+                                    <div class="text-sm font-semibold mb-0.5">Clear covers &amp; backs included</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Free on every binding order — choose acetate front and leatherette back.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="contact.html" class="btn-accent">
+                                <i class="fas fa-file-invoice"></i> Get a quote
+                            </a>
+                            <a href="pricing.html" class="btn-outline-ink">
+                                <i class="fas fa-tags"></i> See rates
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICE 3 — COPYING ===== -->
+        <section id="copying" class="service-anchor py-20 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid lg:grid-cols-12 gap-12 items-center">
+                    <!-- Left: copy -->
+                    <div class="lg:col-span-6">
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center shadow-lg">
+                                <i class="fas fa-copy text-white text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs font-bold uppercase tracking-[0.2em] text-emerald-600 dark:text-emerald-400">Service 03</div>
+                                <h2 class="text-3xl sm:text-4xl font-display font-bold">Copying</h2>
+                            </div>
+                        </div>
+
+                        <p class="text-ink-soft dark:text-gray-300 leading-relaxed mb-8 max-w-lg">
+                            High-speed copying for documents, IDs, and bulk runs. Collating, stapling, and folding included — so you get finished, ready-to-distribute copies.
+                        </p>
+
+                        <div class="grid sm:grid-cols-2 gap-x-6 gap-y-1 mb-8">
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">High-speed bulk</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">1000+ pages per hour</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-id-card"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">ID &amp; passport copies</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Accurate &amp; secure</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-clone"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">Double-sided</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Saves paper &amp; cost</div>
+                                </div>
+                            </div>
+                            <div class="feature-item">
+                                <div class="feature-icon"><i class="fas fa-percent"></i></div>
+                                <div>
+                                    <div class="text-sm font-semibold">Bulk discounts</div>
+                                    <div class="text-xs text-ink-soft dark:text-gray-400">Auto-applied 100+</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-wrap gap-4">
+                            <a href="contact.html" class="btn-accent">
+                                <i class="fas fa-file-invoice"></i> Get a quote
+                            </a>
+                            <a href="pricing.html" class="btn-outline-ink">
+                                <i class="fas fa-tags"></i> See rates
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Right: visual mock -->
+                    <div class="lg:col-span-6">
+                        <div class="mock-canvas p-6 sm:p-8 shadow-xl">
+                            <div class="relative z-10">
+                                <div class="flex items-center justify-between pb-4 mb-5 border-b border-paper-edge dark:border-dark-edge">
+                                    <div class="flex items-center gap-2">
+                                        <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
+                                        <span class="text-xs font-mono font-semibold text-ink-soft dark:text-gray-400">copy_run_summary</span>
+                                    </div>
+                                    <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">Bulk</span>
+                                </div>
+
+                                <!-- big number stat -->
+                                <div class="flex items-end justify-between mb-6">
+                                    <div>
+                                        <div class="gradient-number">1,200</div>
+                                        <div class="text-xs font-semibold uppercase tracking-wider text-ink-soft dark:text-gray-400 mt-1">Pages copied</div>
+                                    </div>
+                                    <div class="text-right">
+                                        <div class="text-2xl font-display font-bold text-emerald-600 dark:text-emerald-400">18 min</div>
+                                        <div class="text-xs text-ink-soft dark:text-gray-400">Total time</div>
+                                    </div>
+                                </div>
+
+                                <!-- progress breakdown -->
+                                <div class="space-y-3">
+                                    <div>
+                                        <div class="flex justify-between text-xs font-semibold mb-1.5">
+                                            <span>B&amp;W double-sided</span>
+                                            <span class="text-accent">900</span>
+                                        </div>
+                                        <div class="w-full h-2 bg-paper-edge dark:bg-dark-edge rounded-full overflow-hidden">
+                                            <div class="h-full bg-accent rounded-full" style="width:75%"></div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="flex justify-between text-xs font-semibold mb-1.5">
+                                            <span>Colour single-sided</span>
+                                            <span class="text-emerald-600 dark:text-emerald-400">300</span>
+                                        </div>
+                                        <div class="w-full h-2 bg-paper-edge dark:bg-dark-edge rounded-full overflow-hidden">
+                                            <div class="h-full bg-emerald-500 rounded-full" style="width:25%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-6 pt-5 border-t border-paper-edge dark:border-dark-edge flex items-center justify-between text-xs">
+                                    <span class="text-ink-soft dark:text-gray-400">Collated &amp; stapled</span>
+                                    <span class="font-semibold text-accent">20% bulk discount applied</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SERVICE 4 — FINISHING & EXTRAS ===== -->
+        <section id="finishing" class="service-anchor py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Service 04</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">Finishing &amp; extras</h2>
+                    <p class="mt-4 text-ink-soft dark:text-gray-300">The little touches that turn a good print into a great one.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <!-- Finishing 1 -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-layer-group text-accent text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-display font-bold mb-2">Laminating</h3>
+                        <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4">Gloss or matte pouches from ID size up to A3.</p>
+                        <span class="text-xs font-semibold text-accent">From $1.20</span>
+                    </div>
+
+                    <!-- Finishing 2 -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-scissors text-accent text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-display font-bold mb-2">Trimming</h3>
+                        <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4">Precision guillotine cuts for clean, sharp edges.</p>
+                        <span class="text-xs font-semibold text-accent">From $0.50</span>
+                    </div>
+
+                    <!-- Finishing 3 -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-object-group text-accent text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-display font-bold mb-2">Folding</h3>
+                        <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4">Half-fold, tri-fold, and gate-fold for flyers &amp; menus.</p>
+                        <span class="text-xs font-semibold text-accent">From $0.15</span>
+                    </div>
+
+                    <!-- Finishing 4 -->
+                    <div class="p-6 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div class="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center mb-4">
+                            <i class="fas fa-paperclip text-accent text-lg"></i>
+                        </div>
+                        <h3 class="text-lg font-display font-bold mb-2">Stapling</h3>
+                        <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4">Corner, side, and saddle-stitch for booklets.</p>
+                        <span class="text-xs font-semibold text-accent">From $0.10</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== COMPARISON TABLE ===== -->
+        <section class="py-20 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-5xl">
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">At a glance</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">Compare our services</h2>
+                    <p class="mt-4 text-ink-soft dark:text-gray-300">Not sure which service fits? Here's a quick breakdown.</p>
+                </div>
+
+                <div class="overflow-x-auto rounded-2xl">
+                    <table class="compare-table">
+                        <thead>
+                            <tr>
+                                <th>Service</th>
+                                <th>Turnaround</th>
+                                <th>Best for</th>
+                                <th>Starting price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><i class="fas fa-print text-accent mr-2 text-xs"></i> Printing</td>
+                                <td><span class="spec-chip">15 min – 2 hrs</span></td>
+                                <td>Documents, photos, posters</td>
+                                <td><span class="price-tag">$0.10 / page</span></td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-book text-highlight mr-2 text-xs"></i> Binding</td>
+                                <td><span class="spec-chip">15 min – 4 hrs</span></td>
+                                <td>Theses, reports, manuals</td>
+                                <td><span class="price-tag">$3.50 / book</span></td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-copy text-emerald-600 dark:text-emerald-400 mr-2 text-xs"></i> Copying</td>
+                                <td><span class="spec-chip">5 min – 1 hr</span></td>
+                                <td>Bulk docs, IDs, handouts</td>
+                                <td><span class="price-tag">$0.08 / page</span></td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-layer-group text-accent mr-2 text-xs"></i> Finishing</td>
+                                <td><span class="spec-chip">Same day</span></td>
+                                <td>Laminating, folding, trimming</td>
+                                <td><span class="price-tag">$0.10 / item</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="pricing.html" class="btn-outline-ink">
+                        <i class="fas fa-tags"></i> View full pricing
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROCESS TIMELINE ===== -->
+        <section id="process" class="service-anchor py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-5xl">
+                <div class="grid lg:grid-cols-12 gap-12">
+                    <!-- Left: heading -->
+                    <div class="lg:col-span-5">
+                        <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">How it works</span>
+                        <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3 mb-4">From file to finished in four steps.</h2>
+                        <p class="text-ink-soft dark:text-gray-300 leading-relaxed mb-6">No confusing back-and-forth. Just a clean process that gets your job done right.</p>
+                        <a href="contact.html" class="btn-accent">
+                            <i class="fas fa-paper-plane"></i> Start your order
+                        </a>
+                    </div>
+
+                    <!-- Right: steps -->
+                    <div class="lg:col-span-7">
+                        <!-- Step 1 -->
+                        <div class="process-step">
+                            <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-display font-bold text-sm shadow-lg">1</div>
+                            <h3 class="text-lg font-display font-bold mb-1.5">Send your file</h3>
+                            <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed">Upload online, email us, or walk in with a USB. We accept PDF, DOCX, PPTX, JPG, PNG, AI, and more.</p>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="process-step">
+                            <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-display font-bold text-sm shadow-lg">2</div>
+                            <h3 class="text-lg font-display font-bold mb-1.5">We pre-flight it</h3>
+                            <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed">Our team checks resolution, margins, fonts, and colour space. If something looks off, we flag it before printing.</p>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="process-step">
+                            <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-display font-bold text-sm shadow-lg">3</div>
+                            <h3 class="text-lg font-display font-bold mb-1.5">Choose your finish</h3>
+                            <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed">Pick paper weight, colour mode, binding style, and any finishing extras. We'll confirm the quote before starting.</p>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="process-step">
+                            <div class="absolute left-0 top-0 w-10 h-10 rounded-full bg-accent text-white flex items-center justify-center font-display font-bold text-sm shadow-lg">4</div>
+                            <h3 class="text-lg font-display font-bold mb-1.5">Pick up or delivery</h3>
+                            <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed">Collect from the shop or have it delivered. Most orders are ready within 30 minutes — you'll get a text when it's done.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FAQ ===== -->
+        <section id="faq" class="service-anchor py-20 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-3xl">
+                <div class="text-center mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Questions</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">Frequently asked</h2>
+                </div>
+
+                <div class="space-y-0">
+                    <details class="faq-item">
+                        <summary>
+                            What file formats do you accept?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>We accept PDF, DOCX, PPTX, XLSX, JPG, PNG, TIFF, AI, and Canva share links. PDF is always best for print accuracy, but we can work with almost anything.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            How fast can you turn around an order?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>Most standard print and copy jobs are ready in 15–30 minutes. Binding typically takes 15 minutes to 4 hours depending on the type. Large-format posters are usually same-day.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            Do you offer bulk discounts?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>Yes. Discounts are applied automatically at 100+ pages for copying and 250+ pages for printing. For very large runs, contact us for a custom quote.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            Can I get a proof before you print the full run?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>Absolutely. For orders over 100 pages or any colour-critical job, we'll produce a single proof page for your approval at no extra charge.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            Do you keep my files after printing?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>No. All customer files are securely deleted from our systems within 7 days of order completion, unless you ask us to keep them for reorders.</p>
+                    </details>
+
+                    <details class="faq-item">
+                        <summary>
+                            What payment methods do you accept?
+                            <span class="faq-icon"><i class="fas fa-plus text-sm"></i></span>
+                        </summary>
+                        <p>We accept cash, all major debit/credit cards, Apple Pay, Google Pay, and bank transfer for business accounts. Invoices available on request.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CTA ===== -->
+        <section class="py-16 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-5xl">
+                <div class="rounded-3xl bg-ink dark:bg-dark-card text-white p-10 sm:p-14 text-center relative overflow-hidden border border-paper-edge dark:border-dark-edge">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-accent via-highlight to-accent"></div>
+                    <div class="absolute -top-24 -right-24 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-print text-2xl text-accent-light"></i>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-display font-bold mb-4">Ready to get started?</h2>
+                        <p class="text-base sm:text-lg opacity-90 max-w-2xl mx-auto mb-8 font-light">Send us your file or drop by the shop. We'll take it from there.</p>
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <a href="contact.html" class="btn-accent">
+                                <i class="fas fa-upload"></i> Upload your file
+                            </a>
+                            <a href="pricing.html" class="border-2 border-white/40 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-white/10 transition inline-flex items-center gap-2">
+                                <i class="fas fa-tags"></i> See pricing
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-[#FAF7F2] dark:bg-[#161616] border-t border-paper-edge dark:border-dark-edge pt-20 pb-16 px-6 sm:px-8 transition-colors">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 mb-16">
+                <!-- Brand -->
+                <div class="space-y-4 max-w-sm">
+                    <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                        <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                            <i class="fas fa-print text-white text-lg"></i>
+                        </div>
+                        <div class="leading-none">
+                            <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                                Print<span class="text-accent">Craft</span>
+                            </span>
+                            <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print &middot; Bind &middot; Copy</p>
+                        </div>
+                    </a>
+                    <p class="text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300 leading-relaxed">
+                        Fast, reliable printing, binding &amp; copying. Crafted for precision.
+                    </p>
+                    <div class="flex items-center gap-6 pt-2 text-ink-soft/80 dark:text-gray-400">
+                        <a href="#" aria-label="Instagram" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" aria-label="X" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-x-twitter text-lg"></i></a>
+                        <a href="#" aria-label="Facebook" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-facebook-f text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Explore / Services -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Services</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="services.html" class="hover:text-accent transition">Document Printing</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Binding &amp; Laminating</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Color Copying</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Posters &amp; Large Format</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Explore</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="index.html" class="hover:text-accent transition">About Us</a></li>
+                        <li><a href="pricing.html" class="hover:text-accent transition">Pricing</a></li>
+                        <li><a href="#how-it-works" class="hover:text-accent transition">How It Works</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop / Store Details -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Store</h4>
+                    <ul class="space-y-4 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li class="flex items-start gap-3.5">
+                            <i class="fas fa-location-dot text-accent text-sm mt-1 shrink-0"></i>
+                            <span>124 High Street, Greenfield</span>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-phone text-accent text-sm shrink-0"></i>
+                            <a href="tel:+15557426274" class="hover:text-accent transition">(555) 742-PRINT</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-envelope text-accent text-sm shrink-0"></i>
+                            <a href="mailto:hello@printcraft.com" class="hover:text-accent transition">hello@printcraft.com</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-clock text-accent text-sm shrink-0"></i>
+                            <span>Mon–Sat 8am – 7pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="text-center text-sm text-ink-soft/75 dark:text-gray-400">
+                <p>&copy; 2026 PrintCraft &middot; Printing &amp; Copy Shop. <span class="text-accent">&hearts;</span> Quality prints made easy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPT ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtn = document.getElementById('theme-toggle');
+            const themeBtnM = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                document.documentElement.classList.toggle('dark', isDark);
+                [themeBtn, themeBtnM].forEach(btn => {
+                    if (!btn) return;
+                    const moon = btn.querySelector('.fa-moon');
+                    const sun = btn.querySelector('.fa-sun');
+                    if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                    else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            setTheme(localStorage.getItem('theme') === 'dark');
+            themeBtn?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            themeBtnM?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // RTL toggle
+            const rtlBtn = document.getElementById('rtl-toggle');
+            const rtlBtnM = document.getElementById('rtl-toggle-mobile');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                document.documentElement.setAttribute('lang', isRTL ? 'ar' : 'en');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            setRTL(localStorage.getItem('dir') === 'rtl');
+            rtlBtn?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            rtlBtnM?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            // Mobile menu
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuInner = document.querySelector('#mobile-menu .mobile-menu');
+            const mobileIcon = document.querySelector('#mobile-toggle i');
+
+            function toggleMobileMenu(forceClose = false) {
+                if (!mobileMenu) return;
+                const shouldOpen = forceClose ? false : !mobileMenu.classList.contains('open');
+                mobileMenu.classList.toggle('open', shouldOpen);
+                mobileMenuInner?.classList.toggle('open', shouldOpen);
+                mobileIcon?.classList.toggle('fa-bars', !shouldOpen);
+                mobileIcon?.classList.toggle('fa-times', shouldOpen);
+
+                if (shouldOpen) {
+                    document.body.classList.add('menu-open');
+                    document.documentElement.classList.add('overflow-hidden');
+                } else {
+                    document.body.classList.remove('menu-open');
+                    document.documentElement.classList.remove('overflow-hidden');
+                }
+            }
+
+            mobileToggle?.addEventListener('click', () => toggleMobileMenu());
+
+            // Mobile Home accordion toggle
+            const homeToggle = document.getElementById('mobile-home-toggle');
+            const homeSub = document.getElementById('mobile-home-sub');
+            const homeChevron = document.getElementById('mobile-home-chevron');
+            homeToggle?.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isClosed = homeSub?.classList.contains('hidden');
+                homeSub?.classList.toggle('hidden', !isClosed);
+                homeChevron?.classList.toggle('rotate-180', isClosed);
+            });
+
+            // Close mobile menu and restore background scrolling on nav link click
+            mobileMenu?.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    toggleMobileMenu(true);
+                    // Reset home dropdown when navigating away
+                    homeSub?.classList.add('hidden');
+                    homeChevron?.classList.remove('rotate-180');
+                });
+            });
+
+            // Restore scroll if resized to desktop breakpoint
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1280 && mobileMenu?.classList.contains('open')) {
+                    toggleMobileMenu(true);
+                }
+            });
+
+            // Desktop Header Dropdown: Persistent toggle on touch / click (does not auto-hide)
+            const headerDropdownGroup = document.querySelector('header nav .relative.group');
+            const headerDropdownMenu = headerDropdownGroup?.querySelector('.dropdown-menu');
+            const headerDropdownBtn = headerDropdownGroup?.querySelector('.nav-item');
+
+            if (headerDropdownGroup && headerDropdownMenu && headerDropdownBtn) {
+                headerDropdownBtn.addEventListener('click', (e) => {
+                    const isExpanded = headerDropdownMenu.classList.contains('open');
+                    if (!isExpanded) {
+                        e.preventDefault();
+                        headerDropdownMenu.classList.add('open');
+                    } else {
+                        headerDropdownMenu.classList.remove('open');
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!headerDropdownGroup.contains(e.target)) {
+                        headerDropdownMenu.classList.remove('open');
+                    }
+                });
+            }
+
+            // === Category nav active state on scroll (simple) ===
+            const catPills = document.querySelectorAll('.cat-pill');
+            const sections = ['printing','binding','copying','finishing','process','faq'];
+
+            function updateActiveCat() {
+                let current = 'printing';
+                const scrollY = window.scrollY + 180;
+                sections.forEach(id => {
+                    const el = document.getElementById(id);
+                    if (el && el.offsetTop <= scrollY) current = id;
+                });
+                catPills.forEach(pill => {
+                    pill.classList.toggle('active', pill.dataset.cat === current);
+                });
+            }
+            window.addEventListener('scroll', updateActiveCat, { passive: true });
+            updateActiveCat();
+
+            // Smooth scroll for category pills (respect sticky nav)
+            catPills.forEach(pill => {
+                pill.addEventListener('click', (e) => {
+                    const target = document.querySelector(pill.getAttribute('href'));
+                    if (target) {
+                        e.preventDefault();
+                        const offset = 130;
+                        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+                        window.scrollTo({ top, behavior: 'smooth' });
+                        catPills.forEach(p => p.classList.remove('active'));
+                        pill.classList.add('active');
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>

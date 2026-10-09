@@ -1,0 +1,1475 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog — PrintCraft | Print Tips, Guides &amp; Studio Stories</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <meta name="description" content="Print tips, paper guides, file preparation advice, and studio stories from the PrintCraft team.">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1A1A1A',
+                        'ink-soft': '#2E2E2E',
+                        'paper': '#FFFFFF',
+                        'paper-warm': '#FAF8F4',
+                        'paper-edge': '#E8E4DC',
+                        'accent': '#2563EB',
+                        'accent-dark': '#1D4ED8',
+                        'accent-light': '#DBEAFE',
+                        'accent-soft': '#EFF6FF',
+                        'highlight': '#F59E0B',
+                        'dark-bg': '#141414',
+                        'dark-card': '#1F1F1F',
+                        'dark-edge': '#333333',
+                    },
+                    fontFamily: {
+                        'display': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'float-slow': 'floatSlow 6s ease-in-out infinite',
+                        'paper-feed': 'paperFeed 3s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(24px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        floatSlow: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+                        paperFeed: { '0%': { transform: 'translateY(8px)', opacity: '0' }, '50%': { opacity: '1' }, '100%': { transform: 'translateY(-8px)', opacity: '0' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html {
+            overflow-x: clip;
+            width: 100%;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #FAF8F4;
+            color: #1A1A1A;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: clip;
+            width: 100%;
+            position: relative;
+        }
+        .dark body {
+            background-color: #141414;
+            color: #E8E8E8;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Buttons */
+        .btn-accent {
+            background: #2563EB;
+            color: #FFFFFF;
+            padding: 0.85rem 1.9rem;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+        .btn-accent:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+        }
+        .dark .btn-accent {
+            background: #3B82F6;
+        }
+        .dark .btn-accent:hover {
+            background: #2563EB;
+        }
+
+        .btn-outline-ink {
+            border: 1.5px solid #1A1A1A;
+            color: #1A1A1A;
+            background: transparent;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .btn-outline-ink:hover {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        .dark .btn-outline-ink {
+            border-color: #E8E8E8;
+            color: #E8E8E8;
+        }
+        .dark .btn-outline-ink:hover {
+            background: #E8E8E8;
+            color: #1A1A1A;
+        }
+
+        /* Toggle buttons */
+        .toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #EFF6FF;
+            color: #2563EB;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid #DBEAFE;
+            font-size: 0.95rem;
+        }
+        .dark .toggle-btn {
+            background: #1E3A5F;
+            color: #93C5FD;
+            border-color: #1E40AF;
+        }
+        .toggle-btn:hover {
+            background: #2563EB;
+            color: #FFFFFF;
+            transform: scale(1.06);
+        }
+        .dark .toggle-btn:hover {
+            background: #3B82F6;
+            color: #FFFFFF;
+        }
+
+        /* Nav item */
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1A1A1A;
+            transition: color 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .dark .nav-item { color: #E8E8E8; }
+        .nav-item:hover { color: #2563EB; }
+        .dark .nav-item:hover { color: #93C5FD; }
+        .nav-item.active { color: #2563EB; }
+        .dark .nav-item.active { color: #93C5FD; }
+
+
+        /* Mobile menu */
+        #mobile-menu:not(.open) { display: none; }
+        .mobile-menu { max-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; transition: max-height 0.35s ease; }
+        .mobile-menu.open {
+            max-height: calc(100vh - 73px);
+            max-height: calc(100dvh - 73px);
+        }
+        body.menu-open,
+        html.overflow-hidden {
+            overflow: hidden !important;
+            touch-action: none;
+            -webkit-overflow-scrolling: auto;
+        }
+
+        /* Dropdown */
+        .dropdown-menu { display: none; }
+        .group:hover .dropdown-menu,
+        .group:focus-within .dropdown-menu,
+        .dropdown-menu.open { display: block !important; }
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1A1A1A;
+            transition: all 0.2s ease;
+        }
+        .dark .dropdown-link { color: #E5E7EB; }
+        .dropdown-link:hover {
+            background: #EFF6FF;
+            color: #2563EB;
+        }
+        .dark .dropdown-link:hover {
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+        }
+
+        /* RTL fixes */
+        [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+        [dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100vw;
+            z-index: 50;
+        }
+        @media (max-width: 1279px) {
+            main {
+                padding-top: 73px;
+            }
+        }
+
+        /* ============ BLOG PAGE UNIQUE STYLES ============ */
+
+        /* Category chip */
+        .cat-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.1rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            border: 1px solid #E8E4DC;
+            background: #FAF8F4;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+        .dark .cat-chip {
+            color: #E8E8E8;
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .cat-chip:hover {
+            border-color: #2563EB;
+            color: #2563EB;
+            background: #EFF6FF;
+        }
+        .dark .cat-chip:hover {
+            border-color: #3B82F6;
+            color: #93C5FD;
+            background: rgba(37,99,235,0.15);
+        }
+        .cat-chip.active {
+            background: #2563EB;
+            color: #FFFFFF;
+            border-color: #2563EB;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+        }
+        .dark .cat-chip.active {
+            background: #3B82F6;
+            border-color: #3B82F6;
+        }
+
+        /* Featured post card */
+        .featured-post {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #FFFFFF;
+            border: 1px solid #E8E4DC;
+            transition: all 0.4s ease;
+            display: grid;
+            grid-template-columns: 1fr;
+        }
+        @media (min-width: 1024px) {
+            .featured-post { grid-template-columns: 1.15fr 1fr; }
+        }
+        .dark .featured-post {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .featured-post:hover {
+            box-shadow: 0 32px 64px -32px rgba(26,26,26,0.2);
+        }
+        .dark .featured-post:hover {
+            box-shadow: 0 32px 64px -32px rgba(0,0,0,0.6);
+        }
+
+        /* Featured visual */
+        .featured-visual {
+            position: relative;
+            min-height: 320px;
+            background: linear-gradient(135deg, #1E3A8A 0%, #2563EB 60%, #3B82F6 100%);
+            overflow: hidden;
+        }
+        .featured-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.15) 1px, transparent 1px);
+            background-size: 22px 22px;
+            opacity: 0.5;
+        }
+
+        /* Blog post card */
+        .post-card {
+            background: #FFFFFF;
+            border-radius: 20px;
+            border: 1px solid #E8E4DC;
+            overflow: hidden;
+            transition: all 0.35s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        .dark .post-card {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .post-card:hover {
+            transform: translateY(-6px);
+            border-color: #2563EB;
+            box-shadow: 0 24px 48px -24px rgba(26,26,26,0.18);
+        }
+        .dark .post-card:hover {
+            border-color: #3B82F6;
+            box-shadow: 0 24px 48px -24px rgba(0,0,0,0.6);
+        }
+        .post-card:hover .post-title {
+            color: #2563EB;
+        }
+        .dark .post-card:hover .post-title {
+            color: #93C5FD;
+        }
+        .post-card:hover .post-visual img {
+            transform: scale(1.06);
+        }
+
+        /* Post visual image container */
+        .post-visual {
+            height: 200px;
+            position: relative;
+            overflow: hidden;
+            background: #F1EFEA;
+        }
+        .dark .post-visual {
+            background: #262626;
+        }
+        .post-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            display: block;
+        }
+
+        /* Category tag on post */
+        .post-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            padding: 0.3rem 0.75rem;
+            border-radius: 999px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Author avatar */
+        .author-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            flex-shrink: 0;
+        }
+
+        /* Newsletter panel */
+        .newsletter-panel {
+            background: linear-gradient(135deg, #1A1A1A 0%, #2E2E2E 100%);
+            border-radius: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .dark .newsletter-panel {
+            background: linear-gradient(135deg, #1F1F1F 0%, #141414 100%);
+        }
+        .newsletter-panel::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 320px;
+            height: 320px;
+            background: radial-gradient(circle, rgba(37,99,235,0.35) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+        .newsletter-panel::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            left: -60px;
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, rgba(245,158,11,0.18) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        /* Sidebar widget */
+        .widget {
+            background: #FFFFFF;
+            border-radius: 20px;
+            border: 1px solid #E8E4DC;
+            padding: 1.5rem;
+        }
+        .dark .widget {
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .widget-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #1A1A1A;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .dark .widget-title { color: #E8E8E8; }
+        .widget-title::before {
+            content: '';
+            width: 3px;
+            height: 14px;
+            border-radius: 2px;
+            background: #2563EB;
+        }
+        .dark .widget-title::before { background: #3B82F6; }
+
+        /* Popular post item */
+        .popular-item {
+            display: flex;
+            gap: 0.85rem;
+            padding: 0.85rem 0;
+            border-bottom: 1px dashed #E8E4DC;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .dark .popular-item { border-color: #333333; }
+        .popular-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .popular-item:hover .popular-num {
+            background: #2563EB;
+            color: #FFFFFF;
+        }
+        .popular-item:hover .popular-title {
+            color: #2563EB;
+        }
+        .dark .popular-item:hover .popular-title {
+            color: #93C5FD;
+        }
+        .popular-num {
+            width: 32px;
+            height: 32px;
+            border-radius: 9px;
+            background: #EFF6FF;
+            color: #2563EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            font-family: 'JetBrains Mono', monospace;
+            flex-shrink: 0;
+            transition: all 0.25s ease;
+        }
+        .dark .popular-num {
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+        }
+
+        /* Tag cloud */
+        .tag-cloud-item {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4rem 0.85rem;
+            border-radius: 999px;
+            background: #FAF8F4;
+            border: 1px solid #E8E4DC;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #2E2E2E;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .dark .tag-cloud-item {
+            background: #141414;
+            border-color: #333333;
+            color: #D1D5DB;
+        }
+        .tag-cloud-item:hover {
+            background: #2563EB;
+            color: #FFFFFF;
+            border-color: #2563EB;
+            transform: translateY(-2px);
+        }
+        .dark .tag-cloud-item:hover {
+            background: #3B82F6;
+            border-color: #3B82F6;
+        }
+
+        /* Pagination */
+        .page-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #1A1A1A;
+            border: 1.5px solid #E8E4DC;
+            background: #FFFFFF;
+            transition: all 0.25s ease;
+            cursor: pointer;
+        }
+        .dark .page-num {
+            color: #E8E8E8;
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .page-num:hover {
+            border-color: #2563EB;
+            color: #2563EB;
+            transform: translateY(-2px);
+        }
+        .dark .page-num:hover {
+            border-color: #3B82F6;
+            color: #93C5FD;
+        }
+        .page-num.active {
+            background: #2563EB;
+            color: #FFFFFF;
+            border-color: #2563EB;
+        }
+        .dark .page-num.active {
+            background: #3B82F6;
+            border-color: #3B82F6;
+        }
+
+        /* Section divider with label */
+        .divider-label {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .divider-label::before,
+        .divider-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: #E8E4DC;
+        }
+        .dark .divider-label::before,
+        .dark .divider-label::after {
+            background: #333333;
+        }
+
+        /* Reading time */
+        .read-time {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #6B7280;
+        }
+        .dark .read-time { color: #9CA3AF; }
+    </style>
+</head>
+
+<body class="bg-paper-warm dark:bg-dark-bg text-ink dark:text-gray-200">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header" class="z-50 bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md border-b border-paper-edge dark:border-dark-edge w-full">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-7 py-3.5 flex items-center justify-between w-full">
+
+            <!-- Brand -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                    <i class="fas fa-print text-white text-lg"></i>
+                </div>
+                <div class="leading-none">
+                    <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                        Print<span class="text-accent">Craft</span>
+                    </span>
+                    <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print · Bind · Copy</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden xl:flex items-center gap-5 2xl:gap-6">
+                <!-- Home Dropdown -->
+                <div class="relative group">
+                    <a href="index.html" class="nav-item inline-flex items-center gap-1.5">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-down text-[10px] opacity-75 group-hover:rotate-180 transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full left-0 pt-2 w-40 z-50">
+                        <div class="bg-white dark:bg-[#1F1F1F] rounded-xl shadow-lg border border-paper-edge dark:border-dark-edge py-1.5 overflow-hidden">
+                            <a href="index.html" class="dropdown-link">
+                                <span>Home 1</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-link">
+                                <span>Home 2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="about.html" class="nav-item">About</a>
+                <a href="services.html" class="nav-item">Services</a>
+                <a href="pricing.html" class="nav-item">Pricing</a>
+                <a href="track-order.html" class="nav-item">Track Order</a>
+                <a href="blog.html" class="nav-item active">Blog</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </div>
+
+            <!-- Right actions (Desktop) -->
+            <div class="hidden xl:flex items-center gap-2">
+                <button id="theme-toggle" class="toggle-btn" title="Dark / Light">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+                <button id="rtl-toggle" class="toggle-btn" title="RTL / LTR">⇄</button>
+                <a href="contact.html" class="btn-accent ml-2 !py-2.5 !px-5 !text-sm">
+                    <i class="fas fa-file-invoice"></i> Get a Quote
+                </a>
+            </div>
+
+            <!-- Mobile & Tablet Hamburger Toggle -->
+            <button id="mobile-toggle" class="xl:hidden flex items-center justify-center shrink-0 w-10 h-10 rounded-lg text-ink dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10 text-xl cursor-pointer transition ml-auto" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile & Tablet Menu -->
+        <div id="mobile-menu" class="xl:hidden bg-white dark:bg-[#1A1A1A] border-t border-paper-edge dark:border-dark-edge">
+            <div class="mobile-menu px-6">
+                <!-- Home options -->
+                <div class="py-3 border-b border-paper-edge dark:border-dark-edge">
+                    <button type="button" id="mobile-home-toggle" class="w-full flex items-center justify-between font-semibold text-ink dark:text-white cursor-pointer select-none">
+                        <span>Home</span>
+                        <i id="mobile-home-chevron" class="fas fa-chevron-down text-xs text-ink-soft dark:text-gray-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-home-sub" class="hidden pl-4 space-y-2 pt-2">
+                        <a href="index.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 1</a>
+                        <a href="home2.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">About</a>
+                <a href="services.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Services</a>
+                <a href="pricing.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Pricing</a>
+                <a href="track-order.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Track Order</a>
+                <a href="blog.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge text-accent">Blog</a>
+                <a href="contact.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Contact</a>
+
+                <!-- Centered Actions inside mobile menu -->
+                <div class="py-6 flex flex-col items-center justify-center gap-4 border-t border-paper-edge/60 dark:border-dark-edge/60">
+                    <a href="contact.html" class="btn-accent w-full max-w-xs !py-3 !px-6 text-sm shadow-md text-center justify-center">
+                        <i class="fas fa-file-invoice"></i> Get a Quote
+                    </a>
+                    <div class="flex items-center justify-center gap-3">
+                        <button id="theme-toggle-mobile" class="toggle-btn" title="Dark / Light">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle-mobile" class="toggle-btn" title="RTL / LTR">⇄</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main>
+
+        <!-- ===== BLOG HERO ===== -->
+        <section class="pt-10 sm:pt-16 xl:pt-36 pb-10 px-4 sm:px-6 relative overflow-hidden">
+            <div class="absolute top-0 right-1/4 w-96 h-96 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-72 h-72 bg-highlight/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-32 right-8 sm:right-20 font-display font-bold text-[10rem] sm:text-[16rem] leading-none text-accent/5 dark:text-accent/10 pointer-events-none select-none">B</div>
+
+            <div class="container mx-auto max-w-7xl relative z-10">
+                <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-3 mb-6 justify-center">
+                        <span class="w-8 h-[2px] bg-accent"></span>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-accent">The PrintCraft Journal</span>
+                        <span class="w-8 h-[2px] bg-accent"></span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.08] tracking-tight mb-6">
+                        Notes from the<br>
+                        <span class="text-accent">print studio.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg max-w-2xl font-light leading-relaxed text-ink-soft dark:text-gray-300 mx-auto">
+                        Paper guides, file-prep tips, and behind-the-scenes stories from the team that prints thousands of pages a day.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== CATEGORY FILTER ===== -->
+        <section class="pb-10 px-4 sm:px-6">
+            <div class="container mx-auto max-w-7xl">
+                <!-- Category Filter (Wrapped inside page, No horizontal scroll) -->
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 py-1">
+                    <button class="cat-chip active" data-cat="all"><i class="fas fa-layer-group text-xs"></i> All Posts</button>
+                    <button class="cat-chip" data-cat="printing"><i class="fas fa-print text-xs"></i> Printing</button>
+                    <button class="cat-chip" data-cat="binding"><i class="fas fa-book text-xs"></i> Binding</button>
+                    <button class="cat-chip" data-cat="copying"><i class="fas fa-copy text-xs"></i> Copying</button>
+                    <button class="cat-chip" data-cat="design"><i class="fas fa-palette text-xs"></i> Design &amp; Prep</button>
+                    <button class="cat-chip" data-cat="studio"><i class="fas fa-store text-xs"></i> Studio Life</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FEATURED POST ===== -->
+        <section class="pb-16 px-4 sm:px-6">
+            <div class="container mx-auto max-w-7xl">
+                <div class="divider-label mb-8">
+                    <span class="text-xs font-bold uppercase tracking-[0.2em] text-ink-soft dark:text-gray-400">Featured Story</span>
+                </div>
+
+                <article class="featured-post">
+                    <!-- Left: visual -->
+                    <div class="featured-visual flex items-center justify-center p-8 sm:p-12">
+                        <div class="relative z-10 text-center">
+                            <!-- mock paper stack -->
+                            <div class="relative w-40 h-52 mx-auto mb-6">
+                                <div class="absolute inset-0 bg-white/20 rounded-xl rotate-6"></div>
+                                <div class="absolute inset-0 bg-white/30 rounded-xl -rotate-3"></div>
+                                <div class="absolute inset-0 bg-white rounded-xl shadow-2xl p-4 flex flex-col gap-2">
+                                    <div class="flex items-center gap-2 mb-1">
+                                        <div class="w-5 h-5 rounded bg-accent flex items-center justify-center">
+                                            <i class="fas fa-print text-white text-[8px]"></i>
+                                        </div>
+                                        <div class="h-1.5 bg-accent/40 rounded w-12"></div>
+                                    </div>
+                                    <div class="h-1 bg-gray-200 rounded w-full"></div>
+                                    <div class="h-1 bg-gray-200 rounded w-5/6"></div>
+                                    <div class="h-1 bg-gray-200 rounded w-full"></div>
+                                    <div class="h-1 bg-gray-200 rounded w-4/6"></div>
+                                    <div class="h-1 bg-gray-200 rounded w-full"></div>
+                                    <div class="h-1 bg-gray-200 rounded w-3/6"></div>
+                                    <div class="mt-auto h-4 bg-accent/15 rounded"></div>
+                                </div>
+                            </div>
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 text-white text-xs font-semibold">
+                                <i class="fas fa-star text-highlight"></i>
+                                Editor's pick
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: content -->
+                    <div class="p-8 sm:p-10 lg:p-12 flex flex-col justify-center">
+                        <div class="flex items-center gap-3 mb-5">
+                            <span class="post-tag bg-accent/10 text-accent">Design &amp; Prep</span>
+                            <span class="read-time"><i class="fas fa-clock text-xs"></i> 8 min read</span>
+                        </div>
+
+                        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-display font-bold leading-tight mb-4 post-title transition-colors">
+                            <a href="#">The complete guide to preparing files for flawless printing</a>
+                        </h2>
+
+                        <p class="text-ink-soft dark:text-gray-400 leading-relaxed mb-6">
+                            Bleed, resolution, colour space, fonts — this is every setting you need to get right before you hit "send." Save yourself a reprint with our 12-point checklist.
+                        </p>
+
+                        <div class="flex items-center gap-3 mb-6">
+                            <img src="assets/team/maya-rodriguez.jpg" alt="Maya Rodriguez" class="w-9 h-9 rounded-full object-cover shrink-0 shadow-sm border border-accent/20">
+                            <div>
+                                <div class="text-sm font-semibold">Maya Rodriguez</div>
+                                <div class="text-xs text-ink-soft dark:text-gray-400">Mar 12, 2026</div>
+                            </div>
+                        </div>
+
+                        <a href="#" class="text-accent font-semibold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all self-start">
+                            Read the guide <i class="fas fa-arrow-right text-xs"></i>
+                        </a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- ===== MAIN CONTENT: POSTS + SIDEBAR ===== -->
+        <section class="pb-16 px-4 sm:px-6">
+            <div class="container mx-auto max-w-7xl">
+                <div class="grid lg:grid-cols-12 gap-10">
+                    <!-- Posts column -->
+                    <div class="lg:col-span-8">
+                        <div class="divider-label mb-8">
+                            <span class="text-xs font-bold uppercase tracking-[0.2em] text-ink-soft dark:text-gray-400">Latest Articles</span>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-6">
+                            <!-- Post 1 -->
+                            <article class="post-card" data-cat="binding">
+                                <div class="post-visual">
+                                    <img src="assets/blog/binding-guide.jpg" alt="Spiral, wire, and comb binding samples" loading="lazy">
+                                </div>
+                                <div class="p-6 flex flex-col flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="post-tag bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400">Binding</span>
+                                        <span class="read-time"><i class="fas fa-clock text-xs"></i> 5 min</span>
+                                    </div>
+                                    <h3 class="text-lg font-display font-bold leading-snug mb-3 post-title transition-colors">
+                                        <a href="#">Spiral vs. wire vs. comb: which binding should you choose?</a>
+                                    </h3>
+                                    <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4 flex-1">
+                                        A practical comparison of the three most popular binding styles — and when each one makes sense.
+                                    </p>
+                                    <div class="flex items-center justify-between pt-4 border-t border-paper-edge dark:border-dark-edge">
+                                        <div class="flex items-center gap-2.5">
+                                            <img src="assets/team/daniel-kim.jpg" alt="Daniel Kim" class="w-7 h-7 rounded-full object-cover shrink-0 shadow-sm border border-highlight/20">
+                                            <span class="text-xs font-semibold">Daniel Kim</span>
+                                        </div>
+                                        <span class="text-xs text-ink-soft dark:text-gray-400">Mar 10</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 2 -->
+                            <article class="post-card" data-cat="design">
+                                <div class="post-visual">
+                                    <img src="assets/blog/cmyk-rgb.jpg" alt="Pantone swatch book and CMYK color calibration monitor" loading="lazy">
+                                </div>
+                                <div class="p-6 flex flex-col flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="post-tag bg-accent/10 text-accent">Design &amp; Prep</span>
+                                        <span class="read-time"><i class="fas fa-clock text-xs"></i> 6 min</span>
+                                    </div>
+                                    <h3 class="text-lg font-display font-bold leading-snug mb-3 post-title transition-colors">
+                                        <a href="#">CMYK vs. RGB: why your colours look different when printed</a>
+                                    </h3>
+                                    <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4 flex-1">
+                                        The single most common reason for surprise reprints — and how to avoid it in three easy steps.
+                                    </p>
+                                    <div class="flex items-center justify-between pt-4 border-t border-paper-edge dark:border-dark-edge">
+                                        <div class="flex items-center gap-2.5">
+                                            <img src="assets/team/leo-petrov.jpg" alt="Leo Petrov" class="w-7 h-7 rounded-full object-cover shrink-0 shadow-sm border border-slate-700/20">
+                                            <span class="text-xs font-semibold">Leo Petrov</span>
+                                        </div>
+                                        <span class="text-xs text-ink-soft dark:text-gray-400">Mar 08</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 3 -->
+                            <article class="post-card" data-cat="printing">
+                                <div class="post-visual">
+                                    <img src="assets/blog/sustainable-printing.jpg" alt="Eco-friendly FSC recycled paper and sustainable inks" loading="lazy">
+                                </div>
+                                <div class="p-6 flex flex-col flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="post-tag bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400">Printing</span>
+                                        <span class="read-time"><i class="fas fa-clock text-xs"></i> 4 min</span>
+                                    </div>
+                                    <h3 class="text-lg font-display font-bold leading-snug mb-3 post-title transition-colors">
+                                        <a href="#">Sustainable printing: a practical guide to greener choices</a>
+                                    </h3>
+                                    <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4 flex-1">
+                                        Recycled paper, soy inks, toner recycling, and why FSC certification actually matters.
+                                    </p>
+                                    <div class="flex items-center justify-between pt-4 border-t border-paper-edge dark:border-dark-edge">
+                                        <div class="flex items-center gap-2.5">
+                                            <img src="assets/team/amara-okafor.jpg" alt="Amara Okafor" class="w-7 h-7 rounded-full object-cover shrink-0 shadow-sm border border-emerald-500/20">
+                                            <span class="text-xs font-semibold">Amara Okafor</span>
+                                        </div>
+                                        <span class="text-xs text-ink-soft dark:text-gray-400">Mar 05</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 4 -->
+                            <article class="post-card" data-cat="copying">
+                                <div class="post-visual">
+                                    <img src="assets/blog/bulk-copying.jpg" alt="High-speed digital photocopier and collated paper output" loading="lazy">
+                                </div>
+                                <div class="p-6 flex flex-col flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="post-tag bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400">Copying</span>
+                                        <span class="read-time"><i class="fas fa-clock text-xs"></i> 3 min</span>
+                                    </div>
+                                    <h3 class="text-lg font-display font-bold leading-snug mb-3 post-title transition-colors">
+                                        <a href="#">How to copy 1,000 pages without losing your mind (or your margins)</a>
+                                    </h3>
+                                    <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4 flex-1">
+                                        Bulk copying tips: collating, stapling, tray selection, and the settings that save you hours.
+                                    </p>
+                                    <div class="flex items-center justify-between pt-4 border-t border-paper-edge dark:border-dark-edge">
+                                        <div class="flex items-center gap-2.5">
+                                            <img src="assets/team/maya-rodriguez.jpg" alt="Maya Rodriguez" class="w-7 h-7 rounded-full object-cover shrink-0 shadow-sm border border-accent/20">
+                                            <span class="text-xs font-semibold">Maya Rodriguez</span>
+                                        </div>
+                                        <span class="text-xs text-ink-soft dark:text-gray-400">Mar 02</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 5 -->
+                            <article class="post-card" data-cat="studio">
+                                <div class="post-visual">
+                                    <img src="assets/blog/studio-story.jpg" alt="Artisanal PrintCraft workshop with coffee and print presses" loading="lazy">
+                                </div>
+                                <div class="p-6 flex flex-col flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="post-tag bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-400">Studio Life</span>
+                                        <span class="read-time"><i class="fas fa-clock text-xs"></i> 7 min</span>
+                                    </div>
+                                    <h3 class="text-lg font-display font-bold leading-snug mb-3 post-title transition-colors">
+                                        <a href="#">10 years, one printer, and a lot of coffee: the PrintCraft story</a>
+                                    </h3>
+                                    <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4 flex-1">
+                                        How a tiny back-room operation grew into three studios and 28 team members.
+                                    </p>
+                                    <div class="flex items-center justify-between pt-4 border-t border-paper-edge dark:border-dark-edge">
+                                        <div class="flex items-center gap-2.5">
+                                            <img src="assets/team/maya-rodriguez.jpg" alt="Maya Rodriguez" class="w-7 h-7 rounded-full object-cover shrink-0 shadow-sm border border-rose-500/20">
+                                            <span class="text-xs font-semibold">Maya Rodriguez</span>
+                                        </div>
+                                        <span class="text-xs text-ink-soft dark:text-gray-400">Feb 28</span>
+                                    </div>
+                                </div>
+                            </article>
+
+                            <!-- Post 6 -->
+                            <article class="post-card" data-cat="printing">
+                                <div class="post-visual">
+                                    <img src="assets/blog/resolution-300dpi.jpg" alt="Linen loupe magnifying 300 DPI micro print dots and test pattern" loading="lazy">
+                                </div>
+                                <div class="p-6 flex flex-col flex-1">
+                                    <div class="flex items-center gap-3 mb-3">
+                                        <span class="post-tag bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400">Printing</span>
+                                        <span class="read-time"><i class="fas fa-clock text-xs"></i> 5 min</span>
+                                    </div>
+                                    <h3 class="text-lg font-display font-bold leading-snug mb-3 post-title transition-colors">
+                                        <a href="#">Why 300 DPI matters (and when you can get away with less)</a>
+                                    </h3>
+                                    <p class="text-sm text-ink-soft dark:text-gray-400 leading-relaxed mb-4 flex-1">
+                                        Resolution demystified: what it means, how to check it, and the exceptions to the rule.
+                                    </p>
+                                    <div class="flex items-center justify-between pt-4 border-t border-paper-edge dark:border-dark-edge">
+                                        <div class="flex items-center gap-2.5">
+                                            <img src="assets/team/leo-petrov.jpg" alt="Leo Petrov" class="w-7 h-7 rounded-full object-cover shrink-0 shadow-sm border border-slate-700/20">
+                                            <span class="text-xs font-semibold">Leo Petrov</span>
+                                        </div>
+                                        <span class="text-xs text-ink-soft dark:text-gray-400">Feb 24</span>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="flex items-center justify-center gap-2 mt-12">
+                            <button class="page-num" aria-label="Previous"><i class="fas fa-chevron-left text-xs"></i></button>
+                            <button class="page-num active">1</button>
+                            <button class="page-num">2</button>
+                            <button class="page-num">3</button>
+                            <span class="px-2 text-ink-soft dark:text-gray-400">…</span>
+                            <button class="page-num">8</button>
+                            <button class="page-num" aria-label="Next"><i class="fas fa-chevron-right text-xs"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="lg:col-span-4 space-y-6">
+                        <!-- Search widget -->
+                        <div class="widget">
+                            <div class="widget-title">Search the blog</div>
+                            <div class="relative">
+                                <i class="fas fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft/50 dark:text-gray-500 text-sm"></i>
+                                <input
+                                    type="text"
+                                    placeholder="Search articles..."
+                                    class="w-full pl-10 pr-4 py-3 rounded-xl border-1.5 border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] text-sm focus:outline-none focus:border-accent transition"
+                                    style="border-width:1.5px"
+                                >
+                            </div>
+                        </div>
+
+                        <!-- Popular posts -->
+                        <div class="widget">
+                            <div class="widget-title">Most read</div>
+                            <div>
+                                <div class="popular-item">
+                                    <div class="popular-num">01</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-semibold leading-snug popular-title transition-colors">The complete guide to preparing files for printing</div>
+                                        <div class="text-xs text-ink-soft dark:text-gray-400 mt-1">8 min read · Design</div>
+                                    </div>
+                                </div>
+                                <div class="popular-item">
+                                    <div class="popular-num">02</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-semibold leading-snug popular-title transition-colors">Spiral vs. wire vs. comb binding explained</div>
+                                        <div class="text-xs text-ink-soft dark:text-gray-400 mt-1">5 min read · Binding</div>
+                                    </div>
+                                </div>
+                                <div class="popular-item">
+                                    <div class="popular-num">03</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-semibold leading-snug popular-title transition-colors">CMYK vs. RGB: why colours shift when printed</div>
+                                        <div class="text-xs text-ink-soft dark:text-gray-400 mt-1">6 min read · Design</div>
+                                    </div>
+                                </div>
+                                <div class="popular-item">
+                                    <div class="popular-num">04</div>
+                                    <div class="flex-1 min-w-0">
+                                        <div class="text-sm font-semibold leading-snug popular-title transition-colors">Sustainable printing: a practical guide</div>
+                                        <div class="text-xs text-ink-soft dark:text-gray-400 mt-1">4 min read · Printing</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Categories widget -->
+                        <div class="widget">
+                            <div class="widget-title">Browse by category</div>
+                            <div class="space-y-1">
+                                <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-accent-soft dark:hover:bg-accent/10 transition group">
+                                    <span class="text-sm font-medium group-hover:text-accent transition">Printing</span>
+                                    <span class="text-xs font-mono font-bold text-ink-soft dark:text-gray-400 bg-paper-warm dark:bg-[#141414] px-2 py-0.5 rounded">12</span>
+                                </a>
+                                <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-accent-soft dark:hover:bg-accent/10 transition group">
+                                    <span class="text-sm font-medium group-hover:text-accent transition">Binding</span>
+                                    <span class="text-xs font-mono font-bold text-ink-soft dark:text-gray-400 bg-paper-warm dark:bg-[#141414] px-2 py-0.5 rounded">8</span>
+                                </a>
+                                <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-accent-soft dark:hover:bg-accent/10 transition group">
+                                    <span class="text-sm font-medium group-hover:text-accent transition">Copying</span>
+                                    <span class="text-xs font-mono font-bold text-ink-soft dark:text-gray-400 bg-paper-warm dark:bg-[#141414] px-2 py-0.5 rounded">5</span>
+                                </a>
+                                <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-accent-soft dark:hover:bg-accent/10 transition group">
+                                    <span class="text-sm font-medium group-hover:text-accent transition">Design &amp; Prep</span>
+                                    <span class="text-xs font-mono font-bold text-ink-soft dark:text-gray-400 bg-paper-warm dark:bg-[#141414] px-2 py-0.5 rounded">9</span>
+                                </a>
+                                <a href="#" class="flex items-center justify-between px-3 py-2.5 rounded-lg hover:bg-accent-soft dark:hover:bg-accent/10 transition group">
+                                    <span class="text-sm font-medium group-hover:text-accent transition">Studio Life</span>
+                                    <span class="text-xs font-mono font-bold text-ink-soft dark:text-gray-400 bg-paper-warm dark:bg-[#141414] px-2 py-0.5 rounded">6</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- Tag cloud widget -->
+                        <div class="widget">
+                            <div class="widget-title">Popular tags</div>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tag-cloud-item">#bleed</span>
+                                <span class="tag-cloud-item">#cmyk</span>
+                                <span class="tag-cloud-item">#resolution</span>
+                                <span class="tag-cloud-item">#thesis</span>
+                                <span class="tag-cloud-item">#spiral</span>
+                                <span class="tag-cloud-item">#bulk</span>
+                                <span class="tag-cloud-item">#recycled</span>
+                                <span class="tag-cloud-item">#fonts</span>
+                                <span class="tag-cloud-item">#paper</span>
+                                <span class="tag-cloud-item">#largeformat</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA widget -->
+                        <div class="newsletter-panel p-6 relative">
+                            <div class="relative z-10">
+                                <div class="w-11 h-11 rounded-xl bg-white/10 backdrop-blur flex items-center justify-center mb-4">
+                                    <i class="fas fa-print text-accent-light"></i>
+                                </div>
+                                <h3 class="text-lg font-display font-bold text-white mb-2">Ready to print?</h3>
+                                <p class="text-sm text-white/70 mb-5 leading-relaxed">Turn what you've learned into a beautiful printed piece.</p>
+                                <a href="contact.html" class="btn-accent !bg-white !text-ink hover:!bg-accent-light !shadow-none w-full justify-center !text-sm">
+                                    <i class="fas fa-paper-plane"></i> Start your order
+                                </a>
+                            </div>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEWSLETTER SIGNUP ===== -->
+        <section class="py-16 px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-5xl">
+                <div class="rounded-3xl bg-gradient-to-br from-accent to-accent-dark text-white p-10 sm:p-14 relative overflow-hidden">
+                    <div class="absolute -top-20 -right-20 w-64 h-64 border-2 border-white/10 rounded-full"></div>
+                    <div class="absolute -bottom-16 -left-16 w-48 h-48 border-2 border-white/10 rounded-full"></div>
+
+                    <div class="relative z-10 grid lg:grid-cols-12 gap-8 items-center">
+                        <div class="lg:col-span-7">
+                            <div class="w-14 h-14 rounded-2xl bg-white/15 flex items-center justify-center mb-5">
+                                <i class="fas fa-envelope-open-text text-2xl"></i>
+                            </div>
+                            <h2 class="text-3xl sm:text-4xl font-display font-bold mb-3">Get print tips in your inbox.</h2>
+                            <p class="text-base opacity-90 max-w-lg font-light">One email a month. Paper guides, file-prep checklists, and studio news — no spam, unsubscribe anytime.</p>
+                        </div>
+                        <div class="lg:col-span-5">
+                            <form onsubmit="event.preventDefault(); this.reset(); this.querySelector('button').innerHTML='<i class=\'fas fa-check\'></i> Subscribed!';" class="space-y-3">
+                                <input
+                                    type="email"
+                                    placeholder="you@example.com"
+                                    required
+                                    class="w-full px-4 py-3 rounded-xl bg-white/15 border border-white/25 placeholder-white/60 text-white focus:outline-none focus:bg-white/20 focus:border-white/50 transition text-sm"
+                                >
+                                <button type="submit" class="w-full bg-white text-accent font-semibold py-3 rounded-xl hover:bg-accent-light transition flex items-center justify-center gap-2">
+                                    <i class="fas fa-paper-plane"></i> Subscribe
+                                </button>
+                                <p class="text-[11px] opacity-70 text-center">Join 3,400+ readers</p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== AUTHOR SPOTLIGHT ===== -->
+        <section class="py-20 px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-7xl">
+                <div class="text-center max-w-2xl mx-auto mb-14">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Who writes this</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-3">The voices behind the blog</h2>
+                    <p class="mt-4 text-ink-soft dark:text-gray-300">Our team shares what they know — from decades on the press to years of client work.</p>
+                </div>
+
+                <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Author 1 -->
+                    <div class="text-center p-6 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div class="w-20 h-20 mx-auto rounded-2xl overflow-hidden mb-4 shadow-md border-2 border-accent/20 group-hover:scale-105 transition duration-300">
+                            <img src="assets/team/maya-rodriguez.jpg" alt="Maya Rodriguez" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <h3 class="font-display font-bold">Maya Rodriguez</h3>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-accent mt-1 mb-3">Founder &amp; Studio Lead</div>
+                        <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Writes about studio life, client work, and the big-picture craft of printing.</p>
+                    </div>
+
+                    <!-- Author 2 -->
+                    <div class="text-center p-6 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div class="w-20 h-20 mx-auto rounded-2xl overflow-hidden mb-4 shadow-md border-2 border-slate-700/20 group-hover:scale-105 transition duration-300">
+                            <img src="assets/team/leo-petrov.jpg" alt="Leo Petrov" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <h3 class="font-display font-bold">Leo Petrov</h3>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mt-1 mb-3">Prepress &amp; Colour</div>
+                        <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">The technical deep-dives: colour, resolution, file prep, and press settings.</p>
+                    </div>
+
+                    <!-- Author 3 -->
+                    <div class="text-center p-6 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div class="w-20 h-20 mx-auto rounded-2xl overflow-hidden mb-4 shadow-md border-2 border-highlight/20 group-hover:scale-105 transition duration-300">
+                            <img src="assets/team/daniel-kim.jpg" alt="Daniel Kim" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <h3 class="font-display font-bold">Daniel Kim</h3>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-highlight mt-1 mb-3">Head of Production</div>
+                        <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Binding comparisons, finishing guides, and production-side how-tos.</p>
+                    </div>
+
+                    <!-- Author 4 -->
+                    <div class="text-center p-6 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge hover:border-accent dark:hover:border-accent transition-all duration-300 group">
+                        <div class="w-20 h-20 mx-auto rounded-2xl overflow-hidden mb-4 shadow-md border-2 border-emerald-500/20 group-hover:scale-105 transition duration-300">
+                            <img src="assets/team/amara-okafor.jpg" alt="Amara Okafor" class="w-full h-full object-cover" loading="lazy">
+                        </div>
+                        <h3 class="font-display font-bold">Amara Okafor</h3>
+                        <div class="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 mt-1 mb-3">Client Experience</div>
+                        <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed">Sustainability, community projects, and stories from our client base.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FINAL CTA ===== -->
+        <section class="py-16 px-6 bg-white dark:bg-[#1A1A1A] border-t border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-5xl">
+                <div class="rounded-3xl bg-ink dark:bg-dark-card text-white p-10 sm:p-14 text-center relative overflow-hidden border border-paper-edge dark:border-dark-edge">
+                    <div class="absolute top-0 left-0 w-full h-1.5 bg-gradient-to-r from-accent via-highlight to-accent"></div>
+                    <div class="absolute -top-24 -left-24 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+
+                    <div class="relative z-10">
+                        <div class="w-14 h-14 rounded-2xl bg-white/10 flex items-center justify-center mx-auto mb-6">
+                            <i class="fas fa-lightbulb text-2xl text-accent-light"></i>
+                        </div>
+                        <h2 class="text-3xl sm:text-4xl font-display font-bold mb-4">Got a topic you want covered?</h2>
+                        <p class="text-base sm:text-lg opacity-90 max-w-2xl mx-auto mb-8 font-light">Tell us what you'd like to read about. We write for our readers — and we're always taking requests.</p>
+                        <div class="flex flex-wrap gap-4 justify-center">
+                            <a href="contact.html" class="btn-accent">
+                                <i class="fas fa-comment-dots"></i> Suggest a topic
+                            </a>
+                            <a href="services.html" class="border-2 border-white/40 text-white px-8 py-3.5 rounded-xl font-semibold hover:bg-white/10 transition inline-flex items-center gap-2">
+                                <i class="fas fa-list-check"></i> Browse services
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-[#FAF7F2] dark:bg-[#161616] border-t border-paper-edge dark:border-dark-edge pt-20 pb-16 px-6 sm:px-8 transition-colors">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 mb-16">
+                <!-- Brand -->
+                <div class="space-y-4 max-w-sm">
+                    <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                        <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                            <i class="fas fa-print text-white text-lg"></i>
+                        </div>
+                        <div class="leading-none">
+                            <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                                Print<span class="text-accent">Craft</span>
+                            </span>
+                            <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print &middot; Bind &middot; Copy</p>
+                        </div>
+                    </a>
+                    <p class="text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300 leading-relaxed">
+                        Fast, reliable printing, binding &amp; copying. Crafted for precision.
+                    </p>
+                    <div class="flex items-center gap-6 pt-2 text-ink-soft/80 dark:text-gray-400">
+                        <a href="#" aria-label="Instagram" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" aria-label="X" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-x-twitter text-lg"></i></a>
+                        <a href="#" aria-label="Facebook" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-facebook-f text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Explore / Services -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Services</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="services.html" class="hover:text-accent transition">Document Printing</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Binding &amp; Laminating</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Color Copying</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Posters &amp; Large Format</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Explore</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="index.html" class="hover:text-accent transition">About Us</a></li>
+                        <li><a href="pricing.html" class="hover:text-accent transition">Pricing</a></li>
+                        <li><a href="#how-it-works" class="hover:text-accent transition">How It Works</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop / Store Details -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Store</h4>
+                    <ul class="space-y-4 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li class="flex items-start gap-3.5">
+                            <i class="fas fa-location-dot text-accent text-sm mt-1 shrink-0"></i>
+                            <span>124 High Street, Greenfield</span>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-phone text-accent text-sm shrink-0"></i>
+                            <a href="tel:+15557426274" class="hover:text-accent transition">(555) 742-PRINT</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-envelope text-accent text-sm shrink-0"></i>
+                            <a href="mailto:hello@printcraft.com" class="hover:text-accent transition">hello@printcraft.com</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-clock text-accent text-sm shrink-0"></i>
+                            <span>Mon–Sat 8am – 7pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="text-center text-sm text-ink-soft/75 dark:text-gray-400">
+                <p>&copy; 2026 PrintCraft &middot; Printing &amp; Copy Shop. <span class="text-accent">&hearts;</span> Quality prints made easy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPT ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtn = document.getElementById('theme-toggle');
+            const themeBtnM = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                document.documentElement.classList.toggle('dark', isDark);
+                [themeBtn, themeBtnM].forEach(btn => {
+                    if (!btn) return;
+                    const moon = btn.querySelector('.fa-moon');
+                    const sun = btn.querySelector('.fa-sun');
+                    if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                    else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            setTheme(localStorage.getItem('theme') === 'dark');
+            themeBtn?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            themeBtnM?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // RTL toggle
+            const rtlBtn = document.getElementById('rtl-toggle');
+            const rtlBtnM = document.getElementById('rtl-toggle-mobile');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                document.documentElement.setAttribute('lang', isRTL ? 'ar' : 'en');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            setRTL(localStorage.getItem('dir') === 'rtl');
+            rtlBtn?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            rtlBtnM?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            // Mobile menu
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuInner = document.querySelector('#mobile-menu .mobile-menu');
+            const mobileIcon = document.querySelector('#mobile-toggle i');
+
+            function toggleMobileMenu(forceClose = false) {
+                if (!mobileMenu) return;
+                const shouldOpen = forceClose ? false : !mobileMenu.classList.contains('open');
+                mobileMenu.classList.toggle('open', shouldOpen);
+                mobileMenuInner?.classList.toggle('open', shouldOpen);
+                mobileIcon?.classList.toggle('fa-bars', !shouldOpen);
+                mobileIcon?.classList.toggle('fa-times', shouldOpen);
+
+                if (shouldOpen) {
+                    document.body.classList.add('menu-open');
+                    document.documentElement.classList.add('overflow-hidden');
+                } else {
+                    document.body.classList.remove('menu-open');
+                    document.documentElement.classList.remove('overflow-hidden');
+                }
+            }
+
+            mobileToggle?.addEventListener('click', () => toggleMobileMenu());
+
+            // Mobile Home accordion toggle
+            const homeToggle = document.getElementById('mobile-home-toggle');
+            const homeSub = document.getElementById('mobile-home-sub');
+            const homeChevron = document.getElementById('mobile-home-chevron');
+            homeToggle?.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isClosed = homeSub?.classList.contains('hidden');
+                homeSub?.classList.toggle('hidden', !isClosed);
+                homeChevron?.classList.toggle('rotate-180', isClosed);
+            });
+
+            // Close mobile menu and restore background scrolling on nav link click
+            mobileMenu?.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    toggleMobileMenu(true);
+                    // Reset home dropdown when navigating away
+                    homeSub?.classList.add('hidden');
+                    homeChevron?.classList.remove('rotate-180');
+                });
+            });
+
+            // Restore scroll if resized to desktop breakpoint
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1280 && mobileMenu?.classList.contains('open')) {
+                    toggleMobileMenu(true);
+                }
+            });
+
+            // Desktop Header Dropdown: Persistent toggle on touch / click (does not auto-hide)
+            const headerDropdownGroup = document.querySelector('header nav .relative.group');
+            const headerDropdownMenu = headerDropdownGroup?.querySelector('.dropdown-menu');
+            const headerDropdownBtn = headerDropdownGroup?.querySelector('.nav-item');
+
+            if (headerDropdownGroup && headerDropdownMenu && headerDropdownBtn) {
+                headerDropdownBtn.addEventListener('click', (e) => {
+                    const isExpanded = headerDropdownMenu.classList.contains('open');
+                    if (!isExpanded) {
+                        e.preventDefault();
+                        headerDropdownMenu.classList.add('open');
+                    } else {
+                        headerDropdownMenu.classList.remove('open');
+                    }
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!headerDropdownGroup.contains(e.target)) {
+                        headerDropdownMenu.classList.remove('open');
+                    }
+                });
+            }
+
+            // ===== CATEGORY FILTER =====
+            const catChips = document.querySelectorAll('.cat-chip');
+            const postCards = document.querySelectorAll('.post-card');
+
+            catChips.forEach(chip => {
+                chip.addEventListener('click', () => {
+                    catChips.forEach(c => c.classList.remove('active'));
+                    chip.classList.add('active');
+
+                    const cat = chip.dataset.cat;
+                    postCards.forEach(card => {
+                        if (cat === 'all' || card.dataset.cat === cat) {
+                            card.style.display = 'flex';
+                            card.style.animation = 'none';
+                            setTimeout(() => { card.style.animation = 'fadeIn 0.5s ease-out'; }, 10);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
