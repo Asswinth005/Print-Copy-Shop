@@ -248,6 +248,9 @@
         /* RTL fixes */
         [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
         [dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+        [dir="rtl"] .blog-search-input { padding-left: 2.5rem; padding-right: 2.75rem; }
+        [dir="rtl"] .blog-search-icon { left: auto; right: 1rem; }
+        [dir="rtl"] .blog-search-clear { right: auto; left: 0.875rem; }
 
         #site-header {
             position: fixed;
@@ -762,6 +765,23 @@
                     <p class="text-base sm:text-lg max-w-2xl font-light leading-relaxed text-ink-soft dark:text-gray-300 mx-auto">
                         Paper guides, file-prep tips, and behind-the-scenes stories from the team that prints thousands of pages a day.
                     </p>
+
+                    <!-- Search Box (Aligned on top of the page for 360px & 768px / mobile & tablet) -->
+                    <div class="w-full max-w-md sm:max-w-xl mx-auto mt-6 sm:mt-8 block lg:hidden">
+                        <div class="relative">
+                            <i class="fas fa-magnifying-glass blog-search-icon absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft/50 dark:text-gray-500 text-sm pointer-events-none"></i>
+                            <input
+                                type="text"
+                                placeholder="Search articles..."
+                                class="blog-search-input w-full pl-11 pr-10 py-3 sm:py-3.5 rounded-xl border border-paper-edge dark:border-dark-edge bg-white dark:bg-dark-card text-ink dark:text-white shadow-sm text-sm focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/20 transition placeholder:text-ink-soft/50 dark:placeholder:text-gray-500"
+                                style="border-width:1.5px"
+                                aria-label="Search articles"
+                            >
+                            <button type="button" class="search-clear-btn blog-search-clear hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-ink-soft/40 hover:text-ink dark:text-gray-500 dark:hover:text-white text-xs p-1 transition" aria-label="Clear search">
+                                <i class="fas fa-times"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1032,17 +1052,21 @@
 
                     <!-- Sidebar -->
                     <aside class="lg:col-span-4 space-y-6">
-                        <!-- Search widget -->
-                        <div class="widget">
+                        <!-- Search widget (Desktop sidebar) -->
+                        <div class="widget hidden lg:block">
                             <div class="widget-title">Search the blog</div>
                             <div class="relative">
-                                <i class="fas fa-magnifying-glass absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft/50 dark:text-gray-500 text-sm"></i>
+                                <i class="fas fa-magnifying-glass blog-search-icon absolute left-4 top-1/2 -translate-y-1/2 text-ink-soft/50 dark:text-gray-500 text-sm pointer-events-none"></i>
                                 <input
                                     type="text"
                                     placeholder="Search articles..."
-                                    class="w-full pl-10 pr-4 py-3 rounded-xl border-1.5 border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] text-sm focus:outline-none focus:border-accent transition"
+                                    class="blog-search-input w-full pl-10 pr-10 py-3 rounded-xl border-1.5 border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] text-sm focus:outline-none focus:border-accent transition text-ink dark:text-white placeholder:text-ink-soft/50 dark:placeholder:text-gray-500"
                                     style="border-width:1.5px"
+                                    aria-label="Search articles"
                                 >
+                                <button type="button" class="search-clear-btn blog-search-clear hidden absolute right-3.5 top-1/2 -translate-y-1/2 text-ink-soft/40 hover:text-ink dark:text-gray-500 dark:hover:text-white text-xs p-1 transition" aria-label="Clear search">
+                                    <i class="fas fa-times"></i>
+                                </button>
                             </div>
                         </div>
 
@@ -1447,25 +1471,109 @@
                 });
             }
 
-            // ===== CATEGORY FILTER =====
+            // ===== SEARCH & CATEGORY FILTER =====
             const catChips = document.querySelectorAll('.cat-chip');
             const postCards = document.querySelectorAll('.post-card');
+            const searchInputs = document.querySelectorAll('.blog-search-input');
+            const clearBtns = document.querySelectorAll('.search-clear-btn');
+            const featuredSection = document.querySelector('section:has(.featured-post)') || document.querySelector('.featured-post')?.closest('section');
+            const postsContainer = document.querySelector('.lg\\:col-span-8');
+            const postsGrid = postsContainer?.querySelector('.grid');
+
+            let currentCat = 'all';
+            let currentQuery = '';
+
+            function applyFilters() {
+                const query = currentQuery.trim().toLowerCase();
+                let visibleCount = 0;
+
+                postCards.forEach(card => {
+                    const cat = card.dataset.cat || '';
+                    const text = card.textContent.toLowerCase();
+                    const matchesCat = (currentCat === 'all' || cat === currentCat);
+                    const matchesQuery = !query || text.includes(query);
+
+                    if (matchesCat && matchesQuery) {
+                        card.style.display = 'flex';
+                        card.style.animation = 'none';
+                        setTimeout(() => { card.style.animation = 'fadeIn 0.4s ease-out'; }, 10);
+                        visibleCount++;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+
+                // Filter featured post section
+                if (featuredSection) {
+                    const featText = featuredSection.textContent.toLowerCase();
+                    const matchesCat = (currentCat === 'all' || currentCat === 'design');
+                    const matchesQuery = !query || featText.includes(query);
+                    featuredSection.style.display = (matchesCat && matchesQuery) ? '' : 'none';
+                }
+
+                // Show / hide clear buttons
+                clearBtns.forEach(btn => {
+                    btn.classList.toggle('hidden', !query);
+                });
+
+                // No results feedback
+                let noResults = document.getElementById('blog-no-results');
+                const hasFeatured = featuredSection && featuredSection.style.display !== 'none';
+                if (visibleCount === 0 && !hasFeatured) {
+                    if (!noResults && postsGrid) {
+                        noResults = document.createElement('div');
+                        noResults.id = 'blog-no-results';
+                        noResults.className = 'sm:col-span-2 text-center py-12 px-6 bg-white dark:bg-[#1F1F1F] rounded-2xl border border-paper-edge dark:border-dark-edge shadow-sm';
+                        noResults.innerHTML = `
+                            <div class="w-12 h-12 mx-auto rounded-full bg-accent/10 text-accent flex items-center justify-center mb-3 text-lg">
+                                <i class="fas fa-magnifying-glass"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg mb-1">No articles found</h3>
+                            <p class="text-sm text-ink-soft dark:text-gray-400 mb-4 max-w-sm mx-auto">We couldn't find any articles matching your search or selected filter.</p>
+                            <button type="button" id="reset-search-btn" class="btn-accent !py-2 !px-4 !text-xs cursor-pointer">
+                                <i class="fas fa-rotate-left"></i> Reset filters
+                            </button>
+                        `;
+                        postsGrid.appendChild(noResults);
+                        document.getElementById('reset-search-btn')?.addEventListener('click', () => {
+                            currentQuery = '';
+                            currentCat = 'all';
+                            searchInputs.forEach(input => input.value = '');
+                            catChips.forEach(c => c.classList.toggle('active', c.dataset.cat === 'all'));
+                            applyFilters();
+                        });
+                    } else if (noResults) {
+                        noResults.classList.remove('hidden');
+                    }
+                } else if (noResults) {
+                    noResults.classList.add('hidden');
+                }
+            }
+
+            searchInputs.forEach(input => {
+                input.addEventListener('input', (e) => {
+                    currentQuery = e.target.value;
+                    searchInputs.forEach(other => {
+                        if (other !== input) other.value = currentQuery;
+                    });
+                    applyFilters();
+                });
+            });
+
+            clearBtns.forEach(btn => {
+                btn.addEventListener('click', () => {
+                    currentQuery = '';
+                    searchInputs.forEach(input => input.value = '');
+                    applyFilters();
+                });
+            });
 
             catChips.forEach(chip => {
                 chip.addEventListener('click', () => {
                     catChips.forEach(c => c.classList.remove('active'));
                     chip.classList.add('active');
-
-                    const cat = chip.dataset.cat;
-                    postCards.forEach(card => {
-                        if (cat === 'all' || card.dataset.cat === cat) {
-                            card.style.display = 'flex';
-                            card.style.animation = 'none';
-                            setTimeout(() => { card.style.animation = 'fadeIn 0.5s ease-out'; }, 10);
-                        } else {
-                            card.style.display = 'none';
-                        }
-                    });
+                    currentCat = chip.dataset.cat;
+                    applyFilters();
                 });
             });
         });
