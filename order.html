@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products &amp; Online Ordering — PrintCraft | Upload, Customize &amp; Order</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon.png">
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="apple-touch-icon" href="assets/favicon.png">
+
+    <meta name="description" content="Order prints online with instant preflight file upload, paper customizer, rapid pickup & delivery options, design templates, and proof guarantee.">
+
+    <!-- Tailwind CSS -->
+    <script src="tailwind.js"></script>
+    <script>
+        if (typeof tailwind === 'undefined') {
+            document.write('<script src="https://cdn.tailwindcss.com"><\/script>');
+        }
+    </script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        'ink': '#1A1A1A',
+                        'ink-soft': '#2E2E2E',
+                        'paper': '#FFFFFF',
+                        'paper-warm': '#FAF8F4',
+                        'paper-edge': '#E8E4DC',
+                        'accent': '#2563EB',
+                        'accent-dark': '#1D4ED8',
+                        'accent-light': '#DBEAFE',
+                        'accent-soft': '#EFF6FF',
+                        'highlight': '#F59E0B',
+                        'dark-bg': '#141414',
+                        'dark-card': '#1F1F1F',
+                        'dark-edge': '#333333',
+                    },
+                    fontFamily: {
+                        'display': ['"Space Grotesk"', 'system-ui', 'sans-serif'],
+                        'body': ['"Inter"', 'system-ui', 'sans-serif'],
+                        'mono': ['"JetBrains Mono"', 'monospace'],
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 0.5s ease-out',
+                        'slide-up': 'slideUp 0.6s ease-out',
+                        'pulse-subtle': 'pulseSubtle 2s infinite',
+                    },
+                    keyframes: {
+                        fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
+                        slideUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } },
+                        pulseSubtle: { '0%,100%': { opacity: '1' }, '50%': { opacity: '0.85' } },
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <style>
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+        html {
+            overflow-x: clip;
+            width: 100%;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #FAF8F4;
+            color: #1A1A1A;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            overflow-x: clip;
+            width: 100%;
+            position: relative;
+        }
+        .dark body {
+            background-color: #141414;
+            color: #E8E8E8;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        /* Buttons */
+        .btn-accent {
+            background: #2563EB;
+            color: #FFFFFF;
+            padding: 0.85rem 1.9rem;
+            font-weight: 600;
+            border-radius: 10px;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+        }
+        .btn-accent:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(37, 99, 235, 0.35);
+        }
+        .dark .btn-accent {
+            background: #3B82F6;
+        }
+        .dark .btn-accent:hover {
+            background: #2563EB;
+        }
+
+        .btn-outline-ink {
+            border: 1.5px solid #1A1A1A;
+            color: #1A1A1A;
+            background: transparent;
+            padding: 0.8rem 1.8rem;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: all 0.25s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .btn-outline-ink:hover {
+            background: #1A1A1A;
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+        .dark .btn-outline-ink {
+            border-color: #E8E8E8;
+            color: #E8E8E8;
+        }
+        .dark .btn-outline-ink:hover {
+            background: #E8E8E8;
+            color: #1A1A1A;
+        }
+
+        /* Toggle buttons */
+        .toggle-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #EFF6FF;
+            color: #2563EB;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            border: 1px solid #DBEAFE;
+            font-size: 0.95rem;
+        }
+        .dark .toggle-btn {
+            background: #1E3A5F;
+            color: #93C5FD;
+            border-color: #1E40AF;
+        }
+        .toggle-btn:hover {
+            background: #2563EB;
+            color: #FFFFFF;
+            transform: scale(1.06);
+        }
+        .dark .toggle-btn:hover {
+            background: #3B82F6;
+            color: #FFFFFF;
+        }
+
+        /* Nav item */
+        .nav-item {
+            position: relative;
+            padding: 0.5rem 0;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #1A1A1A;
+            transition: color 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .dark .nav-item { color: #E8E8E8; }
+        .nav-item:hover { color: #2563EB; }
+        .dark .nav-item:hover { color: #93C5FD; }
+        .nav-item.active { color: #2563EB; }
+        .dark .nav-item.active { color: #93C5FD; }
+
+        /* Mobile menu */
+        #mobile-menu:not(.open) { display: none; }
+        .mobile-menu { max-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; transition: max-height 0.35s ease; }
+        .mobile-menu.open {
+            max-height: calc(100vh - 73px);
+            max-height: calc(100dvh - 73px);
+        }
+        body.menu-open,
+        html.overflow-hidden {
+            overflow: hidden !important;
+            touch-action: none;
+            -webkit-overflow-scrolling: auto;
+        }
+
+        /* Dropdown */
+        .dropdown-menu { display: none; }
+        .group:hover .dropdown-menu,
+        .group:focus-within .dropdown-menu,
+        .dropdown-menu.open { display: block !important; }
+        .dropdown-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #1A1A1A;
+            transition: all 0.2s ease;
+        }
+        .dark .dropdown-link { color: #E5E7EB; }
+        .dropdown-link:hover {
+            background: #EFF6FF;
+            color: #2563EB;
+        }
+        .dark .dropdown-link:hover {
+            background: rgba(37,99,235,0.15);
+            color: #93C5FD;
+        }
+
+        /* RTL fixes */
+        [dir="rtl"] .dropdown-menu { left: auto; right: 0; }
+        [dir="rtl"] .fa-arrow-right { transform: scaleX(-1); }
+
+        #site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            max-width: 100vw;
+            z-index: 50;
+        }
+        @media (max-width: 1279px) {
+            main {
+                padding-top: 73px;
+            }
+        }
+
+        /* Interactive Filter Chip */
+        .order-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.55rem 1.15rem;
+            border-radius: 999px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #1A1A1A;
+            border: 1px solid #E8E4DC;
+            background: #FAF8F4;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            white-space: nowrap;
+        }
+        .dark .order-chip {
+            color: #E8E8E8;
+            background: #1F1F1F;
+            border-color: #333333;
+        }
+        .order-chip:hover {
+            border-color: #2563EB;
+            color: #2563EB;
+            background: #EFF6FF;
+        }
+        .dark .order-chip:hover {
+            border-color: #3B82F6;
+            color: #93C5FD;
+            background: rgba(37,99,235,0.15);
+        }
+        .order-chip.active {
+            background: #2563EB;
+            color: #FFFFFF;
+            border-color: #2563EB;
+            box-shadow: 0 4px 14px rgba(37,99,235,0.25);
+        }
+        .dark .order-chip.active {
+            background: #3B82F6;
+            border-color: #3B82F6;
+        }
+
+        /* Dropzone */
+        .dropzone {
+            border: 2px dashed #CBD5E1;
+            transition: all 0.3s ease;
+            background: #FAFAFA;
+        }
+        .dark .dropzone {
+            border-color: #404040;
+            background: #1A1A1A;
+        }
+        .dropzone.dragover {
+            border-color: #2563EB;
+            background: #EFF6FF;
+            transform: scale(1.01);
+        }
+        .dark .dropzone.dragover {
+            border-color: #3B82F6;
+            background: rgba(37,99,235,0.15);
+        }
+
+        /* Custom Scrollbar for Previews */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D1D5DB;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #4B5563;
+        }
+    </style>
+</head>
+
+<body class="bg-paper-warm dark:bg-dark-bg text-ink dark:text-gray-200">
+
+    <!-- ========== HEADER ========== -->
+    <header id="site-header" class="z-50 bg-white/95 dark:bg-[#1A1A1A]/95 backdrop-blur-md border-b border-paper-edge dark:border-dark-edge w-full">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-7 py-3.5 flex items-center justify-between w-full">
+
+            <!-- Brand -->
+            <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                    <i class="fas fa-print text-white text-lg"></i>
+                </div>
+                <div class="leading-none">
+                    <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                        Print<span class="text-accent">Craft</span>
+                    </span>
+                    <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print · Bind · Copy</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav -->
+            <div class="hidden xl:flex items-center gap-5 2xl:gap-6">
+                <!-- Home Dropdown -->
+                <div class="relative group">
+                    <a href="index.html" class="nav-item inline-flex items-center gap-1.5">
+                        <span>Home</span>
+                        <i class="fas fa-chevron-down text-[10px] opacity-75 group-hover:rotate-180 transition-transform duration-200"></i>
+                    </a>
+                    <div class="dropdown-menu absolute top-full left-0 pt-2 w-40 z-50">
+                        <div class="bg-white dark:bg-[#1F1F1F] rounded-xl shadow-lg border border-paper-edge dark:border-dark-edge py-1.5 overflow-hidden">
+                            <a href="index.html" class="dropdown-link">
+                                <span>Home 1</span>
+                            </a>
+                            <a href="home2.html" class="dropdown-link">
+                                <span>Home 2</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="about.html" class="nav-item">About</a>
+                <a href="services.html" class="nav-item">Services</a>
+                <a href="pricing.html" class="nav-item">Pricing</a>
+                <a href="order.html" class="nav-item active font-bold text-accent">Order Online</a>
+                <a href="track-order.html" class="nav-item">Track Order</a>
+                <a href="blog.html" class="nav-item">Blog</a>
+                <a href="contact.html" class="nav-item">Contact</a>
+            </div>
+
+            <!-- Right actions (Desktop) -->
+            <div class="hidden xl:flex items-center gap-2">
+                <button id="theme-toggle" class="toggle-btn" title="Dark / Light">
+                    <i class="fas fa-moon dark:hidden"></i>
+                    <i class="fas fa-sun hidden dark:inline"></i>
+                </button>
+                <button id="rtl-toggle" class="toggle-btn" title="RTL / LTR">⇄</button>
+                <a href="#upload" class="btn-accent ml-2 !py-2.5 !px-5 !text-sm">
+                    <i class="fas fa-cloud-arrow-up"></i> Upload Files
+                </a>
+            </div>
+
+            <!-- Mobile & Tablet Hamburger Toggle -->
+            <button id="mobile-toggle" class="xl:hidden flex items-center justify-center shrink-0 w-10 h-10 rounded-lg text-ink dark:text-gray-200 hover:bg-black/5 dark:hover:bg-white/10 text-xl cursor-pointer transition ml-auto" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile & Tablet Menu -->
+        <div id="mobile-menu" class="xl:hidden bg-white dark:bg-[#1A1A1A] border-t border-paper-edge dark:border-dark-edge">
+            <div class="mobile-menu px-6">
+                <!-- Home options -->
+                <div class="py-3 border-b border-paper-edge dark:border-dark-edge">
+                    <button type="button" id="mobile-home-toggle" class="w-full flex items-center justify-between font-semibold text-ink dark:text-white cursor-pointer select-none">
+                        <span>Home</span>
+                        <i id="mobile-home-chevron" class="fas fa-chevron-down text-xs text-ink-soft dark:text-gray-400 transition-transform duration-200"></i>
+                    </button>
+                    <div id="mobile-home-sub" class="hidden pl-4 space-y-2 pt-2">
+                        <a href="index.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 1</a>
+                        <a href="home2.html" class="block text-sm text-ink-soft dark:text-gray-400 hover:text-accent">Home 2</a>
+                    </div>
+                </div>
+                <a href="about.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">About</a>
+                <a href="services.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Services</a>
+                <a href="pricing.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Pricing</a>
+                <a href="order.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge text-accent">Order Online</a>
+                <a href="track-order.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Track Order</a>
+                <a href="blog.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Blog</a>
+                <a href="contact.html" class="block py-3 font-semibold border-b border-paper-edge dark:border-dark-edge">Contact</a>
+
+                <!-- Centered Actions inside mobile menu -->
+                <div class="py-6 flex flex-col items-center justify-center gap-4 border-t border-paper-edge/60 dark:border-dark-edge/60">
+                    <a href="#upload" class="btn-accent w-full max-w-xs !py-3 !px-6 text-sm shadow-md text-center justify-center">
+                        <i class="fas fa-cloud-arrow-up"></i> Upload Files
+                    </a>
+                    <div class="flex items-center justify-center gap-3">
+                        <button id="theme-toggle-mobile" class="toggle-btn" title="Dark / Light">
+                            <i class="fas fa-moon dark:hidden"></i>
+                            <i class="fas fa-sun hidden dark:inline"></i>
+                        </button>
+                        <button id="rtl-toggle-mobile" class="toggle-btn" title="RTL / LTR">⇄</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main>
+
+        <!-- ===== HERO SECTION ===== -->
+        <section class="pt-10 sm:pt-16 xl:pt-36 pb-12 px-4 sm:px-6 relative overflow-hidden">
+            <div class="absolute top-0 right-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-highlight/10 rounded-full blur-3xl pointer-events-none"></div>
+
+            <div class="container mx-auto max-w-7xl relative z-10">
+                <div class="max-w-3xl mx-auto text-center flex flex-col items-center">
+                    <div class="inline-flex items-center gap-3 mb-6 justify-center">
+                        <span class="w-8 h-[2px] bg-accent"></span>
+                        <span class="text-xs font-bold tracking-[0.25em] uppercase text-accent">Online Print Studio</span>
+                        <span class="w-8 h-[2px] bg-accent"></span>
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-display font-bold leading-[1.08] tracking-tight mb-6">
+                        Products &amp;<br>
+                        <span class="text-accent">Online Ordering.</span>
+                    </h1>
+
+                    <p class="text-base sm:text-lg max-w-2xl font-light leading-relaxed text-ink-soft dark:text-gray-300 mx-auto mb-8">
+                        Configure custom products, upload print artwork with instant preflight validation, choose rapid pickup or courier dispatch, and access free design templates.
+                    </p>
+
+                    <!-- Anchor shortcuts -->
+                    <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-3">
+                        <a href="#products" class="order-chip active"><i class="fas fa-box-open text-xs"></i> 1. Products &amp; Specs</a>
+                        <a href="#upload" class="order-chip"><i class="fas fa-cloud-arrow-up text-xs"></i> 2. File Upload</a>
+                        <a href="#delivery" class="order-chip"><i class="fas fa-truck-fast text-xs"></i> 3. Delivery &amp; Pickup</a>
+                        <a href="#templates" class="order-chip"><i class="fas fa-pen-ruler text-xs"></i> 4. Design &amp; Templates</a>
+                        <a href="#proof" class="order-chip"><i class="fas fa-award text-xs"></i> 5. Case Studies &amp; Proof</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 1: PRODUCTS & CUSTOMIZATION ===== -->
+        <section id="products" class="py-16 sm:py-20 px-4 sm:px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Core Catalog</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-2">Print Products &amp; Options</h2>
+                    <p class="mt-3 text-sm text-ink-soft dark:text-gray-400">Select your required format, paper stock, and finishing style below.</p>
+                </div>
+
+                <!-- Product Grid -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+                    <!-- Product 1 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between hover:border-accent dark:hover:border-accent transition group shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-accent/10 dark:bg-accent/20 text-accent flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fas fa-file-lines"></i>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-bold text-xl">Documents &amp; Reports</h3>
+                                <span class="mono text-xs font-bold text-accent">from $0.08/pg</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 mb-4 leading-relaxed">
+                                Single or double-sided colour &amp; monochrome output. Perfect for training manuals, legal bundles, scripts, and presentations.
+                            </p>
+                            <ul class="text-xs space-y-2 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Sizes: A5, A4, A3, Custom</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Paper: 80gsm bond to 300gsm card</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> 2/4-hole punching &amp; corner stapling</li>
+                            </ul>
+                        </div>
+                        <a href="#upload" onclick="selectProduct('Documents & Reports')" class="w-full py-2.5 rounded-lg border border-accent text-accent hover:bg-accent hover:text-white font-semibold text-xs text-center transition">
+                            Configure &amp; Upload
+                        </a>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between hover:border-accent dark:hover:border-accent transition group shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-highlight/10 text-highlight flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-bold text-xl">Spiral &amp; Hardcover Binding</h3>
+                                <span class="mono text-xs font-bold text-accent">from $4.50</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 mb-4 leading-relaxed">
+                                Spiral plastic coil, twin-loop wire-o, or bespoke hardbound covers with gold/silver foil lettering on spine and cover.
+                            </p>
+                            <ul class="text-xs space-y-2 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> University PhD thesis compliance</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Clear acetate &amp; 300gsm linen card backs</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> 10 to 450 sheet capacities</li>
+                            </ul>
+                        </div>
+                        <a href="#upload" onclick="selectProduct('Spiral & Hardcover Binding')" class="w-full py-2.5 rounded-lg border border-accent text-accent hover:bg-accent hover:text-white font-semibold text-xs text-center transition">
+                            Configure &amp; Upload
+                        </a>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between hover:border-accent dark:hover:border-accent transition group shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fas fa-map"></i>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-bold text-xl">Posters &amp; CAD Plans</h3>
+                                <span class="mono text-xs font-bold text-accent">from $12.00</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 mb-4 leading-relaxed">
+                                Architectural blueprints, research symposium posters, retail graphics, and foam-board mounting up to A0+.
+                            </p>
+                            <ul class="text-xs space-y-2 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Formats: A2, A1, A0, B1, 24" &amp; 36" rolls</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> 190gsm satin photo &amp; 90gsm bond</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> 5mm lightweight rigid foam board</li>
+                            </ul>
+                        </div>
+                        <a href="#upload" onclick="selectProduct('Posters & CAD Plans')" class="w-full py-2.5 rounded-lg border border-accent text-accent hover:bg-accent hover:text-white font-semibold text-xs text-center transition">
+                            Configure &amp; Upload
+                        </a>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between hover:border-accent dark:hover:border-accent transition group shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fas fa-newspaper"></i>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-bold text-xl">Brochures &amp; Flyers</h3>
+                                <span class="mono text-xs font-bold text-accent">from $0.15/ea</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 mb-4 leading-relaxed">
+                                Tri-fold, z-fold, bi-fold, and flat handouts. Precision machine-scored to prevent spine cracking on heavy stocks.
+                            </p>
+                            <ul class="text-xs space-y-2 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> 130gsm, 170gsm, or 250gsm silk</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Gloss, matte, or soft-touch velvet</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Runs from 25 to 5,000+ units</li>
+                            </ul>
+                        </div>
+                        <a href="#upload" onclick="selectProduct('Brochures & Flyers')" class="w-full py-2.5 rounded-lg border border-accent text-accent hover:bg-accent hover:text-white font-semibold text-xs text-center transition">
+                            Configure &amp; Upload
+                        </a>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between hover:border-accent dark:hover:border-accent transition group shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-rose-500/10 text-rose-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fas fa-id-card"></i>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-bold text-xl">Business Cards</h3>
+                                <span class="mono text-xs font-bold text-accent">from $18 / 100</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 mb-4 leading-relaxed">
+                                Standard 85×55mm or custom square cuts. Heavyweight 350–450gsm cardstock with optional rounded corners.
+                            </p>
+                            <ul class="text-xs space-y-2 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Recycled Kraft &amp; unbleached options</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Spot UV varnish &amp; metallic foiling</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Same-day rush batch available</li>
+                            </ul>
+                        </div>
+                        <a href="#upload" onclick="selectProduct('Business Cards')" class="w-full py-2.5 rounded-lg border border-accent text-accent hover:bg-accent hover:text-white font-semibold text-xs text-center transition">
+                            Configure &amp; Upload
+                        </a>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between hover:border-accent dark:hover:border-accent transition group shadow-sm">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-amber-500/10 text-amber-600 flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition">
+                                <i class="fas fa-tags"></i>
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <h3 class="font-display font-bold text-xl">Stickers &amp; Labels</h3>
+                                <span class="mono text-xs font-bold text-accent">from $15 / sheet</span>
+                            </div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 mb-4 leading-relaxed">
+                                Die-cut vinyl stickers, product packaging jar labels, waterproof freezer-grade labels, and kiss-cut sheet sets.
+                            </p>
+                            <ul class="text-xs space-y-2 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Custom contours &amp; geometric shapes</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> Gloss vinyl, matte, &amp; holographic</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-1.5"></i> UV-resistant outdoor durability</li>
+                            </ul>
+                        </div>
+                        <a href="#upload" onclick="selectProduct('Stickers & Labels')" class="w-full py-2.5 rounded-lg border border-accent text-accent hover:bg-accent hover:text-white font-semibold text-xs text-center transition">
+                            Configure &amp; Upload
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Paper Stock Guide Sub-card -->
+                <div class="mt-12 p-6 sm:p-8 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div>
+                            <span class="text-accent font-bold text-xs tracking-wider uppercase">Material Excellence</span>
+                            <h3 class="text-xl sm:text-2xl font-display font-bold mt-1">Need help picking the right paper stock?</h3>
+                            <p class="text-xs sm:text-sm text-ink-soft dark:text-gray-400 mt-1 max-w-2xl">
+                                We stock 80gsm everyday bond, 120gsm executive smooth, 160gsm card, 250gsm silk, and 350gsm premium textured stocks — all FSC certified.
+                            </p>
+                        </div>
+                        <a href="#upload" class="btn-accent shrink-0 !py-2.5 !px-5 !text-xs">
+                            Select Stock in Upload
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 2: FILE UPLOAD & PREFLIGHT ENGINE ===== -->
+        <section id="upload" class="py-16 sm:py-20 px-4 sm:px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-5xl">
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-10">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Preflight &amp; Submission</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-2">Upload Artwork &amp; Specs</h2>
+                    <p class="mt-3 text-sm text-ink-soft dark:text-gray-400">Drag &amp; drop your files. Our preflight system checks resolution, bleeds, and color space automatically.</p>
+                </div>
+
+                <div class="bg-white dark:bg-dark-card rounded-3xl border border-paper-edge dark:border-dark-edge p-6 sm:p-10 shadow-lg">
+                    <form id="order-upload-form" onsubmit="event.preventDefault(); submitOrder();">
+                        
+                        <!-- Selected Product Badge -->
+                        <div class="flex items-center justify-between pb-4 mb-6 border-b border-paper-edge dark:border-dark-edge">
+                            <div class="flex items-center gap-2.5">
+                                <span class="text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400">Configuring:</span>
+                                <span id="current-selected-product" class="text-sm font-display font-bold text-accent bg-accent/10 px-3 py-1 rounded-full">Documents &amp; Reports</span>
+                            </div>
+                            <span class="text-xs text-ink-soft/70 dark:text-gray-400">Step 1 of 3</span>
+                        </div>
+
+                        <!-- Dropzone Area -->
+                        <div id="dropzone" class="dropzone p-8 sm:p-12 rounded-2xl text-center cursor-pointer mb-6 transition">
+                            <input type="file" id="file-input" class="hidden" multiple accept=".pdf,.docx,.ai,.psd,.jpg,.jpeg,.png">
+                            <div class="w-16 h-16 mx-auto rounded-2xl bg-accent/10 dark:bg-accent/20 text-accent flex items-center justify-center text-3xl mb-4">
+                                <i class="fas fa-cloud-arrow-up"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-lg sm:text-xl mb-1">Click to browse or drop your print files here</h3>
+                            <p class="text-xs sm:text-sm text-ink-soft dark:text-gray-400 mb-4 max-w-md mx-auto">
+                                Supports PDF (recommended), Word DOCX, Illustrator AI, Photoshop PSD, JPG, or PNG up to 150MB.
+                            </p>
+                            <button type="button" onclick="document.getElementById('file-input').click()" class="btn-accent !py-2.5 !px-6 !text-xs">
+                                <i class="fas fa-folder-open"></i> Choose Files
+                            </button>
+                        </div>
+
+                        <!-- Uploaded File Preview List -->
+                        <div id="uploaded-files-list" class="space-y-3 mb-6 hidden">
+                            <!-- Injected dynamically via JS -->
+                        </div>
+
+                        <!-- Automated Preflight Checklist Box -->
+                        <div class="p-5 rounded-xl bg-paper-warm dark:bg-[#141414] border border-paper-edge dark:border-dark-edge mb-6">
+                            <div class="flex items-center gap-2 mb-3">
+                                <i class="fas fa-shield-halved text-accent text-sm"></i>
+                                <span class="text-xs font-bold uppercase tracking-wider">Automated Preflight Guarantee</span>
+                            </div>
+                            <div class="grid sm:grid-cols-3 gap-3 text-xs text-ink-soft dark:text-gray-300">
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-circle-check text-emerald-500"></i>
+                                    <span>300 DPI Resolution scan</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-circle-check text-emerald-500"></i>
+                                    <span>3mm Bleed margin safety</span>
+                                </div>
+                                <div class="flex items-center gap-2">
+                                    <i class="fas fa-circle-check text-emerald-500"></i>
+                                    <span>CMYK Colour conversion</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Options Configuration -->
+                        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-6">
+                            <!-- Paper Weight -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400 mb-1.5">
+                                    Paper Stock
+                                </label>
+                                <select id="opt-paper" class="w-full px-3.5 py-2.5 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] text-xs font-medium focus:outline-none focus:border-accent">
+                                    <option value="80gsm">80gsm Everyday Bond</option>
+                                    <option value="100gsm" selected>100gsm Premium Laser</option>
+                                    <option value="160gsm">160gsm Heavy Card</option>
+                                    <option value="250gsm">250gsm Satin Silk</option>
+                                    <option value="350gsm">350gsm Matte Linen</option>
+                                </select>
+                            </div>
+
+                            <!-- Color Mode -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400 mb-1.5">
+                                    Colour Mode
+                                </label>
+                                <select id="opt-color" class="w-full px-3.5 py-2.5 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] text-xs font-medium focus:outline-none focus:border-accent">
+                                    <option value="color" selected>Full Vibrant CMYK Colour</option>
+                                    <option value="bw">Crisp Black &amp; White (Monochrome)</option>
+                                    <option value="mixed">Mixed Pages (Auto-Detected)</option>
+                                </select>
+                            </div>
+
+                            <!-- Quantity -->
+                            <div>
+                                <label class="block text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400 mb-1.5">
+                                    Quantity / Copies
+                                </label>
+                                <div class="flex items-center border border-paper-edge dark:border-dark-edge rounded-xl bg-paper-warm dark:bg-[#141414] overflow-hidden">
+                                    <button type="button" onclick="adjustQty(-1)" class="px-3 py-2 text-ink-soft dark:text-gray-400 hover:text-accent font-bold">-</button>
+                                    <input type="number" id="opt-qty" value="10" min="1" max="10000" class="w-full text-center bg-transparent text-xs font-bold focus:outline-none">
+                                    <button type="button" onclick="adjustQty(1)" class="px-3 py-2 text-ink-soft dark:text-gray-400 hover:text-accent font-bold">+</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Special Instructions -->
+                        <div class="mb-6">
+                            <label class="block text-xs font-bold uppercase tracking-wider text-ink-soft dark:text-gray-400 mb-1.5">
+                                Specific Finishing or Print Instructions (Optional)
+                            </label>
+                            <textarea id="opt-notes" rows="2" placeholder="e.g. Bind on the long edge, use double-sided printing, page 1-3 colour only..." class="w-full px-4 py-2.5 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] text-xs focus:outline-none focus:border-accent"></textarea>
+                        </div>
+
+                        <!-- Live Price & Action -->
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-6 border-t border-paper-edge dark:border-dark-edge">
+                            <div>
+                                <span class="text-xs text-ink-soft dark:text-gray-400">Estimated Total (tax incl.)</span>
+                                <div class="text-2xl sm:text-3xl font-display font-bold text-accent" id="live-price">$18.50</div>
+                            </div>
+                            <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+                                <a href="#delivery" class="btn-accent w-full sm:w-auto justify-center">
+                                    Continue to Delivery &amp; Pickup <i class="fas fa-arrow-down text-xs"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 3: DELIVERY & PICKUP OPTIONS ===== -->
+        <section id="delivery" class="py-16 sm:py-20 px-4 sm:px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Fulfillment &amp; Speed</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-2">Delivery &amp; Pickup Options</h2>
+                    <p class="mt-3 text-sm text-ink-soft dark:text-gray-400">Choose how and when you want your completed order delivered or collected.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-3 gap-8">
+                    <!-- Option 1 -->
+                    <div class="p-8 rounded-2xl bg-paper-warm dark:bg-dark-card border-2 border-accent relative flex flex-col justify-between shadow-sm">
+                        <div class="absolute -top-3 right-6 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                            Most Popular
+                        </div>
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-accent text-white flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-store"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-xl mb-1">Click &amp; Collect in 30 Mins</h3>
+                            <div class="mono text-xs text-accent font-bold mb-4">FREE · 3 Locations</div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed mb-6">
+                                Collect directly from the studio counter or 24/7 secure locker bays with SMS pin codes.
+                            </p>
+                            <ul class="text-xs space-y-2.5 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-location-dot text-accent mr-2"></i> <strong>124 High Street</strong> (Greenfield Main)</li>
+                                <li><i class="fas fa-location-dot text-accent mr-2"></i> <strong>88 West End Ave</strong> (Arts District)</li>
+                                <li><i class="fas fa-location-dot text-accent mr-2"></i> <strong>14 Northpoint Plaza</strong> (Tech Hub)</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-paper-edge dark:border-dark-edge text-xs font-semibold text-accent flex items-center gap-1.5">
+                            <i class="fas fa-bolt"></i> Ready within 30 minutes of approval
+                        </div>
+                    </div>
+
+                    <!-- Option 2 -->
+                    <div class="p-8 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between shadow-sm hover:border-accent transition">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-motorcycle"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-xl mb-1">Same-Day Rush Courier</h3>
+                            <div class="mono text-xs text-emerald-600 dark:text-emerald-400 font-bold mb-4">$9.50 Flat · Within 15 Miles</div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed mb-6">
+                                Dispatched by dedicated van or motorcycle courier directly to your office, studio, site, or venue.
+                            </p>
+                            <ul class="text-xs space-y-2.5 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-check text-emerald-500 mr-2"></i> 2-hour rush or end-of-day slots</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-2"></i> Live driver GPS map tracking link</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-2"></i> Order cutoff: 3:00 PM daily</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-paper-edge dark:border-dark-edge text-xs font-semibold text-emerald-600 dark:text-emerald-400 flex items-center gap-1.5">
+                            <i class="fas fa-clock"></i> Same-day arrival guarantee
+                        </div>
+                    </div>
+
+                    <!-- Option 3 -->
+                    <div class="p-8 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between shadow-sm hover:border-accent transition">
+                        <div>
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-600 flex items-center justify-center text-xl mb-4">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <h3 class="font-display font-bold text-xl mb-1">Next-Day Nationwide Courier</h3>
+                            <div class="mono text-xs text-purple-600 dark:text-purple-400 font-bold mb-4">$5.00 · Free Over $50</div>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed mb-6">
+                                Delivered by DPD or FedEx tracked service with signature confirmation and weatherproof protective packaging.
+                            </p>
+                            <ul class="text-xs space-y-2.5 mb-6 text-ink-soft/90 dark:text-gray-300">
+                                <li><i class="fas fa-check text-emerald-500 mr-2"></i> Next-morning delivery before 12 PM</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-2"></i> Corner protectors &amp; waterproof wrap</li>
+                                <li><i class="fas fa-check text-emerald-500 mr-2"></i> 1-hour delivery time window SMS</li>
+                            </ul>
+                        </div>
+                        <div class="pt-4 border-t border-paper-edge dark:border-dark-edge text-xs font-semibold text-purple-600 dark:text-purple-400 flex items-center gap-1.5">
+                            <i class="fas fa-shield"></i> Fully insured tracked freight
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 4: DESIGN SERVICES & TEMPLATES ===== -->
+        <section id="templates" class="py-16 sm:py-20 px-4 sm:px-6 bg-paper-warm dark:bg-dark-bg">
+            <div class="container mx-auto max-w-7xl">
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Creative Support</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-2">Design Services &amp; Templates</h2>
+                    <p class="mt-3 text-sm text-ink-soft dark:text-gray-400">Download ready-to-print setup templates or work with our in-house prepress designers.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-12 gap-8 items-start">
+                    <!-- Left: Free Templates -->
+                    <div class="lg:col-span-7 space-y-4">
+                        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge">
+                            <div class="flex items-center justify-between mb-4">
+                                <h3 class="font-display font-bold text-xl">Free Print-Ready Templates</h3>
+                                <span class="text-xs font-bold text-emerald-600 bg-emerald-500/15 px-2.5 py-1 rounded-full">Free Downloads</span>
+                            </div>
+                            <p class="text-xs sm:text-sm text-ink-soft dark:text-gray-400 mb-6">
+                                Pre-calibrated with 3mm bleed margins, crop marks, and safe type boundaries. Compatible with Canva, InDesign, Illustrator, and Photoshop.
+                            </p>
+
+                            <!-- Template List -->
+                            <div class="space-y-3">
+                                <!-- Item 1 -->
+                                <div class="p-3.5 rounded-xl bg-paper-warm dark:bg-[#141414] border border-paper-edge dark:border-dark-edge flex items-center justify-between gap-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-accent/10 text-accent flex items-center justify-center font-bold text-xs">
+                                            A4
+                                        </div>
+                                        <div>
+                                            <div class="text-xs font-bold">Standard Document &amp; Thesis Template</div>
+                                            <div class="text-[11px] text-ink-soft dark:text-gray-400">210×297mm · 3mm bleed · PDF &amp; Word</div>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="downloadTemplate('A4 Document')" class="btn-outline-ink !py-1.5 !px-3 !text-xs shrink-0">
+                                        <i class="fas fa-download"></i> Get Template
+                                    </button>
+                                </div>
+
+                                <!-- Item 2 -->
+                                <div class="p-3.5 rounded-xl bg-paper-warm dark:bg-[#141414] border border-paper-edge dark:border-dark-edge flex items-center justify-between gap-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-highlight/10 text-highlight flex items-center justify-center font-bold text-xs">
+                                            TRI
+                                        </div>
+                                        <div>
+                                            <div class="text-xs font-bold">Trifold 6-Page Brochure</div>
+                                            <div class="text-[11px] text-ink-soft dark:text-gray-400">Score &amp; fold lines · InDesign, AI &amp; Canva</div>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="downloadTemplate('Trifold Brochure')" class="btn-outline-ink !py-1.5 !px-3 !text-xs shrink-0">
+                                        <i class="fas fa-download"></i> Get Template
+                                    </button>
+                                </div>
+
+                                <!-- Item 3 -->
+                                <div class="p-3.5 rounded-xl bg-paper-warm dark:bg-[#141414] border border-paper-edge dark:border-dark-edge flex items-center justify-between gap-4">
+                                    <div class="flex items-center gap-3">
+                                        <div class="w-10 h-10 rounded-lg bg-purple-500/10 text-purple-600 flex items-center justify-center font-bold text-xs">
+                                            BC
+                                        </div>
+                                        <div>
+                                            <div class="text-xs font-bold">Standard Business Card Setup</div>
+                                            <div class="text-[11px] text-ink-soft dark:text-gray-400">85×55mm · Safe margins · AI, PSD, PDF</div>
+                                        </div>
+                                    </div>
+                                    <button type="button" onclick="downloadTemplate('Business Card')" class="btn-outline-ink !py-1.5 !px-3 !text-xs shrink-0">
+                                        <i class="fas fa-download"></i> Get Template
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: In-House Design Support -->
+                    <div class="lg:col-span-5">
+                        <div class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-dark-card border border-paper-edge dark:border-dark-edge">
+                            <span class="text-xs font-bold tracking-wider text-accent uppercase">Expert Studio Assistance</span>
+                            <h3 class="font-display font-bold text-xl mt-1 mb-2">Need an In-House Designer?</h3>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 mb-6 leading-relaxed">
+                                Don't let bad resolution or missing bleed hold up your deadline. Let our prepress technicians fix your file or design from scratch.
+                            </p>
+
+                            <div class="space-y-4 mb-6">
+                                <div class="p-4 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] flex items-center justify-between">
+                                    <div>
+                                        <div class="text-xs font-bold">Quick File Fix &amp; Preflight Fix</div>
+                                        <div class="text-[11px] text-ink-soft dark:text-gray-400">Add bleed, convert RGB to CMYK, vectorise fonts</div>
+                                    </div>
+                                    <span class="mono text-xs font-bold text-accent">$15</span>
+                                </div>
+
+                                <div class="p-4 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] flex items-center justify-between">
+                                    <div>
+                                        <div class="text-xs font-bold">Document Typesetting &amp; Layout</div>
+                                        <div class="text-[11px] text-ink-soft dark:text-gray-400">Format text, margins, page numbers &amp; headers</div>
+                                    </div>
+                                    <span class="mono text-xs font-bold text-accent">$45</span>
+                                </div>
+
+                                <div class="p-4 rounded-xl border border-paper-edge dark:border-dark-edge bg-paper-warm dark:bg-[#141414] flex items-center justify-between">
+                                    <div>
+                                        <div class="text-xs font-bold">Custom Creative Graphic Design</div>
+                                        <div class="text-[11px] text-ink-soft dark:text-gray-400">Full concept, 3 revision rounds, all master files</div>
+                                    </div>
+                                    <span class="mono text-xs font-bold text-accent">$120</span>
+                                </div>
+                            </div>
+
+                            <a href="contact.html" class="btn-accent w-full justify-center !py-2.5 !text-xs">
+                                <i class="fas fa-palette"></i> Request In-House Design Help
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 5: CASE STUDIES & PROOF ===== -->
+        <section id="proof" class="py-16 sm:py-20 px-4 sm:px-6 bg-white dark:bg-[#1A1A1A] border-y border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-7xl">
+                <!-- Section Header -->
+                <div class="text-center max-w-2xl mx-auto mb-12">
+                    <span class="text-accent font-bold text-xs tracking-[0.2em] uppercase">Verified Results</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mt-2">Case Studies &amp; Quality Proof</h2>
+                    <p class="mt-3 text-sm text-ink-soft dark:text-gray-400">Real print projects completed for studios, businesses, and universities.</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Case 1 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-2.5 py-1 rounded-full bg-accent/10 text-accent text-[11px] font-bold uppercase tracking-wider">Architecture</span>
+                                <span class="mono text-xs text-ink-soft dark:text-gray-400">3-Hour Turnaround</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg mb-2">Highland Masterplan Tender</h3>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed mb-4">
+                                200-page competition book with acetate cover, wire binding, fold-out A3 site maps, and silver foil title. Completed with zero defects in 3 hours.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-paper-edge dark:border-dark-edge flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-accent text-white flex items-center justify-center text-xs font-bold shrink-0">H</div>
+                            <div class="text-xs">
+                                <div class="font-bold">Marcus Vance</div>
+                                <div class="text-[11px] text-ink-soft dark:text-gray-400">Partner, Highland Architects</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 2 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 text-[11px] font-bold uppercase tracking-wider">Hospitality</span>
+                                <span class="mono text-xs text-ink-soft dark:text-gray-400">5,000 Units</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg mb-2">Greenleaf Artisan Bakery</h3>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed mb-4">
+                                Recycled 120gsm Kraft takeaway menus, loyalty punch cards, and waterproof coffee cup labels printed with eco-certified food-safe soy toner.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-paper-edge dark:border-dark-edge flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs font-bold shrink-0">G</div>
+                            <div class="text-xs">
+                                <div class="font-bold">Sophie Bennett</div>
+                                <div class="text-[11px] text-ink-soft dark:text-gray-400">Head Baker &amp; Owner</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Case 3 -->
+                    <div class="p-6 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge flex flex-col justify-between shadow-sm">
+                        <div>
+                            <div class="flex items-center justify-between mb-4">
+                                <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 text-[11px] font-bold uppercase tracking-wider">Academic</span>
+                                <span class="mono text-xs text-ink-soft dark:text-gray-400">45 PhD Theses</span>
+                            </div>
+                            <h3 class="font-display font-bold text-lg mb-2">Faculty of Medicine Dissertations</h3>
+                            <p class="text-xs text-ink-soft dark:text-gray-400 leading-relaxed mb-4">
+                                Cloth hardcover binding with gold foil stamped spine lettering, ribbon markers, and acid-free 100gsm paper matching university board standards.
+                            </p>
+                        </div>
+                        <div class="pt-4 border-t border-paper-edge dark:border-dark-edge flex items-center gap-3">
+                            <div class="w-8 h-8 rounded-full bg-purple-600 text-white flex items-center justify-center text-xs font-bold shrink-0">U</div>
+                            <div class="text-xs">
+                                <div class="font-bold">Dr. Aris Thorne</div>
+                                <div class="text-[11px] text-ink-soft dark:text-gray-400">Graduate Academic Dean</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proof & Guarantee Banner -->
+                <div class="mt-12 p-8 rounded-3xl bg-gradient-to-r from-accent to-accent-dark text-white flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div class="flex items-center gap-4">
+                        <div class="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center text-3xl shrink-0">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-xl sm:text-2xl font-display font-bold">100% Reprint Quality Guarantee</h3>
+                            <p class="text-xs sm:text-sm text-white/80 mt-1 max-w-xl">
+                                If your print job has any defect, banding, or misalignment attributable to our production, we will reprint it immediately at zero cost.
+                            </p>
+                        </div>
+                    </div>
+                    <a href="track-order.html" class="bg-white text-ink hover:bg-accent-light px-6 py-3 rounded-xl font-bold text-xs shrink-0 transition">
+                        <i class="fas fa-magnifying-glass"></i> Track An Existing Order
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== SECTION 6: FINAL CTA SECTION ===== -->
+        <section class="py-16 px-6 bg-white dark:bg-[#1A1A1A] border-t border-paper-edge dark:border-dark-edge">
+            <div class="container mx-auto max-w-4xl">
+                <div class="text-center p-8 sm:p-12 rounded-2xl bg-paper-warm dark:bg-dark-card border border-paper-edge dark:border-dark-edge shadow-sm">
+                    <i class="fas fa-circle-question text-accent text-3xl mb-3"></i>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold mb-3">Need help configuring your order?</h2>
+                    <p class="text-base text-ink-soft dark:text-gray-300 mb-6 max-w-md mx-auto">
+                        Call our print technicians or visit the studio — we can guide you through paper selection, binding, and prepress setup.
+                    </p>
+                    <div class="flex flex-wrap gap-3 justify-center">
+                        <a href="contact.html" class="btn-accent">
+                            <i class="fas fa-envelope"></i> Contact support
+                        </a>
+                        <a href="tel:+15557426274" class="btn-outline-ink">
+                            <i class="fas fa-phone"></i> Call (555) 742-PRINT
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="bg-[#FAF7F2] dark:bg-[#161616] border-t border-paper-edge dark:border-dark-edge pt-20 pb-16 px-6 sm:px-8 transition-colors">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 mb-16">
+                <!-- Brand -->
+                <div class="space-y-4 max-w-sm">
+                    <a href="index.html" class="flex items-center gap-3 group shrink-0">
+                        <div class="w-11 h-11 bg-gradient-to-br from-accent to-accent-dark rounded-xl flex items-center justify-center shadow-md group-hover:scale-105 transition">
+                            <i class="fas fa-print text-white text-lg"></i>
+                        </div>
+                        <div class="leading-none">
+                            <span class="text-lg sm:text-xl font-display font-bold tracking-tight text-ink dark:text-white">
+                                Print<span class="text-accent">Craft</span>
+                            </span>
+                            <p class="text-[9px] font-semibold tracking-[0.15em] text-ink-soft dark:text-gray-400 uppercase mt-1">Print &middot; Bind &middot; Copy</p>
+                        </div>
+                    </a>
+                    <p class="text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300 leading-relaxed">
+                        Fast, reliable printing, binding &amp; copying. Crafted for precision.
+                    </p>
+                    <div class="flex items-center gap-6 pt-2 text-ink-soft/80 dark:text-gray-400">
+                        <a href="#" aria-label="Instagram" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-instagram text-lg"></i></a>
+                        <a href="#" aria-label="X" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-x-twitter text-lg"></i></a>
+                        <a href="#" aria-label="Facebook" class="hover:text-accent hover:scale-110 transition"><i class="fab fa-facebook-f text-lg"></i></a>
+                    </div>
+                </div>
+
+                <!-- Explore / Services -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Services</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="order.html" class="hover:text-accent transition font-semibold text-accent">Order Online</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Document Printing</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Binding &amp; Laminating</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Color Copying</a></li>
+                        <li><a href="services.html" class="hover:text-accent transition">Posters &amp; Large Format</a></li>
+                    </ul>
+                </div>
+
+                <!-- Company -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Explore</h4>
+                    <ul class="space-y-3.5 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li><a href="about.html" class="hover:text-accent transition">About Us</a></li>
+                        <li><a href="pricing.html" class="hover:text-accent transition">Pricing</a></li>
+                        <li><a href="track-order.html" class="hover:text-accent transition">Track Order</a></li>
+                        <li><a href="blog.html" class="hover:text-accent transition">Blog</a></li>
+                        <li><a href="contact.html" class="hover:text-accent transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Shop / Store Details -->
+                <div>
+                    <h4 class="text-sm font-bold uppercase tracking-widest text-ink dark:text-white mb-6 font-display">Store</h4>
+                    <ul class="space-y-4 text-sm sm:text-[15px] text-ink-soft/85 dark:text-gray-300">
+                        <li class="flex items-start gap-3.5">
+                            <i class="fas fa-location-dot text-accent text-sm mt-1 shrink-0"></i>
+                            <span>124 High Street, Greenfield</span>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-phone text-accent text-sm shrink-0"></i>
+                            <a href="tel:+15557426274" class="hover:text-accent transition">(555) 742-PRINT</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-envelope text-accent text-sm shrink-0"></i>
+                            <a href="mailto:hello@printcraft.com" class="hover:text-accent transition">hello@printcraft.com</a>
+                        </li>
+                        <li class="flex items-center gap-3.5">
+                            <i class="fas fa-clock text-accent text-sm shrink-0"></i>
+                            <span>Mon–Sat 8am – 7pm</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Line -->
+            <div class="text-center text-sm text-ink-soft/75 dark:text-gray-400">
+                <p>&copy; 2026 PrintCraft &middot; Printing &amp; Copy Shop. <span class="text-accent">&hearts;</span> Quality prints made easy.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPT ========== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle
+            const themeBtn = document.getElementById('theme-toggle');
+            const themeBtnM = document.getElementById('theme-toggle-mobile');
+            function setTheme(isDark) {
+                document.documentElement.classList.toggle('dark', isDark);
+                [themeBtn, themeBtnM].forEach(btn => {
+                    if (!btn) return;
+                    const moon = btn.querySelector('.fa-moon');
+                    const sun = btn.querySelector('.fa-sun');
+                    if (isDark) { moon?.classList.add('hidden'); sun?.classList.remove('hidden'); }
+                    else { moon?.classList.remove('hidden'); sun?.classList.add('hidden'); }
+                });
+                localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            }
+            setTheme(localStorage.getItem('theme') === 'dark');
+            themeBtn?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+            themeBtnM?.addEventListener('click', () => setTheme(!document.documentElement.classList.contains('dark')));
+
+            // RTL toggle
+            const rtlBtn = document.getElementById('rtl-toggle');
+            const rtlBtnM = document.getElementById('rtl-toggle-mobile');
+            function setRTL(isRTL) {
+                document.documentElement.setAttribute('dir', isRTL ? 'rtl' : 'ltr');
+                document.documentElement.setAttribute('lang', isRTL ? 'ar' : 'en');
+                localStorage.setItem('dir', isRTL ? 'rtl' : 'ltr');
+            }
+            setRTL(localStorage.getItem('dir') === 'rtl');
+            rtlBtn?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+            rtlBtnM?.addEventListener('click', () => setRTL(document.documentElement.getAttribute('dir') !== 'rtl'));
+
+            // Mobile menu
+            const mobileToggle = document.getElementById('mobile-toggle');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMenuInner = document.querySelector('#mobile-menu .mobile-menu');
+            const mobileIcon = document.querySelector('#mobile-toggle i');
+
+            function toggleMobileMenu(forceClose = false) {
+                if (!mobileMenu) return;
+                const shouldOpen = forceClose ? false : !mobileMenu.classList.contains('open');
+                mobileMenu.classList.toggle('open', shouldOpen);
+                mobileMenuInner?.classList.toggle('open', shouldOpen);
+                mobileIcon?.classList.toggle('fa-bars', !shouldOpen);
+                mobileIcon?.classList.toggle('fa-times', shouldOpen);
+
+                if (shouldOpen) {
+                    document.body.classList.add('menu-open');
+                    document.documentElement.classList.add('overflow-hidden');
+                } else {
+                    document.body.classList.remove('menu-open');
+                    document.documentElement.classList.remove('overflow-hidden');
+                }
+            }
+
+            mobileToggle?.addEventListener('click', () => toggleMobileMenu());
+
+            // Mobile Home accordion toggle
+            const homeToggle = document.getElementById('mobile-home-toggle');
+            const homeSub = document.getElementById('mobile-home-sub');
+            const homeChevron = document.getElementById('mobile-home-chevron');
+            homeToggle?.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                const isClosed = homeSub?.classList.contains('hidden');
+                homeSub?.classList.toggle('hidden', !isClosed);
+                homeChevron?.classList.toggle('rotate-180', isClosed);
+            });
+
+            // Close mobile menu on nav link click
+            mobileMenu?.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    toggleMobileMenu(true);
+                    homeSub?.classList.add('hidden');
+                    homeChevron?.classList.remove('rotate-180');
+                });
+            });
+
+            // Restore scroll if resized to desktop breakpoint
+            window.addEventListener('resize', () => {
+                if (window.innerWidth >= 1280 && mobileMenu?.classList.contains('open')) {
+                    toggleMobileMenu(true);
+                }
+            });
+
+            // Dropzone interactions
+            const dropzone = document.getElementById('dropzone');
+            const fileInput = document.getElementById('file-input');
+            const filesList = document.getElementById('uploaded-files-list');
+
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dropzone?.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropzone.classList.add('dragover');
+                }, false);
+            });
+
+            ['dragleave', 'drop'].forEach(eventName => {
+                dropzone?.addEventListener(eventName, (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropzone.classList.remove('dragover');
+                }, false);
+            });
+
+            dropzone?.addEventListener('drop', (e) => {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                handleFiles(files);
+            }, false);
+
+            fileInput?.addEventListener('change', (e) => {
+                handleFiles(e.target.files);
+            });
+
+            let uploadedFiles = [];
+
+            function handleFiles(files) {
+                if (!files || files.length === 0) return;
+                filesList?.classList.remove('hidden');
+
+                for (let i = 0; i < files.length; i++) {
+                    const f = files[i];
+                    uploadedFiles.push(f);
+                    const item = document.createElement('div');
+                    item.className = 'p-3 rounded-xl bg-paper-warm dark:bg-[#141414] border border-paper-edge dark:border-dark-edge flex items-center justify-between text-xs animate-fade-in';
+                    item.innerHTML = `
+                        <div class="flex items-center gap-3 min-w-0">
+                            <i class="fas fa-file-pdf text-accent text-base"></i>
+                            <div class="truncate">
+                                <div class="font-bold truncate">${f.name}</div>
+                                <div class="text-[11px] text-ink-soft dark:text-gray-400">${(f.size / (1024*1024)).toFixed(2)} MB · <span class="text-emerald-500 font-semibold"><i class="fas fa-check"></i> Preflight Passed</span></div>
+                            </div>
+                        </div>
+                        <button type="button" class="text-rose-500 hover:text-rose-700 p-1.5 transition" title="Remove file" onclick="this.parentElement.remove();">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    `;
+                    filesList.appendChild(item);
+                }
+            }
+
+            // Price calculation logic
+            window.adjustQty = function(delta) {
+                const input = document.getElementById('opt-qty');
+                if (!input) return;
+                let val = parseInt(input.value) || 1;
+                val = Math.max(1, val + delta);
+                input.value = val;
+                recalcPrice();
+            };
+
+            const qtyInput = document.getElementById('opt-qty');
+            const paperSelect = document.getElementById('opt-paper');
+            const colorSelect = document.getElementById('opt-color');
+            const priceDisplay = document.getElementById('live-price');
+
+            function recalcPrice() {
+                const qty = parseInt(qtyInput?.value) || 1;
+                let unit = 0.15;
+                if (paperSelect?.value === '160gsm') unit += 0.08;
+                if (paperSelect?.value === '250gsm') unit += 0.18;
+                if (paperSelect?.value === '350gsm') unit += 0.28;
+                if (colorSelect?.value === 'bw') unit *= 0.45;
+
+                // Volume discount
+                if (qty >= 100) unit *= 0.85;
+                if (qty >= 500) unit *= 0.70;
+
+                const total = Math.max(4.50, qty * unit);
+                if (priceDisplay) priceDisplay.textContent = '$' + total.toFixed(2);
+            }
+
+            qtyInput?.addEventListener('input', recalcPrice);
+            paperSelect?.addEventListener('change', recalcPrice);
+            colorSelect?.addEventListener('change', recalcPrice);
+
+            // Selection from catalog
+            window.selectProduct = function(name) {
+                const badge = document.getElementById('current-selected-product');
+                if (badge) badge.textContent = name;
+                recalcPrice();
+            };
+
+            // Download template mock
+            window.downloadTemplate = function(templateName) {
+                alert(`Starting download for ${templateName} print template package (.ZIP with PDF, AI, and Canva guidelines).`);
+            };
+
+            // Submit order mock
+            window.submitOrder = function() {
+                alert('Order received! Our preflight engine will send your proof confirmation email within 5 minutes.');
+            };
+        });
+    </script>
+</body>
+</html>
