@@ -674,6 +674,16 @@
                         Printing, binding, and copying — handled with the kind of precision you'd expect from a specialist studio. Pick a service below to see exactly what we offer.
                     </p>
 
+                    <!-- Hero CTA Buttons -->
+                    <div class="flex flex-wrap items-center justify-center gap-4 mb-8">
+                        <a href="order.html" class="btn-accent">
+                            <i class="fas fa-cart-shopping"></i> Order Online
+                        </a>
+                        <a href="pricing.html" class="btn-outline-ink">
+                            <i class="fas fa-tags"></i> View Pricing
+                        </a>
+                    </div>
+
                     <!-- quick spec chips -->
                     <div class="flex flex-wrap gap-2.5 justify-center">
                         <span class="spec-chip"><i class="fas fa-check text-accent"></i> A4 to A0</span>
@@ -794,31 +804,17 @@
                                     <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-accent/10 text-accent">Colour</span>
                                 </div>
 
-                                <!-- mock document pages -->
-                                <div class="grid grid-cols-3 gap-3 mb-5">
-                                    <div class="aspect-[3/4] rounded-lg bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge p-2.5 flex flex-col gap-1.5">
-                                        <div class="h-1.5 bg-accent/30 rounded w-2/3"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-5/6"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-4/6"></div>
-                                        <div class="mt-auto h-6 bg-accent/10 rounded"></div>
-                                    </div>
-                                    <div class="aspect-[3/4] rounded-lg bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge p-2.5 flex flex-col gap-1.5">
-                                        <div class="h-1.5 bg-accent/30 rounded w-1/2"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
-                                        <div class="mt-auto h-6 bg-accent/10 rounded"></div>
-                                    </div>
-                                    <div class="aspect-[3/4] rounded-lg bg-paper-warm dark:bg-[#1C1C1C] border border-paper-edge dark:border-dark-edge p-2.5 flex flex-col gap-1.5">
-                                        <div class="h-1.5 bg-accent/30 rounded w-3/4"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-full"></div>
-                                        <div class="h-1 bg-gray-200 dark:bg-gray-700 rounded w-2/3"></div>
-                                        <div class="mt-auto h-6 bg-accent/10 rounded"></div>
+                                <!-- real content image showcase -->
+                                <div class="relative rounded-xl overflow-hidden mb-5 border border-paper-edge dark:border-dark-edge group shadow-sm">
+                                    <img src="assets/finishes/posters-plans.jpg" alt="Architectural plans, posters, and high-resolution colour document printing" class="w-full h-56 sm:h-60 object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                                        <span class="font-semibold flex items-center gap-1.5">
+                                            <i class="fas fa-check-circle text-accent"></i> 300 DPI Ultra HD · Color Accurate
+                                        </span>
+                                        <span class="bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-mono">A4 / A3 / A2 / A0</span>
                                     </div>
                                 </div>
-
                                 <!-- specs row -->
                                 <div class="grid grid-cols-3 gap-3 text-center">
                                     <div class="p-3 rounded-xl bg-white dark:bg-[#202020] border border-paper-edge dark:border-dark-edge">
@@ -857,24 +853,17 @@
                                     <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-highlight/15 text-highlight">Finishing</span>
                                 </div>
 
-                                <!-- spiral mock -->
-                                <div class="flex items-stretch gap-4 mb-5">
-                                    <div class="flex flex-col justify-center gap-1.5 py-2">
-                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
-                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
-                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
-                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
-                                        <span class="w-2 h-2.5 bg-accent rounded-full"></span>
-                                    </div>
-                                    <div class="flex-1 bg-white dark:bg-[#202020] rounded-xl border border-paper-edge dark:border-dark-edge p-4 shadow-sm">
-                                        <div class="text-sm font-display font-bold mb-1">Spiral Bound</div>
-                                        <div class="text-xs text-ink-soft dark:text-gray-400 mb-3">Black wire &middot; Clear front</div>
-                                        <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded w-full mb-1.5"></div>
-                                        <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded w-4/5 mb-1.5"></div>
-                                        <div class="h-1.5 bg-gray-200 dark:bg-gray-700 rounded w-3/5"></div>
+                                <!-- real binding image showcase -->
+                                <div class="relative rounded-xl overflow-hidden mb-5 border border-paper-edge dark:border-dark-edge group shadow-sm">
+                                    <img src="assets/finishes/wire-spiral-binding.jpg" alt="Professional spiral, wire-o, and thermal document binding" class="w-full h-56 sm:h-60 object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                                        <span class="font-semibold flex items-center gap-1.5">
+                                            <i class="fas fa-book-open text-highlight"></i> 360° Lay-Flat · Clear Protective Cover
+                                        </span>
+                                        <span class="bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-mono">Spiral · Comb · Wire-O</span>
                                     </div>
                                 </div>
-
                                 <!-- binding type chips -->
                                 <div class="grid grid-cols-2 gap-2.5">
                                     <div class="finish-pill"><i class="fas fa-circle-dot text-accent text-xs"></i> Spiral</div>
@@ -1029,6 +1018,17 @@
                                     <span class="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400">Bulk</span>
                                 </div>
 
+                                <!-- real copying image showcase -->
+                                <div class="relative rounded-xl overflow-hidden mb-5 border border-paper-edge dark:border-dark-edge group shadow-sm">
+                                    <img src="assets/blog/bulk-copying.jpg" alt="High speed commercial bulk photocopier and digital press" class="w-full h-52 sm:h-56 object-cover group-hover:scale-105 transition-transform duration-500">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+                                    <div class="absolute bottom-3 left-3 right-3 flex items-center justify-between text-white text-xs">
+                                        <span class="font-semibold flex items-center gap-1.5">
+                                            <i class="fas fa-bolt text-emerald-400"></i> High-Speed Production · 120 ppm
+                                        </span>
+                                        <span class="bg-black/50 backdrop-blur-sm px-2 py-0.5 rounded text-[10px] font-mono">Double-Sided · Collated</span>
+                                    </div>
+                                </div>
                                 <!-- big number stat -->
                                 <div class="flex items-end justify-between mb-6">
                                     <div>
